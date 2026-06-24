@@ -5,9 +5,12 @@
   --muted: #6e6e73;
   --accent: #007aff;
   --accent-strong: #005ecb;
+  --glass-blue: rgba(0, 122, 255, 0.2);
+  --glass-cyan: rgba(90, 200, 250, 0.2);
+  --glass-green: rgba(52, 199, 89, 0.14);
   --mint: rgba(52, 199, 89, 0.15);
   --green: #34c759;
-  --glass-shadow: 0 26px 70px rgba(22, 32, 54, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.78), inset 0 -1px 0 rgba(255, 255, 255, 0.24);
+  --glass-shadow: 0 28px 74px rgba(22, 32, 54, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.9), inset 0 -1px 0 rgba(255, 255, 255, 0.28);
   --radius-large: 28px;
   --radius-card: 22px;
 }
@@ -40,10 +43,10 @@ body::before {
   z-index: 0;
   pointer-events: none;
   background:
-    linear-gradient(115deg, rgba(0, 122, 255, 0.18) 0%, rgba(0, 122, 255, 0) 34%),
-    linear-gradient(245deg, rgba(52, 199, 89, 0.14) 0%, rgba(52, 199, 89, 0) 38%),
-    linear-gradient(175deg, rgba(255, 204, 0, 0.12) 0%, rgba(255, 204, 0, 0) 42%),
-    linear-gradient(180deg, #fafbff 0%, #f1f4fb 48%, #f8f3ec 100%);
+    linear-gradient(112deg, rgba(0, 122, 255, 0.32) 0%, rgba(90, 200, 250, 0.1) 28%, rgba(0, 122, 255, 0) 48%),
+    linear-gradient(238deg, rgba(52, 199, 89, 0.22) 0%, rgba(52, 199, 89, 0.08) 30%, rgba(52, 199, 89, 0) 54%),
+    linear-gradient(180deg, rgba(255, 204, 0, 0.16) 0%, rgba(255, 204, 0, 0) 34%),
+    linear-gradient(180deg, #fafcff 0%, #eef5ff 48%, #f8f3ec 100%);
 }
 
 body::after {
@@ -100,8 +103,8 @@ p {
   border: 1px solid transparent;
   border-radius: var(--radius-large);
   background:
-    linear-gradient(150deg, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.42) 54%, rgba(255, 255, 255, 0.62)) padding-box,
-    linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.22) 38%, rgba(0, 122, 255, 0.22)) border-box;
+    linear-gradient(150deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.28) 52%, rgba(245, 251, 255, 0.48)) padding-box,
+    linear-gradient(145deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.2) 36%, rgba(0, 122, 255, 0.42)) border-box;
   box-shadow: var(--glass-shadow);
   -webkit-backdrop-filter: blur(38px) saturate(1.55);
   backdrop-filter: blur(38px) saturate(1.55);
@@ -115,12 +118,15 @@ p {
   content: "";
   position: absolute;
   inset: 1px;
-  z-index: -1;
+  z-index: 0;
   pointer-events: none;
   border-radius: calc(var(--radius-large) - 1px);
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.18) 34%, rgba(255, 255, 255, 0) 58%),
-    linear-gradient(225deg, rgba(0, 122, 255, 0.09), rgba(255, 255, 255, 0) 42%);
+    linear-gradient(104deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.54) 18%, rgba(255, 255, 255, 0.06) 30%, rgba(255, 255, 255, 0) 44%),
+    linear-gradient(154deg, rgba(255, 255, 255, 0) 0%, rgba(90, 200, 250, 0.24) 38%, rgba(255, 255, 255, 0.06) 56%, rgba(255, 255, 255, 0) 74%),
+    linear-gradient(220deg, rgba(52, 199, 89, 0.18) 0%, rgba(255, 255, 255, 0) 44%),
+    linear-gradient(18deg, rgba(0, 122, 255, 0.14), rgba(255, 255, 255, 0) 48%);
+  opacity: 1;
 }
 
 .app-card::after,
@@ -128,10 +134,18 @@ p {
   content: "";
   position: absolute;
   inset: 0;
-  z-index: -1;
+  z-index: 0;
   pointer-events: none;
   border-radius: inherit;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.52), inset 0 -18px 44px rgba(255, 255, 255, 0.16);
+  background:
+    linear-gradient(97deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.38) 45%, rgba(255, 255, 255, 0) 62%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.72), inset 0 -18px 44px rgba(255, 255, 255, 0.18);
+  opacity: 0.72;
+}
+
+.notice::before,
+.notice::after {
+  z-index: -1;
 }
 
 .app-card {
@@ -139,6 +153,13 @@ p {
   display: grid;
   grid-template-rows: auto auto 1fr;
   padding: 16px;
+}
+
+.topbar,
+.progress-area,
+#app-view {
+  position: relative;
+  z-index: 1;
 }
 
 .topbar {
@@ -163,8 +184,8 @@ p {
   display: grid;
   place-items: center;
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.38));
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.86), 0 10px 28px rgba(22, 32, 54, 0.08);
+    linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.2));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.96), inset 0 -10px 24px rgba(0, 122, 255, 0.08), 0 10px 28px rgba(22, 32, 54, 0.1);
   -webkit-backdrop-filter: blur(18px) saturate(1.4);
   backdrop-filter: blur(18px) saturate(1.4);
 }
@@ -210,6 +231,21 @@ p {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72), 0 8px 18px rgba(22, 32, 54, 0.08);
   -webkit-backdrop-filter: blur(18px) saturate(1.35);
   backdrop-filter: blur(18px) saturate(1.35);
+  position: relative;
+  overflow: hidden;
+}
+
+.quiet-button::before,
+.secondary-button::before,
+.primary-button::before,
+.fallback-button::before {
+  content: "";
+  position: absolute;
+  inset: 1px 1px auto;
+  height: 48%;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0));
+  pointer-events: none;
 }
 
 .quiet-button {
@@ -379,27 +415,61 @@ p {
   grid-template-columns: auto 1fr;
   align-items: center;
   gap: 12px;
-  border: 1px solid rgba(60, 60, 67, 0.1);
+  border: 1px solid transparent;
   border-radius: var(--radius-card);
   padding: 13px;
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+    linear-gradient(145deg, rgba(255, 255, 255, 0.48), rgba(244, 250, 255, 0.14)) padding-box,
+    linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.22), rgba(0, 122, 255, 0.28)) border-box;
   color: var(--ink);
   text-align: left;
   cursor: pointer;
   transition: transform 160ms ease, border-color 160ms ease, background 160ms ease, box-shadow 160ms ease;
   -webkit-tap-highlight-color: transparent;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72), 0 10px 24px rgba(22, 32, 54, 0.07);
-  -webkit-backdrop-filter: blur(24px) saturate(1.42);
-  backdrop-filter: blur(24px) saturate(1.42);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), inset 0 -14px 30px rgba(0, 122, 255, 0.08), 0 12px 30px rgba(22, 32, 54, 0.11);
+  -webkit-backdrop-filter: blur(30px) saturate(1.65);
+  backdrop-filter: blur(30px) saturate(1.65);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
 }
 
 .choice-card.is-selected,
 .pantry-chip.is-selected {
   border-color: var(--accent);
   background:
-    linear-gradient(145deg, rgba(0, 122, 255, 0.22), rgba(255, 255, 255, 0.52));
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72), 0 14px 30px rgba(0, 122, 255, 0.16);
+    linear-gradient(145deg, rgba(255, 255, 255, 0.42), rgba(0, 122, 255, 0.24) 48%, rgba(90, 200, 250, 0.2)) padding-box,
+    linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(0, 122, 255, 0.78), rgba(90, 200, 250, 0.42)) border-box;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.92), inset 0 -18px 34px rgba(0, 122, 255, 0.1), 0 16px 36px rgba(0, 122, 255, 0.18);
+}
+
+.choice-card::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  z-index: 0;
+  border-radius: calc(var(--radius-card) - 1px);
+  background:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.1) 36%, rgba(255, 255, 255, 0) 58%),
+    linear-gradient(220deg, rgba(90, 200, 250, 0.2), rgba(255, 255, 255, 0) 48%);
+  pointer-events: none;
+}
+
+.choice-card::after {
+  content: "";
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  top: 1px;
+  height: 1px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.86);
+  pointer-events: none;
+}
+
+.choice-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .icon-bubble {
@@ -507,18 +577,37 @@ p {
   border: 1px solid transparent;
   border-radius: 26px;
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.68), rgba(255, 255, 255, 0.34)) padding-box,
-    linear-gradient(145deg, rgba(255, 255, 255, 0.88), rgba(60, 60, 67, 0.08), rgba(0, 122, 255, 0.2)) border-box;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.74), 0 18px 44px rgba(22, 32, 54, 0.1);
-  -webkit-backdrop-filter: blur(30px) saturate(1.5);
-  backdrop-filter: blur(30px) saturate(1.5);
+    linear-gradient(145deg, rgba(255, 255, 255, 0.58), rgba(245, 251, 255, 0.2)) padding-box,
+    linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(0, 122, 255, 0.28), rgba(90, 200, 250, 0.36)) border-box;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.92), inset 0 -24px 52px rgba(0, 122, 255, 0.1), 0 20px 52px rgba(22, 32, 54, 0.14);
+  -webkit-backdrop-filter: blur(34px) saturate(1.68);
+  backdrop-filter: blur(34px) saturate(1.68);
+  position: relative;
+  isolation: isolate;
 }
 
 .recipe-card.is-primary {
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.38)) padding-box,
-    linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(0, 122, 255, 0.34), rgba(52, 199, 89, 0.18)) border-box;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.78), 0 22px 54px rgba(22, 32, 54, 0.13);
+    linear-gradient(145deg, rgba(255, 255, 255, 0.62), rgba(234, 247, 255, 0.24)) padding-box,
+    linear-gradient(145deg, rgba(255, 255, 255, 1), rgba(0, 122, 255, 0.58), rgba(52, 199, 89, 0.34)) border-box;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.98), inset 0 -28px 56px rgba(0, 122, 255, 0.12), 0 24px 60px rgba(22, 32, 54, 0.16);
+}
+
+.recipe-card::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  z-index: 0;
+  border-radius: 25px;
+  background:
+    linear-gradient(118deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.14) 38%, rgba(255, 255, 255, 0) 62%),
+    linear-gradient(232deg, rgba(90, 200, 250, 0.18), rgba(52, 199, 89, 0.08) 34%, rgba(255, 255, 255, 0) 58%);
+  pointer-events: none;
+}
+
+.recipe-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .recipe-card.is-backup {
