@@ -1,19 +1,19 @@
 :root {
   color-scheme: light;
-  --bg: #fff4e8;
-  --paper: #fffdf8;
-  --paper-strong: #fff8ed;
-  --ink: #302922;
-  --muted: #75685d;
-  --line: #ead8c5;
-  --coral: #d85f4f;
-  --coral-soft: #ffe0da;
-  --mint: #dcefdc;
-  --blue: #d9ecf5;
-  --yellow: #fff0b8;
-  --lavender: #eee5fa;
-  --green: #6f935c;
-  --shadow: 0 18px 42px rgba(87, 57, 32, 0.13);
+  --bg: #f2f2f7;
+  --paper: rgba(255, 255, 255, 0.78);
+  --paper-strong: rgba(255, 255, 255, 0.64);
+  --ink: #1d1d1f;
+  --muted: #6e6e73;
+  --line: rgba(60, 60, 67, 0.16);
+  --accent: #007aff;
+  --accent-strong: #005ecb;
+  --accent-soft: rgba(0, 122, 255, 0.12);
+  --mint: rgba(52, 199, 89, 0.15);
+  --blue: rgba(0, 122, 255, 0.12);
+  --lavender: rgba(175, 82, 222, 0.13);
+  --green: #34c759;
+  --shadow: 0 20px 54px rgba(0, 0, 0, 0.1);
   --radius-large: 28px;
   --radius-card: 22px;
 }
@@ -34,9 +34,10 @@ body {
   overflow-x: hidden;
   color: var(--ink);
   font-family: ui-rounded, "SF Pro Rounded", "Nunito", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
   background:
-    linear-gradient(140deg, rgba(255, 240, 184, 0.55) 0%, rgba(255, 244, 232, 0.72) 34%, rgba(217, 236, 245, 0.42) 100%),
-    linear-gradient(180deg, #fff6eb 0%, #fffdf8 58%, #f4ece4 100%);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.68) 0%, rgba(242, 242, 247, 0.95) 48%, rgba(247, 244, 239, 0.82) 100%),
+    var(--bg);
 }
 
 button {
@@ -44,7 +45,7 @@ button {
 }
 
 button:focus-visible {
-  outline: 4px solid rgba(216, 95, 79, 0.32);
+  outline: 4px solid rgba(0, 122, 255, 0.28);
   outline-offset: 3px;
 }
 
@@ -77,10 +78,12 @@ p {
 .notice {
   width: 100%;
   min-width: 0;
-  border: 2px solid var(--line);
+  border: 1px solid var(--line);
   border-radius: var(--radius-large);
-  background: rgba(255, 253, 248, 0.94);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.66));
   box-shadow: var(--shadow);
+  -webkit-backdrop-filter: blur(22px) saturate(1.18);
+  backdrop-filter: blur(22px) saturate(1.18);
 }
 
 .app-card {
@@ -111,15 +114,15 @@ p {
 .recipe-emoji {
   display: grid;
   place-items: center;
-  background: #fff;
-  box-shadow: 0 9px 22px rgba(87, 57, 32, 0.09);
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
 }
 
 .brand-icon {
   flex: 0 0 auto;
   width: 48px;
   height: 48px;
-  border: 2px solid rgba(49, 41, 34, 0.09);
+  border: 1px solid rgba(60, 60, 67, 0.12);
   border-radius: 18px;
   font-size: 1.65rem;
 }
@@ -132,7 +135,7 @@ p {
 
 .eyebrow {
   margin: 0 0 5px;
-  color: var(--coral);
+  color: var(--accent);
   font-size: 0.75rem;
   font-weight: 900;
   letter-spacing: 0;
@@ -144,7 +147,7 @@ p {
 .primary-button,
 .fallback-button {
   min-height: 46px;
-  border: 2px solid transparent;
+  border: 1px solid transparent;
   border-radius: 999px;
   padding: 10px 15px;
   color: var(--ink);
@@ -155,26 +158,28 @@ p {
 }
 
 .quiet-button {
-  background: #fff;
+  background: rgba(255, 255, 255, 0.72);
   border-color: var(--line);
 }
 
 .secondary-button {
   background: var(--blue);
-  border-color: rgba(61, 98, 113, 0.14);
+  border-color: rgba(0, 122, 255, 0.14);
+  color: var(--accent-strong);
 }
 
 .primary-button {
-  background: var(--coral);
-  color: #fffdf8;
-  box-shadow: 0 12px 26px rgba(216, 95, 79, 0.22);
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 12px 26px rgba(0, 122, 255, 0.22);
 }
 
 .fallback-button {
   width: 100%;
   margin-top: 16px;
-  background: var(--lavender);
-  border-color: rgba(111, 76, 137, 0.15);
+  background: var(--accent-soft);
+  border-color: rgba(0, 122, 255, 0.16);
+  color: var(--accent-strong);
 }
 
 .quiet-button:hover,
@@ -213,14 +218,14 @@ p {
   margin-top: 7px;
   overflow: hidden;
   border-radius: 999px;
-  background: #f2e2d1;
+  background: rgba(120, 120, 128, 0.16);
 }
 
 .progress-track span {
   display: block;
   height: 100%;
   border-radius: inherit;
-  background: linear-gradient(90deg, var(--coral), var(--green));
+  background: linear-gradient(90deg, var(--accent), #5ac8fa);
 }
 
 .screen {
@@ -240,7 +245,7 @@ p {
   width: 88px;
   height: 88px;
   margin-bottom: 2px;
-  border: 3px solid rgba(49, 41, 34, 0.1);
+  border: 1px solid rgba(60, 60, 67, 0.12);
   border-radius: 32px;
   font-size: 3rem;
 }
@@ -295,7 +300,7 @@ p {
 
 .soft-strip span {
   background: var(--mint);
-  color: #3f613b;
+  color: #1f6f39;
 }
 
 .choice-grid {
@@ -311,7 +316,7 @@ p {
   grid-template-columns: auto 1fr;
   align-items: center;
   gap: 12px;
-  border: 2px solid transparent;
+  border: 1px solid rgba(60, 60, 67, 0.1);
   border-radius: var(--radius-card);
   padding: 13px;
   background: var(--paper-strong);
@@ -324,9 +329,9 @@ p {
 
 .choice-card.is-selected,
 .pantry-chip.is-selected {
-  border-color: var(--coral);
-  background: var(--coral-soft);
-  box-shadow: 0 10px 26px rgba(216, 95, 79, 0.16);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  box-shadow: 0 10px 26px rgba(0, 122, 255, 0.15);
 }
 
 .icon-bubble {
@@ -349,10 +354,12 @@ p {
 }
 
 .choice-subtitle {
+  max-width: 100%;
   color: var(--muted);
   font-size: 0.9rem;
   font-weight: 760;
   line-height: 1.22;
+  overflow-wrap: anywhere;
 }
 
 .step-actions,
@@ -379,10 +386,10 @@ p {
 
 .pantry-chip {
   min-height: 48px;
-  border: 2px solid transparent;
+  border: 1px solid rgba(60, 60, 67, 0.1);
   border-radius: 999px;
   padding: 9px 11px;
-  background: #edf7ee;
+  background: rgba(255, 255, 255, 0.68);
   color: var(--ink);
   cursor: pointer;
   font-size: 0.96rem;
@@ -410,27 +417,29 @@ p {
 }
 
 .summary-pills span {
-  background: var(--yellow);
-  color: #654b18;
+  background: rgba(120, 120, 128, 0.13);
+  color: #3a3a3c;
 }
 
 .match-message {
   padding: 13px 15px;
   border-radius: 18px;
-  background: #f3f8fb;
+  background: rgba(0, 122, 255, 0.07);
+  color: #2c2c2e;
 }
 
 .recipe-card {
   min-width: 0;
   overflow: hidden;
-  border: 2px solid #ecdcc9;
+  border: 1px solid rgba(60, 60, 67, 0.14);
   border-radius: 26px;
-  background: linear-gradient(180deg, #fffaf2 0%, #fffdf8 100%);
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
 }
 
 .recipe-card.is-primary {
-  border-color: rgba(216, 95, 79, 0.36);
-  box-shadow: 0 15px 34px rgba(87, 57, 32, 0.1);
+  border-color: rgba(0, 122, 255, 0.28);
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.08);
 }
 
 .recipe-card.is-backup {
@@ -445,7 +454,7 @@ p {
   gap: 12px;
   border: 0;
   padding: 15px;
-  background: #ffefd9;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(242, 242, 247, 0.54));
   color: var(--ink);
   text-align: left;
 }
@@ -455,7 +464,7 @@ p {
 }
 
 .recipe-card.is-backup .recipe-top:hover {
-  background: #fff0dd;
+  background: rgba(0, 122, 255, 0.06);
 }
 
 .recipe-emoji {
@@ -472,7 +481,7 @@ p {
 
 .recipe-top p {
   margin-top: 6px;
-  color: #61554b;
+  color: var(--muted);
   font-weight: 750;
   line-height: 1.3;
 }
@@ -482,8 +491,8 @@ p {
   align-self: start;
   padding: 6px 9px;
   border-radius: 999px;
-  background: #fff;
-  color: var(--coral);
+  background: rgba(0, 122, 255, 0.1);
+  color: var(--accent-strong);
   font-size: 0.8rem;
   font-weight: 950;
 }
@@ -494,7 +503,7 @@ p {
 
 .tag-row span {
   background: var(--blue);
-  color: #345563;
+  color: #174764;
 }
 
 .stomach-line {
@@ -533,7 +542,7 @@ p {
   display: flex;
   gap: 8px;
   align-items: flex-start;
-  color: #473d35;
+  color: #2c2c2e;
   font-size: 0.98rem;
   font-weight: 720;
   line-height: 1.35;
@@ -555,7 +564,7 @@ p {
 
 .steps li::before {
   content: counter(steps) ".";
-  color: var(--coral);
+  color: var(--accent);
   font-weight: 950;
 }
 
@@ -575,7 +584,7 @@ p {
 
 .swaps li::before {
   content: "Swap:";
-  color: #68508a;
+  color: #7244a1;
   font-weight: 950;
 }
 
@@ -600,7 +609,7 @@ p {
 }
 
 .recipe-card.is-backup .recipe-top {
-  background: #fff7eb;
+  background: rgba(255, 255, 255, 0.7);
 }
 
 .recipe-card.is-backup .recipe-top h2 {
@@ -638,11 +647,20 @@ p {
 .notice {
   margin: 14px 0 0;
   padding: 15px 17px;
-  color: #5d5148;
+  color: var(--muted);
   font-size: 0.95rem;
   font-weight: 650;
   line-height: 1.43;
   overflow-wrap: anywhere;
+}
+
+@media (max-width: 540px) {
+  .home-screen h1,
+  .results-heading h1,
+  .screen-heading h1 {
+    font-size: 2.15rem;
+    line-height: 1.02;
+  }
 }
 
 @media (max-width: 380px) {
