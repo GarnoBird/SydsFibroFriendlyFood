@@ -8,93 +8,24 @@
   </head>
   <body>
     <main class="app-shell">
-      <section class="hero" aria-labelledby="app-title">
-        <div class="hero-food" aria-hidden="true">🍲</div>
-        <p class="eyebrow">fibro-friendly-ish meal picker</p>
-        <h1 id="app-title">Thing To Eat</h1>
-        <p class="subtitle">Pick what feels possible. No guilt. No complicated recipes.</p>
+      <section class="app-card" aria-labelledby="app-title">
+        <header class="topbar">
+          <div class="brand-lockup">
+            <span class="brand-icon" aria-hidden="true">🍲</span>
+            <div>
+              <p class="eyebrow">fibro-friendly-ish meal picker</p>
+              <strong>Thing To Eat</strong>
+            </div>
+          </div>
+          <button class="quiet-button" type="button" id="start-over-top">Start Over</button>
+        </header>
+
+        <div class="progress-area" id="progress-area" aria-hidden="true"></div>
+        <div id="app-view" aria-live="polite"></div>
       </section>
 
       <section class="notice" aria-label="Food tolerance note">
         <strong>Small note:</strong> these ideas use gentle language and commonly recommended anti-inflammatory/Mediterranean-style eating patterns. Food tolerance is personal, and medical advice comes first.
-      </section>
-
-      <section class="panel" aria-labelledby="energy-title">
-        <div class="section-heading">
-          <span class="step">1</span>
-          <div>
-            <h2 id="energy-title">Energy Level</h2>
-            <p>Start with what your body can actually do.</p>
-          </div>
-        </div>
-        <div class="card-grid" data-filter-group="energy"></div>
-      </section>
-
-      <section class="panel" aria-labelledby="food-title">
-        <div class="section-heading">
-          <span class="step">2</span>
-          <div>
-            <h2 id="food-title">Food Type</h2>
-            <p>Choose one that sounds least impossible.</p>
-          </div>
-        </div>
-        <div class="card-grid food-grid" data-filter-group="food"></div>
-      </section>
-
-      <section class="panel" aria-labelledby="time-title">
-        <div class="section-heading">
-          <span class="step">3</span>
-          <div>
-            <h2 id="time-title">Cook Time</h2>
-            <p>Short is a complete answer.</p>
-          </div>
-        </div>
-        <div class="card-grid compact-grid" data-filter-group="time"></div>
-      </section>
-
-      <section class="panel" aria-labelledby="meal-title">
-        <div class="section-heading">
-          <span class="step">4</span>
-          <div>
-            <h2 id="meal-title">Meal Type</h2>
-            <p>Breakfast for dinner still counts.</p>
-          </div>
-        </div>
-        <div class="card-grid compact-grid" data-filter-group="meal"></div>
-      </section>
-
-      <section class="panel optional" aria-labelledby="today-title">
-        <div class="section-heading">
-          <span class="step">+</span>
-          <div>
-            <h2 id="today-title">Optional Today Filters</h2>
-            <p>Tap anything that would make today easier.</p>
-          </div>
-        </div>
-        <div class="pill-grid" data-filter-group="avoid"></div>
-      </section>
-
-      <section class="panel pantry" aria-labelledby="pantry-title">
-        <div class="section-heading">
-          <span class="step">🥄</span>
-          <div>
-            <h2 id="pantry-title">Pantry Mode</h2>
-            <p>Tap what you already have. More taps gently nudge the suggestions.</p>
-          </div>
-        </div>
-        <div class="pantry-grid" data-filter-group="pantry"></div>
-      </section>
-
-      <section class="result-area" aria-live="polite" aria-labelledby="result-title">
-        <div class="result-toolbar">
-          <div>
-            <p class="eyebrow">today's easiest match</p>
-            <h2 id="result-title">Recipe Idea</h2>
-          </div>
-          <button class="ghost-button" type="button" id="start-over">Start Over</button>
-        </div>
-        <div id="match-message" class="match-message"></div>
-        <div id="recipe-list" class="recipe-list"></div>
       </section>
     </main>
 
