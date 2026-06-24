@@ -8,13 +8,13 @@ const options = {
     { value: "future", label: "Make Future Me Happy", icon: "📦", note: "Batch cook, freezer food, leftovers." }
   ],
   food: [
-    { value: "fish", label: "Fish", icon: "🐟", note: "Salmon, tuna, sardines, white fish." },
+    { value: "fish", label: "Fish", icon: "🐟", note: "Salmon, tuna, or white fish." },
     { value: "chicken", label: "Chicken / Turkey", icon: "🍗", note: "Rotisserie chicken, bowls, turkey roll-ups." },
     { value: "eggs", label: "Eggs", icon: "🥚", note: "Toast, rice bowl, omelette, boiled eggs." },
     { value: "veggie", label: "Veggie Bowl", icon: "🥗", note: "Sweet potato, rice, greens, chickpeas if tolerated." },
     { value: "soup", label: "Soup", icon: "🍜", note: "Miso, chicken soup, lentil soup, tomato soup." },
     { value: "snack", label: "Snack Plate", icon: "🧺", note: "No cooking. Just assemble." },
-    { value: "smoothie", label: "Smoothie / Yogurt Bowl", icon: "🥣", note: "Useful when chewing or cooking feels like a lot." }
+    { value: "smoothie", label: "Smoothie / Yogurt Bowl", icon: "🥣", note: "Cool, soft, and easy to sip." }
   ],
   time: [
     { value: "2-5", label: "2 to 5 min", icon: "⏱️", note: "Assemble only." },
@@ -26,7 +26,7 @@ const options = {
     { value: "breakfast", label: "Breakfast", icon: "☀️", note: "Morning or anytime." },
     { value: "lunch", label: "Lunch", icon: "🌤️", note: "Midday steady." },
     { value: "dinner", label: "Dinner", icon: "🌙", note: "Warm and simple." },
-    { value: "snack", label: "Snack / Emergency Food", icon: "🧺", note: "Please consume nutrients somehow." }
+    { value: "snack", label: "Snack / Emergency Food", icon: "🧺", note: "Quick food for right now." }
   ],
   today: [
     { value: "gentle", label: "Gentle food only", icon: "🫖", note: "Simple, soft, not spicy." },
@@ -42,7 +42,6 @@ const options = {
     { value: "yogurt", label: "Yogurt" },
     { value: "tuna", label: "Tuna" },
     { value: "salmon", label: "Salmon" },
-    { value: "sardines", label: "Sardines" },
     { value: "chicken", label: "Chicken" },
     { value: "turkey", label: "Turkey" },
     { value: "soup", label: "Soup or broth" },
@@ -62,7 +61,7 @@ const recipes = [
     id: "tuna-crackers-plate",
     title: "Tuna Crackers Plate",
     emoji: "🐟",
-    goodWhen: "you need food now and opening packets is the whole plan.",
+    goodWhen: "you want a quick pantry plate with almost no prep.",
     mealTypes: ["lunch", "dinner", "snack"],
     foodTypes: ["fish", "snack"],
     timeMinutes: 5,
@@ -98,7 +97,7 @@ const recipes = [
     id: "peanut-butter-banana-toast",
     title: "Peanut Butter Banana Toast",
     emoji: "🍌",
-    goodWhen: "sweet, soft, and familiar sounds easier than a meal.",
+    goodWhen: "sweet, soft, and familiar sounds good.",
     mealTypes: ["breakfast", "lunch", "snack"],
     foodTypes: ["snack"],
     timeMinutes: 5,
@@ -116,7 +115,7 @@ const recipes = [
     id: "hummus-snack-plate",
     title: "Hummus Snack Plate",
     emoji: "🧆",
-    goodWhen: "you can assemble a plate but do not want cooking involved.",
+    goodWhen: "a no-cook plate sounds best.",
     mealTypes: ["lunch", "snack"],
     foodTypes: ["snack", "veggie"],
     timeMinutes: 5,
@@ -134,7 +133,7 @@ const recipes = [
     id: "smoothie-that-counts",
     title: "Smoothie That Counts As Food",
     emoji: "🥤",
-    goodWhen: "chewing feels like work but a cold drink sounds possible.",
+    goodWhen: "something cold and sippable sounds best.",
     mealTypes: ["breakfast", "snack"],
     foodTypes: ["smoothie"],
     timeMinutes: 5,
@@ -182,13 +181,13 @@ const recipes = [
     ingredients: ["Microwave rice", "Egg", "Spinach", "Avocado", "Olive oil or mild sauce"],
     steps: ["Warm the rice.", "Cook the egg in a pan or microwave-safe mug.", "Wilt spinach or skip it.", "Put egg and avocado on the rice."],
     easierVersion: "Use a boiled egg from the fridge.",
-    swaps: ["Skip avocado if slicing is too much."]
+    swaps: ["Skip avocado if you prefer fewer steps."]
   },
   {
     id: "salmon-rice-bowl",
     title: "Salmon Rice Bowl",
     emoji: "🍚",
-    goodWhen: "you want real food but cannot handle much cooking.",
+    goodWhen: "you want real food with very little cooking.",
     mealTypes: ["lunch", "dinner"],
     foodTypes: ["fish"],
     timeMinutes: 10,
@@ -198,7 +197,7 @@ const recipes = [
     todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
     pantryItems: ["salmon", "rice", "avocado"],
     ingredients: ["Microwave rice", "Canned salmon or cooked salmon", "Avocado", "Olive oil", "Lemon", "Salt"],
-    steps: ["Warm the rice.", "Add salmon.", "Add avocado if you can.", "Add olive oil, lemon, and salt."],
+    steps: ["Warm the rice.", "Add salmon.", "Add avocado if you want.", "Add olive oil, lemon, and salt."],
     easierVersion: "Use canned salmon. Skip the avocado. Eat with seaweed snacks.",
     swaps: ["Skip lemon if acidic food is not friendly today."]
   },
@@ -242,7 +241,7 @@ const recipes = [
     id: "miso-tofu-soup",
     title: "Miso Tofu Soup",
     emoji: "🍜",
-    goodWhen: "a warm cup or bowl sounds easier than chewing a full meal.",
+    goodWhen: "a warm cup or bowl sounds good.",
     mealTypes: ["lunch", "dinner", "snack"],
     foodTypes: ["soup", "veggie"],
     timeMinutes: 10,
@@ -272,7 +271,7 @@ const recipes = [
     ingredients: ["Broth", "Egg", "Microwave rice if wanted", "Spinach if tolerated"],
     steps: ["Heat broth until steaming.", "Beat the egg in a cup.", "Stir broth while slowly pouring in the egg.", "Add rice if you want it fuller."],
     easierVersion: "Use boxed soup and crack the egg straight in while stirring.",
-    swaps: ["Skip spinach if chewing is not happening."]
+    swaps: ["Skip spinach if you prefer it simpler."]
   },
   {
     id: "one-pan-salmon-frozen-veg",
@@ -383,28 +382,28 @@ const recipes = [
     swaps: ["Add an egg if you need more staying power."]
   },
   {
-    id: "sardine-toast-or-rice",
-    title: "Sardine Toast or Rice",
-    emoji: "🫒",
-    goodWhen: "pantry fish sounds okay and you want something steady.",
-    mealTypes: ["breakfast", "lunch", "dinner", "snack"],
-    foodTypes: ["fish", "snack"],
-    timeMinutes: 10,
-    energyLevel: "little",
-    equipment: ["toaster or microwave"],
-    tags: ["mediterranean-ish", "omega-3", "high-protein", "low-chop"],
-    todayFilters: ["noDairy", "noBeans", "noWheat", "noRawVeg"],
-    pantryItems: ["sardines", "rice", "crackers"],
-    ingredients: ["Sardines", "Toast, rice, or crackers", "Olive oil", "Lemon if wanted"],
-    steps: ["Open sardines.", "Put them on toast, rice, or crackers.", "Add olive oil or lemon."],
-    easierVersion: "Eat sardines from the tin with crackers.",
-    swaps: ["Use rice or rice crackers for no wheat."]
+    id: "white-fish-rice-plate",
+    title: "White Fish Rice Plate",
+    emoji: "🐟",
+    goodWhen: "mild fish and rice sound calm and steady.",
+    mealTypes: ["lunch", "dinner"],
+    foodTypes: ["fish"],
+    timeMinutes: 15,
+    energyLevel: "cook",
+    equipment: ["pan", "microwave"],
+    tags: ["gentle", "mediterranean-ish", "high-protein", "low-chop"],
+    todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
+    pantryItems: ["rice"],
+    ingredients: ["White fish fillet", "Microwave rice", "Olive oil", "Salt", "Lemon if wanted"],
+    steps: ["Warm the rice.", "Cook fish in olive oil until flaky.", "Put fish on the rice.", "Add salt and lemon if it sounds good."],
+    easierVersion: "Use frozen cooked fish or leftover fish with microwave rice.",
+    swaps: ["Skip lemon if acidic food is not friendly today."]
   },
   {
     id: "future-me-chicken-tray",
     title: "Future Me Chicken Tray",
     emoji: "📦",
-    goodWhen: "you have enough energy to make tomorrow a little easier.",
+    goodWhen: "you want to make tomorrow a little easier.",
     mealTypes: ["dinner", "lunch"],
     foodTypes: ["chicken"],
     timeMinutes: 25,
@@ -414,7 +413,7 @@ const recipes = [
     todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
     pantryItems: ["chicken", "sweetPotato"],
     ingredients: ["Chicken thighs or tenders", "Sweet potato chunks", "Frozen broccoli or carrots", "Olive oil"],
-    steps: ["Put chicken and vegetables on a sheet pan.", "Coat with olive oil and salt.", "Bake until chicken is done.", "Save leftovers if you can."],
+    steps: ["Put chicken and vegetables on a sheet pan.", "Coat with olive oil and salt.", "Bake until chicken is done.", "Save leftovers if you want."],
     easierVersion: "Buy pre-cut vegetables or use only chicken and sweet potatoes.",
     swaps: ["Use frozen vegetables to avoid chopping."]
   },
@@ -432,7 +431,7 @@ const recipes = [
     todayFilters: ["gentle", "noDairy", "noWheat", "noRawVeg"],
     pantryItems: ["soup", "spinach"],
     ingredients: ["Lentils", "Broth", "Frozen carrots or spinach", "Olive oil"],
-    steps: ["Simmer lentils in broth.", "Add frozen vegetables.", "Cook until soft.", "Eat one bowl and freeze another if you can."],
+    steps: ["Simmer lentils in broth.", "Add frozen vegetables.", "Cook until soft.", "Eat one bowl and freeze another if you want."],
     easierVersion: "Use canned lentil soup and add olive oil.",
     swaps: ["Skip this one if beans bother you."]
   },
@@ -475,14 +474,16 @@ const recipes = [
 ];
 
 const state = {
-  step: "home",
+  step: "energy",
   energyLevel: null,
   foodType: null,
   timeBucket: null,
   mealType: null,
   todayFilters: new Set(),
   pantryItems: new Set(),
-  fallbackSourceId: null
+  fallbackSourceId: null,
+  expandedRecipeId: null,
+  visibleBackupCount: 2
 };
 
 const fieldByStep = {
@@ -510,12 +511,12 @@ const stepCopy = {
   energy: {
     eyebrow: "Step 1 of 6",
     title: "How much energy do you have?",
-    note: "Start with what your body can actually do."
+    note: "Choose whatever feels easiest right now."
   },
   food: {
     eyebrow: "Step 2 of 6",
     title: "What kind of food sounds okay?",
-    note: "Pick the least impossible lane."
+    note: "Pick the one that sounds best today."
   },
   time: {
     eyebrow: "Step 3 of 6",
@@ -535,23 +536,20 @@ const stepCopy = {
   pantry: {
     eyebrow: "Optional",
     title: "What do you already have?",
-    note: "Tap ingredients if you know. Skip if thinking about the pantry is too much."
+    note: "Tap ingredients if you know. You can also skip this."
   }
 };
 
 const appView = document.getElementById("app-view");
 const progressArea = document.getElementById("progress-area");
-const startOverTop = document.getElementById("start-over-top");
 let advanceTimer = null;
+let restoringFromHistory = false;
 
 function render() {
   clearAutoAdvance();
-  startOverTop.classList.toggle("is-hidden", state.step === "home");
   renderProgress();
 
-  if (state.step === "home") {
-    appView.innerHTML = homeTemplate();
-  } else if (state.step === "today") {
+  if (state.step === "today") {
     appView.innerHTML = todayTemplate();
   } else if (state.step === "pantry") {
     appView.innerHTML = pantryTemplate();
@@ -563,7 +561,7 @@ function render() {
 }
 
 function renderProgress() {
-  if (state.step === "home" || state.step === "results") {
+  if (state.step === "results") {
     progressArea.innerHTML = "";
     progressArea.setAttribute("aria-hidden", "true");
     return;
@@ -583,23 +581,6 @@ function renderProgress() {
   `;
 }
 
-function homeTemplate() {
-  return `
-    <section class="screen home-screen">
-      <div class="home-food" aria-hidden="true">🍲</div>
-      <p class="eyebrow">fibro-friendly-ish meal picker</p>
-      <h1 id="app-title">Thing To Eat</h1>
-      <p class="subtitle">Pick what feels possible. No guilt. No complicated recipes.</p>
-      <button class="primary-button start-button" type="button" data-action="start">Start with energy</button>
-      <div class="soft-strip" aria-label="Picker order">
-        <span>Energy first</span>
-        <span>Today Filters optional</span>
-        <span>Pantry helps, never blocks</span>
-      </div>
-    </section>
-  `;
-}
-
 function singleChoiceTemplate(step) {
   const copy = stepCopy[step];
   const selectedValue = state[fieldByStep[step]];
@@ -610,7 +591,7 @@ function singleChoiceTemplate(step) {
       <div class="choice-grid">
         ${options[step].map((option) => choiceCardTemplate(step, option, selectedValue === option.value)).join("")}
       </div>
-      ${navTemplate({ canSkip: false, primary: null })}
+      ${navTemplate({ canBack: step !== "energy", canSkip: false, primary: null })}
     </section>
   `;
 }
@@ -631,7 +612,7 @@ function todayTemplate() {
         </button>
         ${options.today.map((option) => choiceCardTemplate("today", option, state.todayFilters.has(option.value), true)).join("")}
       </div>
-      ${navTemplate({ canSkip: true, primary: "Continue" })}
+      ${navTemplate({ canBack: true, canSkip: true, primary: "Continue" })}
     </section>
   `;
 }
@@ -647,14 +628,16 @@ function pantryTemplate() {
           </button>
         `).join("")}
       </div>
-      ${navTemplate({ canSkip: true, primary: "Show recipes" })}
+      ${navTemplate({ canBack: true, canSkip: true, primary: "Show recipes" })}
     </section>
   `;
 }
 
 function resultsTemplate() {
   const result = getResultSet();
-  const [primary, ...backups] = result.items;
+  const [primary, ...backupPool] = result.items;
+  const backups = backupPool.slice(0, state.visibleBackupCount);
+  const hiddenBackupCount = Math.max(0, backupPool.length - backups.length);
 
   return `
     <section class="screen results-screen">
@@ -663,7 +646,6 @@ function resultsTemplate() {
           <p class="eyebrow">today's easiest match</p>
           <h1>Recipe Idea</h1>
         </div>
-        <button class="quiet-button" type="button" data-action="restart">Start Over</button>
       </div>
       <div class="summary-pills" aria-label="Selected choices">
         ${summaryPillsTemplate()}
@@ -676,6 +658,7 @@ function resultsTemplate() {
           <div class="backup-grid">
             ${backups.map((item) => recipeCardTemplate(item.recipe, false)).join("")}
           </div>
+          ${hiddenBackupCount ? `<button class="secondary-button show-more-button" type="button" data-action="show-more">Show More</button>` : ""}
         </div>
       ` : ""}
       <div class="result-actions">
@@ -710,10 +693,10 @@ function choiceCardTemplate(step, option, selected, multi = false) {
   `;
 }
 
-function navTemplate({ canSkip, primary }) {
+function navTemplate({ canBack, canSkip, primary }) {
   return `
     <div class="step-actions">
-      <button class="secondary-button" type="button" data-action="back">Back</button>
+      ${canBack ? `<button class="secondary-button" type="button" data-action="back">Back</button>` : `<span></span>`}
       <div class="step-actions-right">
         ${canSkip ? `<button class="quiet-button" type="button" data-action="skip">Skip</button>` : ""}
         ${primary ? `<button class="primary-button" type="button" data-action="next">${primary}</button>` : ""}
@@ -741,6 +724,7 @@ function summaryPillsTemplate() {
 }
 
 function recipeCardTemplate(recipe, isPrimary) {
+  const expanded = isPrimary || state.expandedRecipeId === recipe.id;
   const timeLabel = getTimeLabel(getTimeBucket(recipe.timeMinutes));
   const foodLabel = recipe.foodTypes.map((type) => getOptionLabel("food", type)).filter(Boolean)[0] || "Food";
   const todayTags = recipe.todayFilters.length
@@ -748,14 +732,15 @@ function recipeCardTemplate(recipe, isPrimary) {
     : "Normal-ish";
 
   return `
-    <article class="recipe-card ${isPrimary ? "is-primary" : "is-backup"}">
-      <div class="recipe-top">
+    <article class="recipe-card ${isPrimary ? "is-primary" : "is-backup"} ${expanded ? "is-expanded" : ""}">
+      ${isPrimary ? `<div class="recipe-top">` : `<button class="recipe-top" type="button" data-expand-recipe="${recipe.id}" aria-expanded="${expanded}">`}
         <span class="recipe-emoji" aria-hidden="true">${recipe.emoji}</span>
         <div>
           <h2>${recipe.title}</h2>
           <p><strong>Good when:</strong> ${recipe.goodWhen}</p>
         </div>
-      </div>
+        ${isPrimary ? "" : `<span class="expand-hint">${expanded ? "Hide" : "View"}</span>`}
+      ${isPrimary ? `</div>` : `</button>`}
       <div class="tag-row" aria-label="Recipe details">
         <span>${timeLabel}</span>
         <span>${getOptionLabel("energy", recipe.energyLevel)}</span>
@@ -788,7 +773,7 @@ function recipeCardTemplate(recipe, isPrimary) {
           </section>
         ` : ""}
       </div>
-      <button class="fallback-button" type="button" data-fallback="${recipe.id}">I can’t do this today</button>
+      <button class="fallback-button" type="button" data-fallback="${recipe.id}">Show me something easier</button>
     </article>
   `;
 }
@@ -804,24 +789,26 @@ function getResultSet() {
 
   if (state.fallbackSourceId) {
     return {
-      message: "That one can wait. Here are the lowest-effort backups.",
-      items: easierFallbacks(scored, state.fallbackSourceId).slice(0, 3)
+    message: "Here are lower-effort options.",
+      items: easierFallbacks(scored, state.fallbackSourceId)
     };
   }
 
   const exact = scored.filter((item) => item.exact);
   if (exact.length) {
+    const primary = exact[0];
+    const backups = scored.filter((item) => item.recipe.id !== primary.recipe.id);
     return {
       message: "This matches your taps. Keep what helps, ignore what does not.",
-      items: exact.slice(0, 3)
+      items: [primary, ...backups]
     };
   }
 
   return {
     message: compatible.length
       ? "No exact match, so these are the closest easier ideas."
-      : "Those Today Filters are very tight, so these are the gentlest backups. Trust your own tolerance first.",
-    items: scored.slice(0, 3)
+      : "Here are the closest gentle backups. Trust your own tolerance first.",
+    items: scored
   };
 }
 
@@ -950,20 +937,21 @@ function getOptionLabel(group, value) {
   return option ? option.label : value;
 }
 
-function goToStep(step) {
+function goToStep(step, { push = true } = {}) {
   clearAutoAdvance();
   state.step = step;
+  if (step !== "results") {
+    state.expandedRecipeId = null;
+  }
+  if (push && !restoringFromHistory) {
+    writeHistory("push");
+  }
   render();
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 function goNext() {
   clearAutoAdvance();
-  if (state.step === "home") {
-    goToStep("energy");
-    return;
-  }
-
   const index = flowSteps.indexOf(state.step);
   if (index === -1 || index === flowSteps.length - 1) {
     goToStep("results");
@@ -982,7 +970,6 @@ function goBack() {
 
   const index = flowSteps.indexOf(state.step);
   if (index <= 0) {
-    goToStep("home");
     return;
   }
 
@@ -991,7 +978,7 @@ function goBack() {
 
 function restart() {
   clearAutoAdvance();
-  state.step = "home";
+  state.step = "energy";
   state.energyLevel = null;
   state.foodType = null;
   state.timeBucket = null;
@@ -999,6 +986,9 @@ function restart() {
   state.todayFilters.clear();
   state.pantryItems.clear();
   state.fallbackSourceId = null;
+  state.expandedRecipeId = null;
+  state.visibleBackupCount = 2;
+  writeHistory("push");
   render();
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
@@ -1006,12 +996,16 @@ function restart() {
 function selectSingle(step, value) {
   state[fieldByStep[step]] = value;
   state.fallbackSourceId = null;
+  state.expandedRecipeId = null;
+  state.visibleBackupCount = 2;
   render();
   advanceTimer = window.setTimeout(goNext, 180);
 }
 
 function toggleToday(value) {
   state.fallbackSourceId = null;
+  state.expandedRecipeId = null;
+  state.visibleBackupCount = 2;
   if (state.todayFilters.has(value)) {
     state.todayFilters.delete(value);
   } else {
@@ -1023,11 +1017,15 @@ function toggleToday(value) {
 function clearTodayFilters() {
   state.todayFilters.clear();
   state.fallbackSourceId = null;
+  state.expandedRecipeId = null;
+  state.visibleBackupCount = 2;
   render();
 }
 
 function togglePantry(value) {
   state.fallbackSourceId = null;
+  state.expandedRecipeId = null;
+  state.visibleBackupCount = 2;
   if (state.pantryItems.has(value)) {
     state.pantryItems.delete(value);
   } else {
@@ -1044,6 +1042,8 @@ function skipCurrentStep() {
     state.pantryItems.clear();
   }
   state.fallbackSourceId = null;
+  state.expandedRecipeId = null;
+  state.visibleBackupCount = 2;
   goNext();
 }
 
@@ -1058,7 +1058,7 @@ document.body.addEventListener("click", (event) => {
   const actionButton = event.target.closest("[data-action]");
   if (actionButton) {
     const action = actionButton.dataset.action;
-    if (action === "start" || action === "next") {
+    if (action === "next") {
       goNext();
     } else if (action === "back") {
       goBack();
@@ -1068,6 +1068,10 @@ document.body.addEventListener("click", (event) => {
       restart();
     } else if (action === "normal-today") {
       clearTodayFilters();
+    } else if (action === "show-more") {
+      state.visibleBackupCount += 4;
+      writeHistory("replace");
+      render();
     }
     return;
   }
@@ -1093,10 +1097,74 @@ document.body.addEventListener("click", (event) => {
   const fallbackButton = event.target.closest("[data-fallback]");
   if (fallbackButton) {
     state.fallbackSourceId = fallbackButton.dataset.fallback;
+    state.expandedRecipeId = null;
+    state.visibleBackupCount = 2;
     goToStep("results");
+    return;
+  }
+
+  const expandButton = event.target.closest("[data-expand-recipe]");
+  if (expandButton) {
+    const recipeId = expandButton.dataset.expandRecipe;
+    state.expandedRecipeId = state.expandedRecipeId === recipeId ? null : recipeId;
+    writeHistory("replace");
+    render();
   }
 });
 
-startOverTop.addEventListener("click", restart);
+function stateSnapshot() {
+  return {
+    thingToEat: true,
+    step: state.step,
+    energyLevel: state.energyLevel,
+    foodType: state.foodType,
+    timeBucket: state.timeBucket,
+    mealType: state.mealType,
+    todayFilters: [...state.todayFilters],
+    pantryItems: [...state.pantryItems],
+    fallbackSourceId: state.fallbackSourceId,
+    expandedRecipeId: state.expandedRecipeId,
+    visibleBackupCount: state.visibleBackupCount
+  };
+}
 
+function restoreSnapshot(snapshot) {
+  if (!snapshot?.thingToEat) {
+    return false;
+  }
+
+  state.step = snapshot.step || "energy";
+  state.energyLevel = snapshot.energyLevel || null;
+  state.foodType = snapshot.foodType || null;
+  state.timeBucket = snapshot.timeBucket || null;
+  state.mealType = snapshot.mealType || null;
+  state.todayFilters = new Set(snapshot.todayFilters || []);
+  state.pantryItems = new Set(snapshot.pantryItems || []);
+  state.fallbackSourceId = snapshot.fallbackSourceId || null;
+  state.expandedRecipeId = snapshot.expandedRecipeId || null;
+  state.visibleBackupCount = snapshot.visibleBackupCount || 2;
+  return true;
+}
+
+function writeHistory(mode) {
+  const snapshot = stateSnapshot();
+  if (mode === "replace") {
+    window.history.replaceState(snapshot, "", window.location.href);
+  } else {
+    window.history.pushState(snapshot, "", window.location.href);
+  }
+}
+
+window.addEventListener("popstate", (event) => {
+  if (!restoreSnapshot(event.state)) {
+    return;
+  }
+
+  restoringFromHistory = true;
+  render();
+  restoringFromHistory = false;
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+writeHistory("replace");
 render();
