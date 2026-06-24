@@ -194,6 +194,13 @@ p {
   font-size: 1.65rem;
 }
 
+.brand-icon[data-review-trigger] {
+  cursor: default;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
 .brand-lockup strong {
   display: block;
   font-size: 1.08rem;
@@ -342,6 +349,7 @@ p {
 
 .home-screen h1,
 .results-heading h1,
+.review-heading h1,
 .screen-heading h1 {
   max-width: 720px;
   color: var(--ink);
@@ -352,6 +360,7 @@ p {
 
 .subtitle,
 .screen-heading p,
+.review-heading p,
 .match-message {
   max-width: 650px;
   color: var(--muted);
@@ -536,10 +545,88 @@ p {
   gap: 14px;
 }
 
+.review-screen {
+  gap: 18px;
+}
+
 .results-heading {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  gap: 12px;
+}
+
+.review-heading {
+  display: grid;
+  gap: 14px;
+}
+
+.review-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.review-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.review-stats span,
+.review-status {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.42);
+  color: #3a3a3c;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  font-size: 0.86rem;
+  font-weight: 740;
+  line-height: 1.1;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.62);
+  -webkit-backdrop-filter: blur(16px) saturate(1.3);
+  backdrop-filter: blur(16px) saturate(1.3);
+}
+
+.review-status {
+  justify-self: end;
+  align-self: start;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.review-status.is-approved {
+  color: #1f6f39;
+}
+
+.review-message,
+.review-empty {
+  padding: 13px 15px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.38);
+  color: #2c2c2e;
+  border: 1px solid rgba(255, 255, 255, 0.48);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.58);
+  font-weight: 650;
+  line-height: 1.3;
+  -webkit-backdrop-filter: blur(18px) saturate(1.35);
+  backdrop-filter: blur(18px) saturate(1.35);
+}
+
+.review-section {
+  display: grid;
+  gap: 10px;
+}
+
+.review-section h2 {
+  font-size: 1.22rem;
+}
+
+.review-list {
+  display: grid;
   gap: 12px;
 }
 
@@ -643,6 +730,12 @@ p {
   font-size: 1.55rem;
   font-weight: 780;
   line-height: 1.02;
+}
+
+.review-recipe-top h3 {
+  font-size: 1.36rem;
+  font-weight: 780;
+  line-height: 1.04;
 }
 
 .recipe-top p {
@@ -768,6 +861,17 @@ p {
   margin: 0 15px 15px;
 }
 
+.review-card-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 15px 15px;
+}
+
+.review-card-actions .secondary-button,
+.review-card-actions .primary-button {
+  min-width: min(100%, 220px);
+}
+
 .backup-section {
   display: grid;
   gap: 10px;
@@ -839,7 +943,9 @@ p {
   .secondary-button,
   .primary-button,
   .fallback-button,
-  .match-message {
+  .match-message,
+  .review-message,
+  .review-empty {
     background: rgba(255, 255, 255, 0.92);
   }
 
@@ -863,7 +969,9 @@ p {
   .secondary-button,
   .primary-button,
   .fallback-button,
-  .match-message {
+  .match-message,
+  .review-message,
+  .review-empty {
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
     background: rgba(255, 255, 255, 0.94);
@@ -878,9 +986,19 @@ p {
 @media (max-width: 540px) {
   .home-screen h1,
   .results-heading h1,
+  .review-heading h1,
   .screen-heading h1 {
     font-size: 2.15rem;
     line-height: 1.02;
+  }
+
+  .review-recipe-top {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .review-status {
+    grid-column: 1 / -1;
+    justify-self: start;
   }
 }
 
@@ -896,6 +1014,7 @@ p {
 
   .topbar,
   .results-heading,
+  .review-heading,
   .step-actions,
   .result-actions {
     align-items: stretch;
@@ -916,6 +1035,7 @@ p {
   .primary-button {
     width: 100%;
   }
+
 }
 
 @media (min-width: 680px) {
@@ -930,6 +1050,7 @@ p {
 
   .home-screen h1,
   .results-heading h1,
+  .review-heading h1,
   .screen-heading h1 {
     font-size: 4.45rem;
     max-width: 800px;
@@ -937,8 +1058,18 @@ p {
 
   .screen-heading p,
   .subtitle,
+  .review-heading p,
   .match-message {
     font-size: 1.28rem;
+  }
+
+  .review-heading {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+  }
+
+  .review-actions {
+    justify-content: flex-end;
   }
 
   .choice-grid {

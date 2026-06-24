@@ -868,6 +868,9 @@ const recipes = [
   }
 ];
 
+const approvedRecipeIds = [];
+const REVIEW_STORAGE_KEY = "thing-to-eat-approved-recipe-ids";
+
 const state = {
   step: "energy",
   energyLevel: null,
@@ -877,7 +880,8 @@ const state = {
   todayFilters: new Set(),
   fallbackSourceId: null,
   expandedRecipeId: null,
-  visibleBackupCount: 2
+  visibleBackupCount: 2,
+  reviewMessage: ""
 };
 
 const fieldByStep = {
@@ -926,17 +930,22 @@ const stepCopy = {
 
 const appView = document.getElementById("app-view");
 const progressArea = document.getElementById("progress-area");
+const reviewTrigger = document.querySelector("[data-review-trigger]");
+let reviewApprovedIds = loadReviewApprovedIds();
 let advanceTimer = null;
 let restoringFromHistory = false;
+let reviewHoldTimer = null;
 
 function render() {
   clearAutoAdvance();
-  if (state.step !== "results" && !flowSteps.includes(state.step)) {
+  if (state.step !== "results" && state.step !== "review" && !flowSteps.includes(state.step)) {
     state.step = "energy";
   }
   renderProgress();
 
-  if (state.step === "results") {
+  if (state.step === "review") {
+    appView.innerHTML = reviewTemplate();
+  } else if (state.step === "results") {
     appView.innerHTML = resultsTemplate();
   } else {
     appView.innerHTML = singleChoiceTemplate(state.step);
@@ -944,7 +953,7 @@ function render() {
 }
 
 function renderProgress() {
-  if (state.step === "results") {
+  if (state.step === "results" || state.step === "review") {
     progressArea.innerHTML = "";
     progressArea.setAttribute("aria-hidden", "true");
     return;
@@ -1012,6 +1021,109 @@ function resultsTemplate() {
         <button class="primary-button" type="button" data-action="restart">Start Over</button>
       </div>
     </section>
+  `;
+}
+
+function reviewTemplate() {
+  const approvedRecipes = recipes.filter((recipe) => reviewApprovedIds.has(recipe.id));
+  const needsReviewRecipes = recipes.filter((recipe) => !reviewApprovedIds.has(recipe.id));
+
+  return `
+    <section class="screen review-screen">
+      <div class="review-heading">
+        <div>
+          <p class="eyebrow">hidden recipe review</p>
+          <h1>Recipe Review</h1>
+          <p>Check wording, then move finished recipes into Approved.</p>
+        </div>
+        <div class="review-actions">
+          <button class="secondary-button" type="button" data-action="copy-approved">Copy Approved List</button>
+          <button class="primary-button" type="button" data-action="close-review">Back to Picker</button>
+        </div>
+      </div>
+      <div class="review-stats" aria-label="Recipe review progress">
+        <span>${approvedRecipes.length} approved</span>
+        <span>${needsReviewRecipes.length} needs review</span>
+        <span>${recipes.length} total</span>
+      </div>
+      ${state.reviewMessage ? `<p class="review-message">${state.reviewMessage}</p>` : ""}
+      ${reviewSectionTemplate("Needs Review", needsReviewRecipes, false)}
+      ${reviewSectionTemplate("Approved", approvedRecipes, true)}
+    </section>
+  `;
+}
+
+function reviewSectionTemplate(title, sectionRecipes, approved) {
+  return `
+    <section class="review-section" aria-labelledby="${approved ? "approved-recipes" : "needs-review-recipes"}">
+      <h2 id="${approved ? "approved-recipes" : "needs-review-recipes"}">${title}</h2>
+      ${sectionRecipes.length ? `
+        <div class="review-list">
+          ${sectionRecipes.map((recipe) => reviewRecipeCardTemplate(recipe, approved)).join("")}
+        </div>
+      ` : `<p class="review-empty">${approved ? "No approved recipes yet." : "All recipes are approved."}</p>`}
+    </section>
+  `;
+}
+
+function reviewRecipeCardTemplate(recipe, approved) {
+  const timeLabel = getTimeLabel(getTimeBucket(recipe.timeMinutes));
+  const mealLabels = recipe.mealTypes.map((type) => getOptionLabel("meal", type)).filter(Boolean).join(", ");
+  const foodLabels = recipe.foodTypes.map((type) => getOptionLabel("food", type)).filter(Boolean).join(", ");
+  const toleranceLabels = recipe.todayFilters.length
+    ? recipe.todayFilters.map((filter) => getOptionLabel("today", filter)).join(", ")
+    : "Normal-ish";
+
+  return `
+    <article class="recipe-card review-card">
+      <div class="recipe-top review-recipe-top">
+        <span class="recipe-emoji" aria-hidden="true">${recipe.emoji}</span>
+        <div>
+          <h3>${recipe.title}</h3>
+          <p><strong>Good when:</strong> ${recipe.goodWhen}</p>
+        </div>
+        <span class="review-status ${approved ? "is-approved" : ""}">${approved ? "Approved" : "Needs review"}</span>
+      </div>
+      <div class="tag-row" aria-label="Recipe details">
+        <span>${timeLabel}</span>
+        <span>${getOptionLabel("energy", recipe.energyLevel)}</span>
+        <span>${foodLabels}</span>
+      </div>
+      <p class="stomach-line"><strong>Meal types:</strong> ${mealLabels}</p>
+      <p class="stomach-line"><strong>Tags:</strong> ${recipe.tags.join(", ")}</p>
+      <p class="stomach-line"><strong>Tolerance options:</strong> ${toleranceLabels}</p>
+      <div class="recipe-body">
+        <section>
+          <h3>Shopping checklist</h3>
+          <ul class="checklist">
+            ${recipe.ingredients.map((ingredient) => `<li>${ingredient}</li>`).join("")}
+          </ul>
+        </section>
+        <section>
+          <h3>Make it</h3>
+          <ol class="steps">
+            ${recipe.steps.map((step) => `<li>${step}</li>`).join("")}
+          </ol>
+        </section>
+        <section class="make-easier">
+          <h3>Make it easier</h3>
+          <p>${recipe.easierVersion}</p>
+        </section>
+        ${recipe.swaps?.length ? `
+          <section class="swaps">
+            <h3>Swaps</h3>
+            <ul>
+              ${recipe.swaps.map((swap) => `<li>${swap}</li>`).join("")}
+            </ul>
+          </section>
+        ` : ""}
+      </div>
+      <div class="review-card-actions">
+        <button class="${approved ? "secondary-button" : "primary-button"}" type="button" data-review-${approved ? "unapprove" : "approve"}="${recipe.id}">
+          ${approved ? "Move back to review" : "Approve"}
+        </button>
+      </div>
+    </article>
   `;
 }
 
@@ -1273,6 +1385,83 @@ function getOptionLabel(group, value) {
   return option ? option.label : value;
 }
 
+function validRecipeIdSet() {
+  return new Set(recipes.map((recipe) => recipe.id));
+}
+
+function orderedRecipeIdsFromSet(idSet) {
+  return recipes
+    .filter((recipe) => idSet.has(recipe.id))
+    .map((recipe) => recipe.id);
+}
+
+function loadReviewApprovedIds() {
+  const validIds = validRecipeIdSet();
+
+  try {
+    const saved = window.localStorage.getItem(REVIEW_STORAGE_KEY);
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      if (Array.isArray(parsed)) {
+        return new Set(parsed.filter((id) => validIds.has(id)));
+      }
+    }
+  } catch {
+    // Local review state is optional; fall back to the committed list.
+  }
+
+  return new Set(approvedRecipeIds.filter((id) => validIds.has(id)));
+}
+
+function persistReviewApprovedIds() {
+  try {
+    window.localStorage.setItem(REVIEW_STORAGE_KEY, JSON.stringify(orderedRecipeIdsFromSet(reviewApprovedIds)));
+  } catch {
+    state.reviewMessage = "Approved list could not be saved in this browser.";
+  }
+}
+
+function setRecipeApproval(recipeId, approved) {
+  if (!validRecipeIdSet().has(recipeId)) {
+    return;
+  }
+
+  if (approved) {
+    reviewApprovedIds.add(recipeId);
+  } else {
+    reviewApprovedIds.delete(recipeId);
+  }
+
+  persistReviewApprovedIds();
+  const recipe = recipes.find((item) => item.id === recipeId);
+  state.reviewMessage = approved
+    ? `${recipe.title} moved to Approved.`
+    : `${recipe.title} moved back to Needs Review.`;
+  writeHistory("replace");
+  render();
+}
+
+function buildApprovedExport() {
+  return JSON.stringify({
+    approvedRecipeIds: orderedRecipeIdsFromSet(reviewApprovedIds)
+  }, null, 2);
+}
+
+async function copyApprovedList() {
+  const approvedExport = buildApprovedExport();
+
+  try {
+    await window.navigator.clipboard.writeText(approvedExport);
+    state.reviewMessage = "Approved list copied.";
+  } catch {
+    window.prompt("Copy this approved list:", approvedExport);
+    state.reviewMessage = "Approved list opened for copying.";
+  }
+
+  writeHistory("replace");
+  render();
+}
+
 function goToStep(step, { push = true } = {}) {
   clearAutoAdvance();
   state.step = step;
@@ -1282,6 +1471,29 @@ function goToStep(step, { push = true } = {}) {
   if (push && !restoringFromHistory) {
     writeHistory("push");
   }
+  render();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function openReview({ push = true } = {}) {
+  clearAutoAdvance();
+  state.step = "review";
+  state.reviewMessage = "";
+  if (push && !restoringFromHistory) {
+    writeHistory("push");
+  } else if (!restoringFromHistory) {
+    writeHistory("replace");
+  }
+  render();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function closeReview() {
+  clearAutoAdvance();
+  state.step = "energy";
+  state.reviewMessage = "";
+  state.expandedRecipeId = null;
+  writeHistory("push");
   render();
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
@@ -1389,6 +1601,10 @@ document.body.addEventListener("click", (event) => {
       state.visibleBackupCount += 4;
       writeHistory("replace");
       render();
+    } else if (action === "copy-approved") {
+      copyApprovedList();
+    } else if (action === "close-review") {
+      closeReview();
     }
     return;
   }
@@ -1402,6 +1618,18 @@ document.body.addEventListener("click", (event) => {
   const todayButton = event.target.closest("[data-today]");
   if (todayButton) {
     toggleToday(todayButton.dataset.today);
+    return;
+  }
+
+  const approveButton = event.target.closest("[data-review-approve]");
+  if (approveButton) {
+    setRecipeApproval(approveButton.dataset.reviewApprove, true);
+    return;
+  }
+
+  const unapproveButton = event.target.closest("[data-review-unapprove]");
+  if (unapproveButton) {
+    setRecipeApproval(unapproveButton.dataset.reviewUnapprove, false);
     return;
   }
 
@@ -1447,7 +1675,7 @@ function restoreSnapshot(snapshot) {
   if (state.step === "today") {
     state.step = "results";
   }
-  if (state.step !== "results" && !flowSteps.includes(state.step)) {
+  if (state.step !== "results" && state.step !== "review" && !flowSteps.includes(state.step)) {
     state.step = "energy";
   }
   state.energyLevel = snapshot.energyLevel || null;
@@ -1458,15 +1686,49 @@ function restoreSnapshot(snapshot) {
   state.fallbackSourceId = snapshot.fallbackSourceId || null;
   state.expandedRecipeId = snapshot.expandedRecipeId || null;
   state.visibleBackupCount = snapshot.visibleBackupCount || 2;
+  state.reviewMessage = "";
   return true;
 }
 
 function writeHistory(mode) {
   const snapshot = stateSnapshot();
+  const baseUrl = `${window.location.pathname}${window.location.search}`;
+  const url = snapshot.step === "review" ? `${baseUrl}#review` : baseUrl;
   if (mode === "replace") {
-    window.history.replaceState(snapshot, "", window.location.href);
+    window.history.replaceState(snapshot, "", url);
   } else {
-    window.history.pushState(snapshot, "", window.location.href);
+    window.history.pushState(snapshot, "", url);
+  }
+}
+
+function setupReviewTrigger() {
+  if (!reviewTrigger) {
+    return;
+  }
+
+  const startHold = (event) => {
+    if (state.step !== "energy") {
+      return;
+    }
+
+    event.preventDefault();
+    clearReviewHold();
+    reviewHoldTimer = window.setTimeout(() => {
+      reviewHoldTimer = null;
+      openReview();
+    }, 3000);
+  };
+
+  reviewTrigger.addEventListener("pointerdown", startHold);
+  reviewTrigger.addEventListener("pointerup", clearReviewHold);
+  reviewTrigger.addEventListener("pointercancel", clearReviewHold);
+  reviewTrigger.addEventListener("pointerleave", clearReviewHold);
+}
+
+function clearReviewHold() {
+  if (reviewHoldTimer) {
+    window.clearTimeout(reviewHoldTimer);
+    reviewHoldTimer = null;
   }
 }
 
@@ -1481,5 +1743,16 @@ window.addEventListener("popstate", (event) => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
+window.addEventListener("hashchange", () => {
+  if (window.location.hash === "#review" && state.step !== "review") {
+    openReview({ push: false });
+  }
+});
+
+if (window.location.hash === "#review") {
+  state.step = "review";
+}
+
+setupReviewTrigger();
 writeHistory("replace");
 render();
