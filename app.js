@@ -268,7 +268,7 @@ const recipes = [
     todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
     pantryItems: ["salmon"],
     ingredients: ["Salmon", "Frozen vegetables", "Olive oil", "Lemon", "Salt"],
-    steps: ["Put salmon and frozen vegetables in a pan.", "Add olive oil and salt.", "Cook until salmon is done.", "Add lemon if it sounds good."],
+    steps: ["Put salmon and frozen vegetables in a pan or on a sheet pan.", "Add olive oil and salt.", "If using the oven, bake at 400 F for 12 to 15 minutes, until salmon flakes.", "Add lemon if it sounds good."],
     easierVersion: "Use canned salmon with microwave vegetables instead.",
     swaps: ["Use any frozen veg that already lives in the freezer."]
   },
@@ -394,7 +394,7 @@ const recipes = [
     todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
     pantryItems: ["chicken", "sweetPotato"],
     ingredients: ["Chicken thighs or tenders", "Sweet potato chunks", "Frozen broccoli or carrots", "Olive oil"],
-    steps: ["Put chicken and vegetables on a sheet pan.", "Coat with olive oil and salt.", "Bake until chicken is done.", "Save leftovers if you want."],
+    steps: ["Put chicken and vegetables on a sheet pan.", "Coat with olive oil and salt.", "Bake at 400 F for 20 to 25 minutes, until chicken is cooked through.", "Save leftovers if you want."],
     easierVersion: "Buy pre-cut vegetables or use only chicken and sweet potatoes.",
     swaps: ["Use frozen vegetables to avoid chopping."]
   },
@@ -430,7 +430,7 @@ const recipes = [
     todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
     pantryItems: ["eggs", "spinach", "rice"],
     ingredients: ["Eggs", "Frozen spinach", "Leftover potatoes or rice", "Cheese optional"],
-    steps: ["Whisk eggs in a baking dish.", "Stir in spinach and leftovers.", "Bake until set.", "Cut into squares."],
+    steps: ["Whisk eggs in a baking dish.", "Stir in spinach and leftovers.", "Bake at 350 F for 20 to 25 minutes, until set.", "Cut into squares."],
     easierVersion: "Make scrambled eggs with the same fillings instead.",
     swaps: ["Skip cheese for no dairy."]
   },
@@ -459,14 +459,14 @@ const recipes = [
     goodWhen: "a tiny open-face thing sounds better than a whole meal.",
     mealTypes: ["breakfast", "lunch", "snack"],
     foodTypes: ["eggs", "snack"],
-    timeMinutes: 5,
-    energyLevel: "barely",
-    equipment: ["none"],
+    timeMinutes: 15,
+    energyLevel: "little",
+    equipment: ["pot"],
     tags: ["gentle", "soft", "steady energy", "low-chop"],
     todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
     pantryItems: ["eggs", "avocado", "crackers"],
-    ingredients: ["Rice cake", "Boiled egg", "Avocado", "Salt or everything seasoning optional"],
-    steps: ["Put avocado on the rice cake.", "Slice or crumble the egg.", "Add salt if you want."],
+    ingredients: ["Rice cake", "Boiled egg, or egg to boil", "Avocado", "Salt or everything seasoning optional"],
+    steps: ["If the egg is not already boiled, boil it 10 to 12 minutes, cool, and peel.", "Put avocado on the rice cake.", "Slice or crumble the egg.", "Add salt if you want."],
     easierVersion: "Eat the egg and avocado separately. The rice cake can just sit there.",
     swaps: ["Use toast if wheat is okay today.", "Use olive oil instead of avocado if that is easier."]
   },
@@ -556,26 +556,26 @@ const recipes = [
     todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
     pantryItems: ["oats", "banana"],
     ingredients: ["Quick oats", "Milk, oat milk, or water", "Banana or applesauce", "Cinnamon"],
-    steps: ["Put oats and liquid in a bowl.", "Microwave until soft.", "Add banana or applesauce.", "Sprinkle cinnamon."],
+    steps: ["Put oats and liquid in a bowl.", "Microwave until soft, 30 sec to 1 min.", "Add banana or applesauce.", "Sprinkle cinnamon."],
     easierVersion: "Use instant oatmeal and add banana.",
     swaps: ["Use oat milk or water for no dairy.", "Use certified gluten-free oats for no wheat."]
   },
   {
-    id: "microwave-scrambled-egg-mug",
-    title: "Microwave Egg Mug",
+    id: "scrambled-eggs-pan",
+    title: "Scrambled Eggs in a Pan",
     emoji: "🥚",
-    goodWhen: "you want eggs without dealing with a pan.",
+    goodWhen: "warm, simple eggs sound good.",
     mealTypes: ["breakfast", "lunch", "snack"],
     foodTypes: ["eggs"],
-    timeMinutes: 5,
-    energyLevel: "barely",
-    equipment: ["microwave", "mug"],
+    timeMinutes: 10,
+    energyLevel: "little",
+    equipment: ["pan"],
     tags: ["gentle", "soft", "high-protein", "low-chop"],
     todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
     pantryItems: ["eggs"],
-    ingredients: ["Eggs", "Splash of milk or water", "Spinach optional", "Toast, rice cake, or rice if wanted"],
-    steps: ["Beat eggs with a splash of water or milk in a mug.", "Microwave in short bursts, stirring between.", "Stop when softly set.", "Eat with toast, rice, or a rice cake."],
-    easierVersion: "Use a boiled egg and skip the mug.",
+    ingredients: ["Eggs", "Splash of milk or water", "Olive oil or butter", "Spinach optional", "Toast, rice cake, or rice if wanted"],
+    steps: ["Beat eggs with a splash of water or milk.", "Warm a pan with a little olive oil or butter.", "Pour in eggs and stir gently for 2 to 4 minutes, until softly set.", "Eat with toast, rice, or a rice cake."],
+    easierVersion: "Use a boiled egg with toast, rice, or a rice cake.",
     swaps: ["Use water for no dairy.", "Skip spinach if you want it plain."]
   },
   {
@@ -627,8 +627,8 @@ const recipes = [
     tags: ["gentle", "soft", "steady energy", "low-chop"],
     todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
     pantryItems: ["eggs"],
-    ingredients: ["Microwave potato or frozen potato cubes", "Boiled egg or microwave egg", "Olive oil", "Salt"],
-    steps: ["Warm the potato.", "Add egg.", "Mash a little with olive oil and salt."],
+    ingredients: ["Microwave potato or frozen potato cubes", "Boiled egg or scrambled egg", "Olive oil", "Salt"],
+    steps: ["Microwave the potato until soft, or warm frozen potato cubes.", "Split the potato open or put cubes in a bowl.", "Mash lightly with olive oil and salt.", "Slice, crumble, or scoop the egg on top."],
     easierVersion: "Use a microwave potato and a boiled egg.",
     swaps: ["Add spinach if green food sounds okay."]
   },
@@ -646,7 +646,7 @@ const recipes = [
     todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
     pantryItems: ["salmon", "sweetPotato"],
     ingredients: ["Microwave sweet potato", "Canned salmon or leftover salmon", "Olive oil", "Salt"],
-    steps: ["Microwave sweet potato until soft.", "Open salmon.", "Put salmon beside or on the potato.", "Add olive oil and salt."],
+    steps: ["Microwave the sweet potato until soft.", "Split it open and mash the inside a little with a fork.", "Open salmon and drain if needed.", "Put salmon beside it, or scoop it on top.", "Add olive oil and salt."],
     easierVersion: "Use only salmon and sweet potato. No plating needed.",
     swaps: ["Use tuna if salmon is not available."]
   },
@@ -682,7 +682,7 @@ const recipes = [
     todayFilters: ["noDairy", "noWheat", "noRawVeg"],
     pantryItems: ["tuna"],
     ingredients: ["Tuna pouch or can", "White beans", "Olive oil", "Lemon or vinegar optional", "Parsley if wanted"],
-    steps: ["Rinse beans if you want.", "Add tuna.", "Add olive oil and salt.", "Add lemon, vinegar, or parsley if they sound good."],
+    steps: ["Rinse beans.", "Add tuna.", "Add olive oil and salt.", "Add lemon, vinegar, or parsley if they sound good."],
     easierVersion: "Use tuna and beans only.",
     swaps: ["Skip this one if beans bother you."]
   },
@@ -718,7 +718,7 @@ const recipes = [
     todayFilters: ["noDairy", "noBeans", "noWheat", "noRawVeg"],
     pantryItems: ["peanutButter", "spinach"],
     ingredients: ["Rice noodles", "Frozen vegetables", "Peanut butter or tahini", "Sesame oil or olive oil", "Tamari optional"],
-    steps: ["Soak or cook rice noodles.", "Warm frozen vegetables.", "Stir nut butter with warm water and tamari.", "Mix everything together."],
+    steps: ["Cook rice noodles.", "Warm frozen vegetables.", "Stir nut butter with warm water and tamari.", "Mix everything together."],
     easierVersion: "Use rice noodles with olive oil and salt.",
     swaps: ["Use tahini instead of peanut butter.", "Use tamari for no wheat."]
   },
@@ -790,7 +790,7 @@ const recipes = [
     todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
     pantryItems: ["eggs", "spinach", "soup"],
     ingredients: ["Jarred tomato sauce", "Eggs", "Spinach", "Olive oil", "Toast or rice if wanted"],
-    steps: ["Warm tomato sauce and spinach in a small baking dish or pan.", "Crack eggs into the sauce.", "Bake or cover until eggs set.", "Eat with rice or toast."],
+    steps: ["Warm tomato sauce and spinach in a small baking dish or pan.", "Crack eggs into the sauce.", "Bake at 375 F for 10 to 15 minutes, until eggs set, or cover the pan until set.", "Eat with rice or toast."],
     easierVersion: "Warm tomato soup and eat a boiled egg beside it.",
     swaps: ["Use rice for no wheat."]
   },
@@ -808,7 +808,7 @@ const recipes = [
     todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
     pantryItems: ["chicken", "rice"],
     ingredients: ["Chicken tenders or rotisserie chicken", "Microwave rice", "Frozen vegetables", "Olive oil"],
-    steps: ["Cook chicken or use rotisserie chicken.", "Warm rice and vegetables.", "Divide into containers.", "Add olive oil before eating."],
+    steps: ["Use rotisserie chicken, or bake raw chicken tenders at 400 F for 15 to 20 minutes.", "Warm rice and vegetables.", "Divide into containers.", "Add olive oil before eating."],
     easierVersion: "Buy rotisserie chicken and microwave rice. Future containers optional.",
     swaps: ["Use any frozen vegetable that sounds tolerable."]
   },
@@ -871,15 +871,34 @@ const recipes = [
 const approvedRecipeIds = [
   "tuna-crackers-plate",
   "greek-yogurt-berry-bowl",
+  "peanut-butter-banana-toast",
   "hummus-snack-plate",
+  "smoothie-that-counts",
   "turkey-avocado-roll-ups",
   "egg-rice-bowl",
   "salmon-rice-bowl",
   "rotisserie-chicken-bowl",
+  "microwave-sweet-potato-plate",
+  "miso-tofu-soup",
   "tiny-egg-drop-soup",
   "one-pan-salmon-frozen-veg",
   "turkey-spinach-pasta",
-  "chickpea-cucumber-bowl"
+  "chicken-soup-shortcut",
+  "chickpea-cucumber-bowl",
+  "egg-veggie-scramble",
+  "warm-veggie-rice-bowl",
+  "white-fish-rice-plate",
+  "future-me-chicken-tray",
+  "gentle-lentil-soup",
+  "banana-oat-yogurt-bowl",
+  "cottage-cheese-fruit-bowl",
+  "apple-nut-butter-plate",
+  "chicken-avocado-rice-cakes",
+  "tuna-avocado-rice-cakes",
+  "tomato-soup-rice-cakes",
+  "chicken-rice-soup-cup",
+  "tahini-rice-bowl",
+  "chickpea-soup-shortcut"
 ];
 const REVIEW_STORAGE_KEY = "thing-to-eat-approved-recipe-ids";
 
@@ -893,6 +912,7 @@ const state = {
   fallbackSourceId: null,
   expandedRecipeId: null,
   visibleBackupCount: 2,
+  reviewFilter: "needs",
   reviewMessage: ""
 };
 
@@ -1039,6 +1059,25 @@ function resultsTemplate() {
 function reviewTemplate() {
   const approvedRecipes = recipes.filter((recipe) => reviewApprovedIds.has(recipe.id));
   const needsReviewRecipes = recipes.filter((recipe) => !reviewApprovedIds.has(recipe.id));
+  const activeFilter = ["approved", "needs", "all"].includes(state.reviewFilter) ? state.reviewFilter : "needs";
+  const filterDetails = {
+    approved: {
+      title: "Approved",
+      recipes: approvedRecipes,
+      emptyMessage: "No approved recipes yet."
+    },
+    needs: {
+      title: "Needs Review",
+      recipes: needsReviewRecipes,
+      emptyMessage: "All recipes are approved."
+    },
+    all: {
+      title: "All Recipes",
+      recipes,
+      emptyMessage: "No recipes found."
+    }
+  };
+  const visibleReview = filterDetails[activeFilter];
 
   return `
     <section class="screen review-screen">
@@ -1054,26 +1093,35 @@ function reviewTemplate() {
         </div>
       </div>
       <div class="review-stats" aria-label="Recipe review progress">
-        <span>${approvedRecipes.length} approved</span>
-        <span>${needsReviewRecipes.length} needs review</span>
-        <span>${recipes.length} total</span>
+        ${reviewFilterButtonTemplate("needs", `${needsReviewRecipes.length} needs review`, activeFilter)}
+        ${reviewFilterButtonTemplate("approved", `${approvedRecipes.length} approved`, activeFilter)}
+        ${reviewFilterButtonTemplate("all", `${recipes.length} all`, activeFilter)}
       </div>
       ${state.reviewMessage ? `<p class="review-message">${state.reviewMessage}</p>` : ""}
-      ${reviewSectionTemplate("Needs Review", needsReviewRecipes, false)}
-      ${reviewSectionTemplate("Approved", approvedRecipes, true)}
+      ${reviewSectionTemplate(visibleReview.title, visibleReview.recipes, visibleReview.emptyMessage)}
     </section>
   `;
 }
 
-function reviewSectionTemplate(title, sectionRecipes, approved) {
+function reviewFilterButtonTemplate(filter, label, activeFilter) {
+  const isActive = filter === activeFilter;
   return `
-    <section class="review-section" aria-labelledby="${approved ? "approved-recipes" : "needs-review-recipes"}">
-      <h2 id="${approved ? "approved-recipes" : "needs-review-recipes"}">${title}</h2>
+    <button class="review-filter-button ${isActive ? "is-active" : ""}" type="button" data-review-filter="${filter}" aria-pressed="${isActive}">
+      ${label}
+    </button>
+  `;
+}
+
+function reviewSectionTemplate(title, sectionRecipes, emptyMessage) {
+  const sectionId = `review-${title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
+  return `
+    <section class="review-section" aria-labelledby="${sectionId}">
+      <h2 id="${sectionId}">${title}</h2>
       ${sectionRecipes.length ? `
         <div class="review-list">
-          ${sectionRecipes.map((recipe) => reviewRecipeCardTemplate(recipe, approved)).join("")}
+          ${sectionRecipes.map((recipe) => reviewRecipeCardTemplate(recipe, reviewApprovedIds.has(recipe.id))).join("")}
         </div>
-      ` : `<p class="review-empty">${approved ? "No approved recipes yet." : "All recipes are approved."}</p>`}
+      ` : `<p class="review-empty">${emptyMessage}</p>`}
     </section>
   `;
 }
@@ -1630,6 +1678,13 @@ document.body.addEventListener("click", (event) => {
   const todayButton = event.target.closest("[data-today]");
   if (todayButton) {
     toggleToday(todayButton.dataset.today);
+    return;
+  }
+
+  const reviewFilterButton = event.target.closest("[data-review-filter]");
+  if (reviewFilterButton) {
+    state.reviewFilter = reviewFilterButton.dataset.reviewFilter;
+    render();
     return;
   }
 
