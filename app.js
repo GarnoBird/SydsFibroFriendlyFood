@@ -1,4 +1,4 @@
-const flowSteps = ["energy", "food", "time", "meal", "today"];
+const flowSteps = ["energy", "food", "time", "meal"];
 
 const options = {
   energy: [
@@ -11,7 +11,7 @@ const options = {
     { value: "fish", label: "Fish", icon: "🐟", note: "Salmon, tuna, or white fish." },
     { value: "chicken", label: "Chicken / Turkey", icon: "🍗", note: "Rotisserie chicken, bowls, turkey roll-ups." },
     { value: "eggs", label: "Eggs", icon: "🥚", note: "Toast, rice bowl, omelette, boiled eggs." },
-    { value: "veggie", label: "Veggie Bowl", icon: "🥗", note: "Sweet potato, rice, greens, chickpeas if tolerated." },
+    { value: "veggie", label: "Veggie Bowl", icon: "🥗", note: "Sweet potato, rice, greens, chickpeas optional." },
     { value: "soup", label: "Soup", icon: "🍜", note: "Miso, chicken soup, lentil soup, tomato soup." },
     { value: "snack", label: "Snack Plate", icon: "🧺", note: "No cooking. Just assemble." },
     { value: "smoothie", label: "Smoothie / Yogurt Bowl", icon: "🥣", note: "Cool, soft, and easy to sip." }
@@ -51,7 +51,7 @@ const recipes = [
     tags: ["mediterranean-ish", "omega-3", "high-protein", "no-cook", "low-chop"],
     todayFilters: ["noDairy", "noBeans", "noWheat"],
     pantryItems: ["tuna", "crackers"],
-    ingredients: ["Tuna pouch or can", "Crackers or rice crackers", "Olive oil or mayo", "Lemon or pickle if tolerated"],
+    ingredients: ["Tuna pouch or can", "Crackers or rice crackers", "Olive oil or mayo", "Lemon or pickle optional"],
     steps: ["Open the tuna.", "Put crackers on the plate.", "Add olive oil, mayo, or lemon.", "Eat it as little stacks."],
     easierVersion: "Eat tuna straight from the packet with crackers.",
     swaps: ["Use rice cakes for no wheat.", "Skip lemon if sharp food feels bad."]
@@ -90,7 +90,7 @@ const recipes = [
     ingredients: ["Toast, gluten-free toast, or rice cake", "Peanut butter", "Banana", "Cinnamon"],
     steps: ["Toast the bread if you want it toasted.", "Spread peanut butter.", "Add banana slices or banana chunks.", "Dust with cinnamon."],
     easierVersion: "Dip banana into peanut butter and skip the toast.",
-    swaps: ["Use a rice cake for no wheat.", "Use sunflower butter if peanut butter is not tolerated."]
+    swaps: ["Use a rice cake for no wheat.", "Use sunflower butter if peanut butter does not work."]
   },
   {
     id: "hummus-snack-plate",
@@ -141,7 +141,7 @@ const recipes = [
     tags: ["gentle", "high-protein", "no-cook", "low-chop"],
     todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
     pantryItems: ["turkey", "avocado", "crackers"],
-    ingredients: ["Turkey slices", "Avocado", "Rice crackers if wanted", "Pickles or olives if tolerated"],
+    ingredients: ["Turkey slices", "Avocado", "Rice crackers if wanted", "Pickles or olives optional"],
     steps: ["Lay turkey slices on a plate.", "Add avocado pieces.", "Roll them up or eat them as little stacks."],
     easierVersion: "Skip rolling. Make piles and eat with your fingers.",
     swaps: ["Use chicken slices if that is what you have."]
@@ -213,7 +213,7 @@ const recipes = [
     tags: ["gentle", "soft", "mediterranean-ish", "low-chop"],
     todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
     pantryItems: ["sweetPotato", "yogurt", "hummus", "spinach"],
-    ingredients: ["Sweet potato", "Greek yogurt, olive oil, or hummus", "Pumpkin seeds", "Greens if tolerated"],
+    ingredients: ["Sweet potato", "Greek yogurt, olive oil, or hummus", "Pumpkin seeds", "Greens optional"],
     steps: ["Microwave the sweet potato until soft.", "Split it open.", "Top with yogurt, olive oil, or hummus.", "Add seeds if wanted."],
     easierVersion: "Use only sweet potato and olive oil.",
     swaps: ["Use olive oil for no dairy or no beans."]
@@ -249,8 +249,8 @@ const recipes = [
     tags: ["gentle", "soft", "warm", "low-chop"],
     todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
     pantryItems: ["eggs", "soup", "rice"],
-    ingredients: ["Broth", "Egg", "Microwave rice if wanted", "Spinach if tolerated"],
-    steps: ["Heat broth until steaming.", "Beat the egg in a cup.", "Stir broth while slowly pouring in the egg.", "Add rice if you want it fuller."],
+    ingredients: ["Boxed/canned chicken or vegetable broth (soup liquid), or a bouillon cube plus water", "Egg", "Microwave rice if wanted", "Spinach optional"],
+    steps: ["Heat the soup liquid until steaming.", "Beat the egg in a cup.", "Stir the soup liquid while slowly pouring in the egg.", "Add rice if you want it fuller."],
     easierVersion: "Use boxed soup and crack the egg straight in while stirring.",
     swaps: ["Skip spinach if you prefer it simpler."]
   },
@@ -285,7 +285,7 @@ const recipes = [
     tags: ["high-protein", "steady energy"],
     todayFilters: ["noDairy", "noBeans", "noWheat", "noRawVeg"],
     pantryItems: ["turkey", "spinach"],
-    ingredients: ["Ground turkey", "Spinach", "Pasta or gluten-free pasta", "Olive oil", "Parmesan if tolerated"],
+    ingredients: ["Ground turkey", "Spinach", "Pasta or gluten-free pasta", "Olive oil", "Parmesan optional"],
     steps: ["Cook pasta.", "Brown turkey in olive oil.", "Stir in spinach until soft.", "Mix with pasta."],
     easierVersion: "Use rotisserie chicken and microwave rice instead.",
     swaps: ["Skip parmesan for no dairy.", "Use gluten-free pasta for no wheat."]
@@ -303,8 +303,8 @@ const recipes = [
     tags: ["gentle", "soft", "warm", "high-protein"],
     todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
     pantryItems: ["chicken", "soup", "rice"],
-    ingredients: ["Rotisserie chicken", "Broth", "Frozen vegetables", "Rice or noodles"],
-    steps: ["Heat broth.", "Add chicken and frozen vegetables.", "Add rice or noodles.", "Simmer until warm."],
+    ingredients: ["Rotisserie chicken", "Boxed/canned chicken or vegetable broth (soup liquid), or a bouillon cube plus water", "Frozen vegetables", "Rice or noodles"],
+    steps: ["Heat the soup liquid.", "Add chicken and frozen vegetables.", "Add rice or noodles.", "Simmer until warm."],
     easierVersion: "Heat boxed soup and put chicken beside it.",
     swaps: ["Use rice for no wheat."]
   },
@@ -312,7 +312,7 @@ const recipes = [
     id: "chickpea-cucumber-bowl",
     title: "Chickpea Cucumber Bowl",
     emoji: "🥗",
-    goodWhen: "fresh, tangy food sounds okay and beans are tolerated.",
+    goodWhen: "fresh, tangy food sounds okay and beans sound okay.",
     mealTypes: ["lunch", "dinner"],
     foodTypes: ["veggie"],
     timeMinutes: 15,
@@ -321,7 +321,7 @@ const recipes = [
     tags: ["mediterranean-ish", "no-cook", "steady energy"],
     todayFilters: ["noDairy", "noWheat"],
     pantryItems: ["hummus"],
-    ingredients: ["Chickpeas", "Cucumber", "Tomato", "Olive oil", "Lemon", "Feta if tolerated"],
+    ingredients: ["Chickpeas", "Cucumber", "Tomato", "Olive oil", "Lemon", "Feta optional"],
     steps: ["Rinse chickpeas.", "Add cucumber and tomato.", "Add olive oil and lemon.", "Top with feta if wanted."],
     easierVersion: "Use only chickpeas, olive oil, and salt.",
     swaps: ["Skip this one if beans or raw veg bother you.", "Skip feta for no dairy."]
@@ -411,8 +411,8 @@ const recipes = [
     tags: ["gentle", "soft", "warm", "leftovers"],
     todayFilters: ["gentle", "noDairy", "noWheat", "noRawVeg"],
     pantryItems: ["soup", "spinach"],
-    ingredients: ["Lentils", "Broth", "Frozen carrots or spinach", "Olive oil"],
-    steps: ["Simmer lentils in broth.", "Add frozen vegetables.", "Cook until soft.", "Eat one bowl and freeze another if you want."],
+    ingredients: ["Lentils", "Boxed/canned chicken or vegetable broth (soup liquid), or a bouillon cube plus water", "Frozen carrots or spinach", "Olive oil"],
+    steps: ["Simmer lentils in the soup liquid.", "Add frozen vegetables.", "Cook until soft.", "Eat one bowl and freeze another if you want."],
     easierVersion: "Use canned lentil soup and add olive oil.",
     swaps: ["Skip this one if beans bother you."]
   },
@@ -429,7 +429,7 @@ const recipes = [
     tags: ["gentle", "soft", "leftovers", "high-protein"],
     todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
     pantryItems: ["eggs", "spinach", "rice"],
-    ingredients: ["Eggs", "Frozen spinach", "Leftover potatoes or rice", "Cheese if tolerated"],
+    ingredients: ["Eggs", "Frozen spinach", "Leftover potatoes or rice", "Cheese optional"],
     steps: ["Whisk eggs in a baking dish.", "Stir in spinach and leftovers.", "Bake until set.", "Cut into squares."],
     easierVersion: "Make scrambled eggs with the same fillings instead.",
     swaps: ["Skip cheese for no dairy."]
@@ -465,7 +465,7 @@ const recipes = [
     tags: ["gentle", "soft", "steady energy", "low-chop"],
     todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
     pantryItems: ["eggs", "avocado", "crackers"],
-    ingredients: ["Rice cake", "Boiled egg", "Avocado", "Salt or everything seasoning if tolerated"],
+    ingredients: ["Rice cake", "Boiled egg", "Avocado", "Salt or everything seasoning optional"],
     steps: ["Put avocado on the rice cake.", "Slice or crumble the egg.", "Add salt if you want."],
     easierVersion: "Eat the egg and avocado separately. The rice cake can just sit there.",
     swaps: ["Use toast if wheat is okay today.", "Use olive oil instead of avocado if that is easier."]
@@ -504,7 +504,7 @@ const recipes = [
     ingredients: ["Apple slices or applesauce cup", "Peanut butter or almond butter", "Crackers or rice cakes if wanted"],
     steps: ["Put apple on a plate.", "Add nut butter.", "Add crackers if you want it more filling."],
     easierVersion: "Use applesauce and a spoonful of nut butter.",
-    swaps: ["Use sunflower butter if nuts are not tolerated.", "Use banana instead of apple for a softer option."]
+    swaps: ["Use sunflower butter if nuts do not work.", "Use banana instead of apple for a softer option."]
   },
   {
     id: "chicken-avocado-rice-cakes",
@@ -573,7 +573,7 @@ const recipes = [
     tags: ["gentle", "soft", "high-protein", "low-chop"],
     todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
     pantryItems: ["eggs"],
-    ingredients: ["Eggs", "Splash of milk or water", "Spinach if tolerated", "Toast, rice cake, or rice if wanted"],
+    ingredients: ["Eggs", "Splash of milk or water", "Spinach optional", "Toast, rice cake, or rice if wanted"],
     steps: ["Beat eggs with a splash of water or milk in a mug.", "Microwave in short bursts, stirring between.", "Stop when softly set.", "Eat with toast, rice, or a rice cake."],
     easierVersion: "Use a boiled egg and skip the mug.",
     swaps: ["Use water for no dairy.", "Skip spinach if you want it plain."]
@@ -591,7 +591,7 @@ const recipes = [
     tags: ["gentle", "soft", "warm", "low-chop"],
     todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
     pantryItems: ["soup", "crackers"],
-    ingredients: ["Tomato soup", "Rice cakes or crackers", "Olive oil", "Parmesan if tolerated"],
+    ingredients: ["Tomato soup", "Rice cakes or crackers", "Olive oil", "Parmesan optional"],
     steps: ["Heat the soup.", "Add a small drizzle of olive oil.", "Eat with rice cakes or crackers."],
     easierVersion: "Use microwave soup and skip toppings.",
     swaps: ["Use rice cakes for no wheat.", "Skip parmesan for no dairy."]
@@ -609,8 +609,8 @@ const recipes = [
     tags: ["gentle", "soft", "warm", "high-protein", "low-chop"],
     todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
     pantryItems: ["chicken", "soup", "rice"],
-    ingredients: ["Broth", "Microwave rice", "Rotisserie chicken", "Frozen carrots or peas if tolerated"],
-    steps: ["Heat broth in a large mug or bowl.", "Add rice and chicken.", "Microwave until hot.", "Add frozen veg if it sounds okay."],
+    ingredients: ["Boxed/canned chicken or vegetable broth (soup liquid), or a bouillon cube plus water", "Microwave rice", "Rotisserie chicken", "Frozen carrots or peas optional"],
+    steps: ["Heat the soup liquid in a large mug or bowl.", "Add rice and chicken.", "Microwave until hot.", "Add frozen veg if it sounds okay."],
     easierVersion: "Use canned chicken soup and add microwave rice.",
     swaps: ["Skip vegetables if today needs plain food."]
   },
@@ -681,7 +681,7 @@ const recipes = [
     tags: ["mediterranean-ish", "omega-3", "high-protein", "no-cook", "low-chop"],
     todayFilters: ["noDairy", "noWheat", "noRawVeg"],
     pantryItems: ["tuna"],
-    ingredients: ["Tuna pouch or can", "White beans", "Olive oil", "Lemon or vinegar if tolerated", "Parsley if wanted"],
+    ingredients: ["Tuna pouch or can", "White beans", "Olive oil", "Lemon or vinegar optional", "Parsley if wanted"],
     steps: ["Rinse beans if you want.", "Add tuna.", "Add olive oil and salt.", "Add lemon, vinegar, or parsley if they sound good."],
     easierVersion: "Use tuna and beans only.",
     swaps: ["Skip this one if beans bother you."]
@@ -690,7 +690,7 @@ const recipes = [
     id: "chickpea-soup-shortcut",
     title: "Chickpea Soup Shortcut",
     emoji: "🍲",
-    goodWhen: "you want a warm bowl and chickpeas are tolerated.",
+    goodWhen: "you want a warm bowl and chickpeas sound okay.",
     mealTypes: ["lunch", "dinner"],
     foodTypes: ["soup", "veggie"],
     timeMinutes: 15,
@@ -699,8 +699,8 @@ const recipes = [
     tags: ["gentle", "soft", "warm", "mediterranean-ish", "low-chop"],
     todayFilters: ["gentle", "noDairy", "noWheat", "noRawVeg"],
     pantryItems: ["soup", "hummus"],
-    ingredients: ["Canned chickpeas", "Broth", "Frozen spinach or carrots", "Olive oil"],
-    steps: ["Heat broth and chickpeas.", "Add frozen vegetables.", "Simmer until soft.", "Finish with olive oil."],
+    ingredients: ["Canned chickpeas", "Boxed/canned chicken or vegetable broth (soup liquid), or a bouillon cube plus water", "Frozen spinach or carrots", "Olive oil"],
+    steps: ["Heat the soup liquid and chickpeas.", "Add frozen vegetables.", "Simmer until soft.", "Finish with olive oil."],
     easierVersion: "Use canned soup and add chickpeas if the can is already open.",
     swaps: ["Skip this one if beans bother you."]
   },
@@ -717,7 +717,7 @@ const recipes = [
     tags: ["soft", "steady energy", "low-chop"],
     todayFilters: ["noDairy", "noBeans", "noWheat", "noRawVeg"],
     pantryItems: ["peanutButter", "spinach"],
-    ingredients: ["Rice noodles", "Frozen vegetables", "Peanut butter or tahini", "Sesame oil or olive oil", "Tamari if tolerated"],
+    ingredients: ["Rice noodles", "Frozen vegetables", "Peanut butter or tahini", "Sesame oil or olive oil", "Tamari optional"],
     steps: ["Soak or cook rice noodles.", "Warm frozen vegetables.", "Stir nut butter with warm water and tamari.", "Mix everything together."],
     easierVersion: "Use rice noodles with olive oil and salt.",
     swaps: ["Use tahini instead of peanut butter.", "Use tamari for no wheat."]
@@ -735,7 +735,7 @@ const recipes = [
     tags: ["mediterranean-ish", "high-protein", "steady energy", "low-chop"],
     todayFilters: ["noDairy", "noBeans", "noWheat", "noRawVeg"],
     pantryItems: ["chicken", "spinach"],
-    ingredients: ["Microwave quinoa or rice", "Rotisserie chicken", "Microwave spinach", "Olive oil", "Feta if tolerated"],
+    ingredients: ["Microwave quinoa or rice", "Rotisserie chicken", "Microwave spinach", "Olive oil", "Feta optional"],
     steps: ["Warm quinoa or rice.", "Add chicken.", "Add spinach.", "Finish with olive oil and feta if wanted."],
     easierVersion: "Use chicken and microwave rice only.",
     swaps: ["Skip feta for no dairy.", "Use rice if quinoa is not around."]
@@ -903,29 +903,24 @@ const timeRank = {
 
 const stepCopy = {
   energy: {
-    eyebrow: "Step 1 of 5",
+    eyebrow: "Step 1 of 4",
     title: "How much energy do you have?",
     note: "Choose whatever feels easiest right now."
   },
   food: {
-    eyebrow: "Step 2 of 5",
+    eyebrow: "Step 2 of 4",
     title: "What kind of food sounds okay?",
     note: "Pick the one that sounds best today."
   },
   time: {
-    eyebrow: "Step 3 of 5",
+    eyebrow: "Step 3 of 4",
     title: "How much time?",
     note: "Short is a complete answer."
   },
   meal: {
-    eyebrow: "Step 4 of 5",
+    eyebrow: "Step 4 of 4",
     title: "Breakfast, lunch, dinner, or snack?",
     note: "Snack / Emergency Food is a real meal type here."
-  },
-  today: {
-    eyebrow: "Step 5 of 5",
-    title: "Any stomach stuff today?",
-    note: "These are Today Filters, not rules."
   }
 };
 
@@ -936,11 +931,12 @@ let restoringFromHistory = false;
 
 function render() {
   clearAutoAdvance();
+  if (state.step !== "results" && !flowSteps.includes(state.step)) {
+    state.step = "energy";
+  }
   renderProgress();
 
-  if (state.step === "today") {
-    appView.innerHTML = todayTemplate();
-  } else if (state.step === "results") {
+  if (state.step === "results") {
     appView.innerHTML = resultsTemplate();
   } else {
     appView.innerHTML = singleChoiceTemplate(state.step);
@@ -979,27 +975,6 @@ function singleChoiceTemplate(step) {
         ${options[step].map((option) => choiceCardTemplate(step, option, selectedValue === option.value)).join("")}
       </div>
       ${navTemplate({ canBack: step !== "energy", canSkip: false, primary: null })}
-    </section>
-  `;
-}
-
-function todayTemplate() {
-  const normalSelected = state.todayFilters.size === 0;
-
-  return `
-    <section class="screen">
-      ${screenHeaderTemplate(stepCopy.today)}
-      <div class="choice-grid">
-        <button class="choice-card ${normalSelected ? "is-selected" : ""}" type="button" data-action="normal-today" aria-pressed="${normalSelected}">
-          <span class="icon-bubble" aria-hidden="true">🌿</span>
-          <span class="choice-text">
-            <span class="choice-title">Normal-ish</span>
-            <span class="choice-subtitle">Anything tolerated today.</span>
-          </span>
-        </button>
-        ${options.today.map((option) => choiceCardTemplate("today", option, state.todayFilters.has(option.value), true)).join("")}
-      </div>
-      ${navTemplate({ canBack: true, canSkip: true, primary: "Continue" })}
     </section>
   `;
 }
@@ -1079,7 +1054,7 @@ function navTemplate({ canBack, canSkip, primary }) {
 function summaryPillsTemplate() {
   const todayLabels = state.todayFilters.size
     ? [...state.todayFilters].map((value) => getOptionLabel("today", value))
-    : ["Normal-ish"];
+    : [];
 
   return [
     getOptionLabel("energy", state.energyLevel),
@@ -1113,7 +1088,7 @@ function recipeCardTemplate(recipe, isPrimary) {
         <span>${getOptionLabel("energy", recipe.energyLevel)}</span>
         <span>${foodLabel}</span>
       </div>
-      <p class="stomach-line"><strong>Today Filters:</strong> ${todayTags}</p>
+      <p class="stomach-line"><strong>Tolerance options:</strong> ${todayTags}</p>
       <div class="recipe-body">
         <section>
           <h3>Shopping checklist</h3>
@@ -1325,7 +1300,7 @@ function goNext() {
 function goBack() {
   clearAutoAdvance();
   if (state.step === "results") {
-    goToStep("today");
+    goToStep(flowSteps[flowSteps.length - 1]);
     return;
   }
 
@@ -1383,9 +1358,6 @@ function clearTodayFilters() {
 }
 
 function skipCurrentStep() {
-  if (state.step === "today") {
-    state.todayFilters.clear();
-  }
   state.fallbackSourceId = null;
   state.expandedRecipeId = null;
   state.visibleBackupCount = 2;
@@ -1472,11 +1444,17 @@ function restoreSnapshot(snapshot) {
   }
 
   state.step = snapshot.step || "energy";
+  if (state.step === "today") {
+    state.step = "results";
+  }
+  if (state.step !== "results" && !flowSteps.includes(state.step)) {
+    state.step = "energy";
+  }
   state.energyLevel = snapshot.energyLevel || null;
   state.foodType = snapshot.foodType || null;
   state.timeBucket = snapshot.timeBucket || null;
   state.mealType = snapshot.mealType || null;
-  state.todayFilters = new Set(snapshot.todayFilters || []);
+  state.todayFilters = new Set();
   state.fallbackSourceId = snapshot.fallbackSourceId || null;
   state.expandedRecipeId = snapshot.expandedRecipeId || null;
   state.visibleBackupCount = snapshot.visibleBackupCount || 2;
