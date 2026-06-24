@@ -1,4 +1,4 @@
-const flowSteps = ["energy", "food", "time", "meal", "today", "pantry"];
+const flowSteps = ["energy", "food", "time", "meal", "today"];
 
 const options = {
   energy: [
@@ -34,25 +34,6 @@ const options = {
     { value: "noBeans", label: "No beans today", icon: "🫘", note: "Skip beans, lentils, hummus, tofu." },
     { value: "noWheat", label: "No wheat today", icon: "🌾", note: "Rice, potatoes, oats, or gluten-free swaps." },
     { value: "noRawVeg", label: "No raw veg today", icon: "🥕", note: "Cooked, soft, or skip the veg." }
-  ],
-  pantry: [
-    { value: "eggs", label: "Eggs" },
-    { value: "rice", label: "Rice" },
-    { value: "oats", label: "Oats" },
-    { value: "yogurt", label: "Yogurt" },
-    { value: "tuna", label: "Tuna" },
-    { value: "salmon", label: "Salmon" },
-    { value: "chicken", label: "Chicken" },
-    { value: "turkey", label: "Turkey" },
-    { value: "soup", label: "Soup or broth" },
-    { value: "sweetPotato", label: "Sweet potato" },
-    { value: "banana", label: "Banana" },
-    { value: "berries", label: "Berries" },
-    { value: "spinach", label: "Spinach" },
-    { value: "hummus", label: "Hummus" },
-    { value: "crackers", label: "Crackers" },
-    { value: "avocado", label: "Avocado" },
-    { value: "peanutButter", label: "Peanut butter" }
   ]
 };
 
@@ -480,7 +461,6 @@ const state = {
   timeBucket: null,
   mealType: null,
   todayFilters: new Set(),
-  pantryItems: new Set(),
   fallbackSourceId: null,
   expandedRecipeId: null,
   visibleBackupCount: 2
@@ -509,34 +489,29 @@ const timeRank = {
 
 const stepCopy = {
   energy: {
-    eyebrow: "Step 1 of 6",
+    eyebrow: "Step 1 of 5",
     title: "How much energy do you have?",
     note: "Choose whatever feels easiest right now."
   },
   food: {
-    eyebrow: "Step 2 of 6",
+    eyebrow: "Step 2 of 5",
     title: "What kind of food sounds okay?",
     note: "Pick the one that sounds best today."
   },
   time: {
-    eyebrow: "Step 3 of 6",
+    eyebrow: "Step 3 of 5",
     title: "How much time?",
     note: "Short is a complete answer."
   },
   meal: {
-    eyebrow: "Step 4 of 6",
+    eyebrow: "Step 4 of 5",
     title: "Breakfast, lunch, dinner, or snack?",
     note: "Snack / Emergency Food is a real meal type here."
   },
   today: {
-    eyebrow: "Optional",
+    eyebrow: "Step 5 of 5",
     title: "Any stomach stuff today?",
     note: "These are Today Filters, not rules."
-  },
-  pantry: {
-    eyebrow: "Optional",
-    title: "What do you already have?",
-    note: "Tap ingredients if you know. You can also skip this."
   }
 };
 
@@ -551,8 +526,6 @@ function render() {
 
   if (state.step === "today") {
     appView.innerHTML = todayTemplate();
-  } else if (state.step === "pantry") {
-    appView.innerHTML = pantryTemplate();
   } else if (state.step === "results") {
     appView.innerHTML = resultsTemplate();
   } else {
@@ -613,22 +586,6 @@ function todayTemplate() {
         ${options.today.map((option) => choiceCardTemplate("today", option, state.todayFilters.has(option.value), true)).join("")}
       </div>
       ${navTemplate({ canBack: true, canSkip: true, primary: "Continue" })}
-    </section>
-  `;
-}
-
-function pantryTemplate() {
-  return `
-    <section class="screen">
-      ${screenHeaderTemplate(stepCopy.pantry)}
-      <div class="pantry-grid">
-        ${options.pantry.map((option) => `
-          <button class="pantry-chip ${state.pantryItems.has(option.value) ? "is-selected" : ""}" type="button" data-pantry="${option.value}" aria-pressed="${state.pantryItems.has(option.value)}">
-            ${option.label}
-          </button>
-        `).join("")}
-      </div>
-      ${navTemplate({ canBack: true, canSkip: true, primary: "Show recipes" })}
     </section>
   `;
 }
@@ -709,17 +666,13 @@ function summaryPillsTemplate() {
   const todayLabels = state.todayFilters.size
     ? [...state.todayFilters].map((value) => getOptionLabel("today", value))
     : ["Normal-ish"];
-  const pantryLabels = state.pantryItems.size
-    ? [...state.pantryItems].map((value) => getOptionLabel("pantry", value)).slice(0, 4)
-    : ["Pantry skipped"];
 
   return [
     getOptionLabel("energy", state.energyLevel),
     getOptionLabel("food", state.foodType),
     getOptionLabel("time", state.timeBucket),
     getOptionLabel("meal", state.mealType),
-    ...todayLabels,
-    ...pantryLabels
+    ...todayLabels
   ].filter(Boolean).map((label) => `<span>${label}</span>`).join("");
 }
 
@@ -773,7 +726,7 @@ function recipeCardTemplate(recipe, isPrimary) {
           </section>
         ` : ""}
       </div>
-      <button class="fallback-button" type="button" data-fallback="${recipe.id}">Show me something easier</button>
+      ${isPrimary ? `<button class="fallback-button" type="button" data-fallback="${recipe.id}">Show me something easier</button>` : ""}
     </article>
   `;
 }
@@ -862,12 +815,6 @@ function scoreRecipe(recipe) {
   if (state.todayFilters.has("gentle") && recipe.tags.includes("gentle")) {
     score += 8;
   }
-
-  state.pantryItems.forEach((item) => {
-    if (recipe.pantryItems.includes(item)) {
-      score += 7;
-    }
-  });
 
   score -= recipeEnergy * 2;
   score -= recipeTime * 1.5;
@@ -964,7 +911,7 @@ function goNext() {
 function goBack() {
   clearAutoAdvance();
   if (state.step === "results") {
-    goToStep("pantry");
+    goToStep("today");
     return;
   }
 
@@ -984,7 +931,6 @@ function restart() {
   state.timeBucket = null;
   state.mealType = null;
   state.todayFilters.clear();
-  state.pantryItems.clear();
   state.fallbackSourceId = null;
   state.expandedRecipeId = null;
   state.visibleBackupCount = 2;
@@ -1022,24 +968,9 @@ function clearTodayFilters() {
   render();
 }
 
-function togglePantry(value) {
-  state.fallbackSourceId = null;
-  state.expandedRecipeId = null;
-  state.visibleBackupCount = 2;
-  if (state.pantryItems.has(value)) {
-    state.pantryItems.delete(value);
-  } else {
-    state.pantryItems.add(value);
-  }
-  render();
-}
-
 function skipCurrentStep() {
   if (state.step === "today") {
     state.todayFilters.clear();
-  }
-  if (state.step === "pantry") {
-    state.pantryItems.clear();
   }
   state.fallbackSourceId = null;
   state.expandedRecipeId = null;
@@ -1088,12 +1019,6 @@ document.body.addEventListener("click", (event) => {
     return;
   }
 
-  const pantryButton = event.target.closest("[data-pantry]");
-  if (pantryButton) {
-    togglePantry(pantryButton.dataset.pantry);
-    return;
-  }
-
   const fallbackButton = event.target.closest("[data-fallback]");
   if (fallbackButton) {
     state.fallbackSourceId = fallbackButton.dataset.fallback;
@@ -1121,7 +1046,6 @@ function stateSnapshot() {
     timeBucket: state.timeBucket,
     mealType: state.mealType,
     todayFilters: [...state.todayFilters],
-    pantryItems: [...state.pantryItems],
     fallbackSourceId: state.fallbackSourceId,
     expandedRecipeId: state.expandedRecipeId,
     visibleBackupCount: state.visibleBackupCount
@@ -1139,7 +1063,6 @@ function restoreSnapshot(snapshot) {
   state.timeBucket = snapshot.timeBucket || null;
   state.mealType = snapshot.mealType || null;
   state.todayFilters = new Set(snapshot.todayFilters || []);
-  state.pantryItems = new Set(snapshot.pantryItems || []);
   state.fallbackSourceId = snapshot.fallbackSourceId || null;
   state.expandedRecipeId = snapshot.expandedRecipeId || null;
   state.visibleBackupCount = snapshot.visibleBackupCount || 2;
