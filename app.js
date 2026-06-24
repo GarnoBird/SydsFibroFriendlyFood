@@ -87,8 +87,8 @@ const recipes = [
     tags: ["gentle", "steady energy", "low-chop"],
     todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
     pantryItems: ["banana", "peanutButter"],
-    ingredients: ["Toast, gluten-free toast, or rice cake", "Peanut butter", "Banana", "Cinnamon"],
-    steps: ["Toast the bread if you want it toasted.", "Spread peanut butter.", "Add banana slices or banana chunks.", "Dust with cinnamon."],
+    ingredients: ["Toast, gluten-free toast, or rice cake", "Peanut butter", "Banana", "Cinnamon optional"],
+    steps: ["Toast the bread if you want it toasted.", "Spread peanut butter.", "Add banana slices or banana chunks.", "Dust with cinnamon if wanted."],
     easierVersion: "Dip banana into peanut butter and skip the toast.",
     swaps: ["Use a rice cake for no wheat.", "Use sunflower butter if peanut butter does not work."]
   },
@@ -124,7 +124,7 @@ const recipes = [
     todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
     pantryItems: ["berries", "spinach", "yogurt", "peanutButter"],
     ingredients: ["Frozen berries", "Spinach", "Greek yogurt or coconut yogurt", "Milk or oat milk", "Nut butter"],
-    steps: ["Put everything in the blender.", "Blend until smooth.", "Pour into the easiest cup to wash."],
+    steps: ["Put everything in the blender.", "Blend until smooth.", "Enjoy."],
     easierVersion: "Use drinkable yogurt or milk and eat a banana beside it.",
     swaps: ["Use oat milk and coconut yogurt for no dairy.", "Skip spinach if green things sound wrong."]
   },
@@ -214,7 +214,7 @@ const recipes = [
     todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
     pantryItems: ["sweetPotato", "yogurt", "hummus", "spinach"],
     ingredients: ["Sweet potato", "Greek yogurt, olive oil, or hummus", "Pumpkin seeds", "Greens optional"],
-    steps: ["Microwave the sweet potato until soft.", "Split it open.", "Top with yogurt, olive oil, or hummus.", "Add seeds if wanted."],
+    steps: ["Microwave the sweet potato until soft.", "Split it open, or mash it.", "Top with yogurt, olive oil, or hummus.", "Add seeds if wanted."],
     easierVersion: "Use only sweet potato and olive oil.",
     swaps: ["Use olive oil for no dairy or no beans."]
   },
@@ -231,9 +231,9 @@ const recipes = [
     tags: ["gentle", "soft", "warm", "low-chop"],
     todayFilters: ["gentle", "noDairy", "noWheat", "noRawVeg"],
     pantryItems: ["soup", "spinach"],
-    ingredients: ["Miso paste", "Tofu", "Rice noodles", "Spinach", "Hot water"],
-    steps: ["Put miso paste in a bowl.", "Add tofu, noodles, and spinach.", "Pour hot water over everything.", "Stir gently."],
-    easierVersion: "Use instant miso soup and add tofu only if it is already open.",
+    ingredients: ["Miso paste", "Soft tofu from a sealed package", "Thin rice noodles", "Spinach optional", "Boiling water"],
+    steps: ["Put miso paste in a bowl.", "Add thin rice noodles and small tofu cubes.", "Pour boiling water over everything.", "Let sit 3 to 5 minutes, until noodles soften and tofu is warm.", "Stir gently. Add spinach if wanted."],
+    easierVersion: "Use instant miso soup and skip the tofu or noodles.",
     swaps: ["Skip this one if beans or soy bother you."]
   },
   {
@@ -250,7 +250,7 @@ const recipes = [
     todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
     pantryItems: ["eggs", "soup", "rice"],
     ingredients: ["Boxed/canned chicken or vegetable broth (soup liquid), or a bouillon cube plus water", "Egg", "Microwave rice if wanted", "Spinach optional"],
-    steps: ["Heat the soup liquid until steaming.", "Beat the egg in a cup.", "Stir the soup liquid while slowly pouring in the egg.", "Add rice if you want it fuller."],
+    steps: ["Warm the broth until steaming.", "Beat the egg in a cup.", "Stir the broth while slowly pouring in the egg.", "Add rice if you want it fuller."],
     easierVersion: "Use boxed soup and crack the egg straight in while stirring.",
     swaps: ["Skip spinach if you prefer it simpler."]
   },
@@ -304,7 +304,7 @@ const recipes = [
     todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
     pantryItems: ["chicken", "soup", "rice"],
     ingredients: ["Rotisserie chicken", "Boxed/canned chicken or vegetable broth (soup liquid), or a bouillon cube plus water", "Frozen vegetables", "Rice or noodles"],
-    steps: ["Heat the soup liquid.", "Add chicken and frozen vegetables.", "Add rice or noodles.", "Simmer until warm."],
+    steps: ["Warm the broth.", "Add chicken and frozen vegetables.", "Add rice or noodles.", "Simmer until warm."],
     easierVersion: "Heat boxed soup and put chicken beside it.",
     swaps: ["Use rice for no wheat."]
   },
@@ -412,7 +412,7 @@ const recipes = [
     todayFilters: ["gentle", "noDairy", "noWheat", "noRawVeg"],
     pantryItems: ["soup", "spinach"],
     ingredients: ["Lentils", "Boxed/canned chicken or vegetable broth (soup liquid), or a bouillon cube plus water", "Frozen carrots or spinach", "Olive oil"],
-    steps: ["Simmer lentils in the soup liquid.", "Add frozen vegetables.", "Cook until soft.", "Eat one bowl and freeze another if you want."],
+    steps: ["Simmer lentils in the broth.", "Add frozen vegetables.", "Cook until soft.", "Eat one bowl and freeze another if you want."],
     easierVersion: "Use canned lentil soup and add olive oil.",
     swaps: ["Skip this one if beans bother you."]
   },
@@ -610,7 +610,7 @@ const recipes = [
     todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
     pantryItems: ["chicken", "soup", "rice"],
     ingredients: ["Boxed/canned chicken or vegetable broth (soup liquid), or a bouillon cube plus water", "Microwave rice", "Rotisserie chicken", "Frozen carrots or peas optional"],
-    steps: ["Heat the soup liquid in a large mug or bowl.", "Add rice and chicken.", "Microwave until hot.", "Add frozen veg if it sounds okay."],
+    steps: ["Warm the broth in a large mug or bowl.", "Add rice and chicken.", "Microwave until hot.", "Add frozen veg if it sounds okay."],
     easierVersion: "Use canned chicken soup and add microwave rice.",
     swaps: ["Skip vegetables if today needs plain food."]
   },
@@ -700,7 +700,7 @@ const recipes = [
     todayFilters: ["gentle", "noDairy", "noWheat", "noRawVeg"],
     pantryItems: ["soup", "hummus"],
     ingredients: ["Canned chickpeas", "Boxed/canned chicken or vegetable broth (soup liquid), or a bouillon cube plus water", "Frozen spinach or carrots", "Olive oil"],
-    steps: ["Heat the soup liquid and chickpeas.", "Add frozen vegetables.", "Simmer until soft.", "Finish with olive oil."],
+    steps: ["Warm the broth and chickpeas.", "Add frozen vegetables.", "Simmer until soft.", "Finish with olive oil."],
     easierVersion: "Use canned soup and add chickpeas if the can is already open.",
     swaps: ["Skip this one if beans bother you."]
   },
@@ -868,7 +868,19 @@ const recipes = [
   }
 ];
 
-const approvedRecipeIds = [];
+const approvedRecipeIds = [
+  "tuna-crackers-plate",
+  "greek-yogurt-berry-bowl",
+  "hummus-snack-plate",
+  "turkey-avocado-roll-ups",
+  "egg-rice-bowl",
+  "salmon-rice-bowl",
+  "rotisserie-chicken-bowl",
+  "tiny-egg-drop-soup",
+  "one-pan-salmon-frozen-veg",
+  "turkey-spinach-pasta",
+  "chickpea-cucumber-bowl"
+];
 const REVIEW_STORAGE_KEY = "thing-to-eat-approved-recipe-ids";
 
 const state = {
