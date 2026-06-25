@@ -811,24 +811,6 @@ const recipes = [
     steps: ["Put oats, milk, and yogurt in a container.", "Add fruit.", "Refrigerate overnight.", "Eat cold or warm it up."],
     easierVersion: "Use instant oatmeal tomorrow instead.",
     swaps: ["Use oat milk and coconut yogurt for no dairy.", "Use certified gluten-free oats for no wheat."]
-  },
-  {
-    id: "soft-rice-pudding-ish-bowl",
-    title: "Soft Rice Pudding-ish Bowl",
-    emoji: "🍚",
-    goodWhen: "soft, warm, and sweet sounds more possible than savory food.",
-    mealTypes: ["breakfast", "snack"],
-    foodTypes: ["smoothie", "snack"],
-    timeMinutes: 10,
-    energyLevel: "little",
-    equipment: ["microwave"],
-    tags: ["gentle", "soft", "warm", "low-chop"],
-    todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
-    pantryItems: ["rice", "banana"],
-    ingredients: ["Microwave rice", "Milk or oat milk", "Banana or applesauce", "Cinnamon", "Nut butter if wanted"],
-    steps: ["Warm rice with a splash of milk or oat milk.", "Stir until soft.", "Add banana or applesauce.", "Top with cinnamon."],
-    easierVersion: "Warm rice and add applesauce.",
-    swaps: ["Use oat milk for no dairy."]
   }
 ];
 
@@ -854,15 +836,28 @@ const approvedRecipeIds = [
   "white-fish-rice-plate",
   "future-me-chicken-tray",
   "gentle-lentil-soup",
+  "leftover-frittata-squares",
   "banana-oat-yogurt-bowl",
+  "avocado-egg-rice-cake",
   "cottage-cheese-fruit-bowl",
   "apple-nut-butter-plate",
   "chicken-avocado-rice-cakes",
   "tuna-avocado-rice-cakes",
+  "warm-cinnamon-oats",
+  "scrambled-eggs-pan",
   "tomato-soup-rice-cakes",
   "chicken-rice-soup-cup",
+  "potato-egg-bowl",
+  "salmon-sweet-potato-plate",
   "tahini-rice-bowl",
-  "chickpea-soup-shortcut"
+  "tuna-white-bean-bowl",
+  "chickpea-soup-shortcut",
+  "sesame-rice-noodle-bowl",
+  "chicken-quinoa-bowl",
+  "freezer-veg-egg-scramble",
+  "turkey-potato-skillet",
+  "future-chicken-rice-cups",
+  "overnight-oats-cup"
 ];
 const REVIEW_STORAGE_KEY = "thing-to-eat-approved-recipe-ids";
 
