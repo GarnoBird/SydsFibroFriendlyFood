@@ -811,6 +811,366 @@ const recipes = [
     steps: ["Put oats, milk, and yogurt in a container.", "Add fruit.", "Refrigerate overnight.", "Eat cold or warm it up."],
     easierVersion: "Use instant oatmeal tomorrow instead.",
     swaps: ["Use oat milk and coconut yogurt for no dairy.", "Use certified gluten-free oats for no wheat."]
+  },
+  {
+    id: "blueberry-peanut-butter-smoothie",
+    title: "Blueberry Peanut Butter Smoothie",
+    emoji: "🫐",
+    goodWhen: "cold, creamy, and familiar sounds easiest.",
+    mealTypes: ["breakfast", "snack"],
+    foodTypes: ["smoothie"],
+    timeMinutes: 5,
+    energyLevel: "barely",
+    equipment: ["blender"],
+    tags: ["gentle", "soft", "steady energy", "low-chop"],
+    todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
+    pantryItems: ["berries", "banana", "peanutButter"],
+    ingredients: ["Frozen blueberries", "Banana", "Peanut butter", "Milk or oat milk", "Greek or coconut yogurt optional"],
+    steps: ["Put everything in the blender.", "Blend until smooth.", "Add more milk if it is too thick."],
+    easierVersion: "Use milk, banana, and peanut butter only.",
+    swaps: ["Use oat milk and coconut yogurt for no dairy.", "Use sunflower butter if peanut butter does not work."]
+  },
+  {
+    id: "applesauce-cinnamon-yogurt-bowl",
+    title: "Applesauce Cinnamon Yogurt Bowl",
+    emoji: "🍎",
+    goodWhen: "sweet, soft, and spoonable sounds good.",
+    mealTypes: ["breakfast", "snack"],
+    foodTypes: ["smoothie"],
+    timeMinutes: 5,
+    energyLevel: "barely",
+    equipment: ["bowl"],
+    tags: ["gentle", "soft", "steady energy", "low-chop"],
+    todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
+    pantryItems: ["yogurt", "oats"],
+    ingredients: ["Greek or coconut yogurt", "Applesauce", "Cinnamon", "Oats or granola optional", "Nut butter optional"],
+    steps: ["Spoon yogurt into a bowl.", "Add applesauce.", "Sprinkle cinnamon.", "Add oats or nut butter if wanted."],
+    easierVersion: "Eat applesauce with a spoonful of yogurt beside it.",
+    swaps: ["Use coconut yogurt for no dairy.", "Use certified gluten-free oats for no wheat."]
+  },
+  {
+    id: "cottage-cheese-rice-cakes",
+    title: "Cottage Cheese Rice Cakes",
+    emoji: "🍚",
+    goodWhen: "cold, soft, and crunchy sounds okay.",
+    mealTypes: ["breakfast", "lunch", "snack"],
+    foodTypes: ["snack"],
+    timeMinutes: 5,
+    energyLevel: "barely",
+    equipment: ["none"],
+    tags: ["gentle", "high-protein", "no-cook", "low-chop"],
+    todayFilters: ["gentle", "noBeans", "noWheat", "noRawVeg"],
+    pantryItems: ["yogurt", "crackers"],
+    ingredients: ["Rice cakes", "Cottage cheese", "Peaches, berries, or cucumber optional", "Salt or cinnamon optional"],
+    steps: ["Put rice cakes on a plate.", "Spoon cottage cheese on top or beside them.", "Add fruit, cucumber, salt, or cinnamon if wanted."],
+    easierVersion: "Eat cottage cheese from the container with rice cakes on the side.",
+    swaps: ["Use Greek yogurt if that sounds better.", "Use fruit cups for softer toppings."]
+  },
+  {
+    id: "salmon-avocado-crackers",
+    title: "Salmon Avocado Crackers",
+    emoji: "🐟",
+    goodWhen: "a small fish plate sounds better than a bowl.",
+    mealTypes: ["lunch", "snack"],
+    foodTypes: ["fish", "snack"],
+    timeMinutes: 5,
+    energyLevel: "barely",
+    equipment: ["none"],
+    tags: ["gentle", "mediterranean-ish", "omega-3", "high-protein", "no-cook", "low-chop"],
+    todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
+    pantryItems: ["salmon", "avocado", "crackers"],
+    ingredients: ["Canned salmon or salmon pouch", "Rice crackers or crackers", "Avocado or olive oil", "Salt", "Lemon optional"],
+    steps: ["Open salmon and drain if needed.", "Put crackers on a plate.", "Add salmon and avocado or olive oil.", "Add salt or lemon if it sounds good."],
+    easierVersion: "Eat salmon with crackers on the side.",
+    swaps: ["Use rice crackers for no wheat.", "Use tuna if salmon is not open."]
+  },
+  {
+    id: "turkey-rice-cake-stacks",
+    title: "Turkey Rice Cake Stacks",
+    emoji: "🧺",
+    goodWhen: "a tiny sandwich without bread sounds good.",
+    mealTypes: ["lunch", "snack"],
+    foodTypes: ["chicken", "snack"],
+    timeMinutes: 5,
+    energyLevel: "barely",
+    equipment: ["none"],
+    tags: ["gentle", "high-protein", "no-cook", "low-chop"],
+    todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
+    pantryItems: ["turkey", "crackers"],
+    ingredients: ["Rice cakes", "Turkey slices", "Avocado, olive oil, or mayo optional", "Pickles or olives optional"],
+    steps: ["Put rice cakes on a plate.", "Fold turkey on top.", "Add avocado, olive oil, mayo, pickles, or olives if wanted."],
+    easierVersion: "Eat turkey slices with rice cakes beside them.",
+    swaps: ["Use chicken slices if that is what is open."]
+  },
+  {
+    id: "tuna-potato-bowl",
+    title: "Tuna Potato Bowl",
+    emoji: "🥔",
+    goodWhen: "warm potato plus tuna sounds steady.",
+    mealTypes: ["lunch", "dinner"],
+    foodTypes: ["fish"],
+    timeMinutes: 10,
+    energyLevel: "little",
+    equipment: ["microwave"],
+    tags: ["gentle", "soft", "omega-3", "high-protein", "low-chop"],
+    todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
+    pantryItems: ["tuna"],
+    ingredients: ["Microwave potato or frozen potato cubes", "Tuna pouch or can", "Olive oil or mayo", "Salt", "Pickles optional"],
+    steps: ["Microwave the potato until soft, or warm frozen potato cubes.", "Split it open or put cubes in a bowl.", "Add tuna.", "Mash lightly with olive oil or mayo and salt."],
+    easierVersion: "Use tuna and a microwave potato with no toppings.",
+    swaps: ["Use canned salmon if tuna sounds boring.", "Skip pickles if sharp food sounds wrong."]
+  },
+  {
+    id: "chicken-sweet-potato-bowl",
+    title: "Chicken Sweet Potato Bowl",
+    emoji: "🍠",
+    goodWhen: "soft sweet potato and chicken sound grounding.",
+    mealTypes: ["lunch", "dinner"],
+    foodTypes: ["chicken", "veggie"],
+    timeMinutes: 10,
+    energyLevel: "little",
+    equipment: ["microwave"],
+    tags: ["gentle", "soft", "high-protein", "low-chop"],
+    todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
+    pantryItems: ["chicken", "sweetPotato"],
+    ingredients: ["Microwave sweet potato", "Rotisserie chicken", "Olive oil", "Salt", "Pumpkin seeds optional"],
+    steps: ["Microwave the sweet potato until soft.", "Split it open and mash the inside a little.", "Add chicken beside it or on top.", "Add olive oil, salt, and seeds if wanted."],
+    easierVersion: "Eat chicken and sweet potato side by side.",
+    swaps: ["Use microwave potato if sweet potato is not around."]
+  },
+  {
+    id: "turkey-rice-soup-cup",
+    title: "Turkey Rice Soup Cup",
+    emoji: "🍵",
+    goodWhen: "a warm cup of food sounds easier than a plate.",
+    mealTypes: ["lunch", "dinner", "snack"],
+    foodTypes: ["soup", "chicken"],
+    timeMinutes: 10,
+    energyLevel: "little",
+    equipment: ["microwave"],
+    tags: ["gentle", "soft", "warm", "high-protein", "low-chop"],
+    todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
+    pantryItems: ["turkey", "soup", "rice"],
+    ingredients: ["Boxed/canned chicken or vegetable broth (soup liquid), or a bouillon cube plus water", "Turkey slices or cooked turkey", "Microwave rice", "Frozen carrots optional"],
+    steps: ["Warm the broth in a large mug or bowl.", "Add turkey and rice.", "Microwave until hot.", "Add frozen carrots if wanted."],
+    easierVersion: "Use broth, turkey, and rice only.",
+    swaps: ["Use rotisserie chicken instead of turkey."]
+  },
+  {
+    id: "egg-avocado-bowl",
+    title: "Egg Avocado Bowl",
+    emoji: "🥑",
+    goodWhen: "eggs and avocado sound soft and simple.",
+    mealTypes: ["breakfast", "lunch"],
+    foodTypes: ["eggs"],
+    timeMinutes: 10,
+    energyLevel: "little",
+    equipment: ["pan"],
+    tags: ["gentle", "soft", "high-protein", "low-chop"],
+    todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
+    pantryItems: ["eggs", "avocado"],
+    ingredients: ["Eggs", "Avocado", "Olive oil or butter", "Rice cake, toast, or rice optional", "Salt"],
+    steps: ["Scramble or fry the eggs in a pan.", "Put avocado in a bowl or on the plate.", "Add eggs.", "Eat with rice cake, toast, or rice if wanted."],
+    easierVersion: "Use a boiled egg and avocado slices.",
+    swaps: ["Use olive oil instead of butter for no dairy.", "Use rice or rice cakes for no wheat."]
+  },
+  {
+    id: "warm-apple-oats",
+    title: "Warm Apple Oats",
+    emoji: "🍎",
+    goodWhen: "warm breakfast sounds nice but plain is best.",
+    mealTypes: ["breakfast", "snack"],
+    foodTypes: ["smoothie"],
+    timeMinutes: 10,
+    energyLevel: "little",
+    equipment: ["microwave"],
+    tags: ["gentle", "soft", "warm", "steady energy", "low-chop"],
+    todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
+    pantryItems: ["oats"],
+    ingredients: ["Quick oats", "Milk, oat milk, or water", "Applesauce or soft apple pieces", "Cinnamon", "Nut butter optional"],
+    steps: ["Put oats and liquid in a bowl.", "Microwave 1 to 2 minutes, until soft.", "Stir in applesauce or soft apple.", "Add cinnamon and nut butter if wanted."],
+    easierVersion: "Use instant oatmeal and applesauce.",
+    swaps: ["Use oat milk or water for no dairy.", "Use certified gluten-free oats for no wheat."]
+  },
+  {
+    id: "salmon-rice-noodle-bowl",
+    title: "Salmon Rice Noodle Bowl",
+    emoji: "🍜",
+    goodWhen: "soft noodles and salmon sound like enough.",
+    mealTypes: ["lunch", "dinner"],
+    foodTypes: ["fish"],
+    timeMinutes: 15,
+    energyLevel: "cook",
+    equipment: ["pot or kettle"],
+    tags: ["soft", "mediterranean-ish", "omega-3", "high-protein", "low-chop"],
+    todayFilters: ["noDairy", "noBeans", "noWheat", "noRawVeg"],
+    pantryItems: ["salmon"],
+    ingredients: ["Rice noodles", "Canned or cooked salmon", "Frozen spinach or carrots", "Olive oil", "Tamari optional"],
+    steps: ["Cook rice noodles.", "Warm frozen vegetables.", "Add salmon.", "Mix with olive oil and tamari if wanted."],
+    easierVersion: "Use salmon and rice noodles with olive oil only.",
+    swaps: ["Use tuna if salmon is not available.", "Skip tamari if plain sounds better."]
+  },
+  {
+    id: "white-fish-potato-plate",
+    title: "White Fish Potato Plate",
+    emoji: "🐟",
+    goodWhen: "mild fish and soft potato sound calm.",
+    mealTypes: ["lunch", "dinner"],
+    foodTypes: ["fish"],
+    timeMinutes: 15,
+    energyLevel: "cook",
+    equipment: ["pan", "microwave"],
+    tags: ["gentle", "soft", "mediterranean-ish", "high-protein", "low-chop"],
+    todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
+    pantryItems: ["rice"],
+    ingredients: ["White fish fillet", "Microwave potato or frozen potato cubes", "Olive oil", "Salt", "Lemon optional"],
+    steps: ["Warm the potato until soft.", "Cook fish in olive oil until flaky.", "Split or mash the potato.", "Put fish beside the potato and add salt."],
+    easierVersion: "Use cooked frozen fish and microwave potato.",
+    swaps: ["Skip lemon if acidic food is not friendly today."]
+  },
+  {
+    id: "egg-fried-rice-ish-bowl",
+    title: "Egg Fried Rice-ish Bowl",
+    emoji: "🍚",
+    goodWhen: "leftover rice and eggs can become dinner.",
+    mealTypes: ["breakfast", "lunch", "dinner"],
+    foodTypes: ["eggs", "veggie"],
+    timeMinutes: 15,
+    energyLevel: "cook",
+    equipment: ["pan"],
+    tags: ["gentle", "soft", "steady energy", "high-protein"],
+    todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
+    pantryItems: ["eggs", "rice", "spinach"],
+    ingredients: ["Cooked rice or microwave rice", "Eggs", "Frozen peas or spinach optional", "Olive oil", "Tamari optional"],
+    steps: ["Warm rice in a pan with a little olive oil.", "Push rice to one side and add beaten eggs.", "Stir until eggs are softly set.", "Add frozen veg or tamari if wanted."],
+    easierVersion: "Make scrambled eggs and eat them over warm rice.",
+    swaps: ["Skip tamari if plain food sounds better."]
+  },
+  {
+    id: "chicken-pesto-ish-rice-bowl",
+    title: "Chicken Pesto-ish Rice Bowl",
+    emoji: "🍗",
+    goodWhen: "chicken and rice need a little flavor without much work.",
+    mealTypes: ["lunch", "dinner"],
+    foodTypes: ["chicken"],
+    timeMinutes: 15,
+    energyLevel: "cook",
+    equipment: ["microwave"],
+    tags: ["mediterranean-ish", "high-protein", "steady energy", "low-chop"],
+    todayFilters: ["noBeans", "noWheat", "noRawVeg"],
+    pantryItems: ["chicken", "rice", "spinach"],
+    ingredients: ["Rotisserie chicken", "Microwave rice", "Spinach or frozen peas optional", "Pesto or olive oil with basil", "Parmesan optional"],
+    steps: ["Warm rice and chicken.", "Warm spinach or peas if wanted.", "Stir in pesto or olive oil with basil.", "Add parmesan if wanted."],
+    easierVersion: "Use chicken, rice, and olive oil only.",
+    swaps: ["Skip parmesan for no dairy.", "Use olive oil and salt if pesto sounds like too much."]
+  },
+  {
+    id: "turkey-carrot-rice-skillet",
+    title: "Turkey Carrot Rice Skillet",
+    emoji: "🥕",
+    goodWhen: "one pan and mild food sound possible.",
+    mealTypes: ["lunch", "dinner"],
+    foodTypes: ["chicken"],
+    timeMinutes: 20,
+    energyLevel: "cook",
+    equipment: ["pan"],
+    tags: ["gentle", "soft", "high-protein", "steady energy"],
+    todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
+    pantryItems: ["turkey", "rice"],
+    ingredients: ["Ground turkey", "Microwave rice", "Frozen carrots", "Olive oil", "Salt"],
+    steps: ["Brown turkey in olive oil.", "Add frozen carrots.", "Cook until carrots are soft.", "Stir in warm rice and salt."],
+    easierVersion: "Use rotisserie chicken with rice and frozen carrots.",
+    swaps: ["Use chicken instead of turkey."]
+  },
+  {
+    id: "future-chicken-soup-base",
+    title: "Future Chicken Soup Base",
+    emoji: "🍲",
+    goodWhen: "a pot of gentle soup would help tomorrow too.",
+    mealTypes: ["lunch", "dinner"],
+    foodTypes: ["soup", "chicken"],
+    timeMinutes: 25,
+    energyLevel: "future",
+    equipment: ["pot"],
+    tags: ["gentle", "soft", "warm", "high-protein", "leftovers"],
+    todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
+    pantryItems: ["chicken", "soup", "rice"],
+    ingredients: ["Rotisserie chicken", "Boxed/canned chicken or vegetable broth (soup liquid), or a bouillon cube plus water", "Frozen carrots or spinach", "Rice or noodles optional", "Olive oil"],
+    steps: ["Warm the broth in a pot.", "Add chicken and frozen vegetables.", "Simmer 10 to 15 minutes, until vegetables are soft.", "Add rice or noodles if wanted."],
+    easierVersion: "Use canned chicken soup and add rotisserie chicken.",
+    swaps: ["Use rice for no wheat.", "Freeze one serving if that helps later."]
+  },
+  {
+    id: "future-turkey-potato-bowls",
+    title: "Future Turkey Potato Bowls",
+    emoji: "📦",
+    goodWhen: "containers of warm simple food would help later.",
+    mealTypes: ["lunch", "dinner"],
+    foodTypes: ["chicken"],
+    timeMinutes: 25,
+    energyLevel: "future",
+    equipment: ["pan", "microwave"],
+    tags: ["gentle", "high-protein", "leftovers", "steady energy"],
+    todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
+    pantryItems: ["turkey"],
+    ingredients: ["Ground turkey", "Frozen potato cubes", "Frozen carrots or spinach", "Olive oil", "Salt"],
+    steps: ["Brown turkey in olive oil.", "Add frozen potatoes and vegetables.", "Cook 12 to 15 minutes, until potatoes are soft.", "Divide into containers if wanted."],
+    easierVersion: "Use rotisserie chicken and microwave potatoes.",
+    swaps: ["Use chicken instead of turkey.", "Skip containers and eat one bowl now."]
+  },
+  {
+    id: "future-salmon-rice-containers",
+    title: "Future Salmon Rice Containers",
+    emoji: "📦",
+    goodWhen: "future lunches need fish, rice, and very few decisions.",
+    mealTypes: ["lunch", "dinner"],
+    foodTypes: ["fish"],
+    timeMinutes: 25,
+    energyLevel: "future",
+    equipment: ["sheet pan", "microwave"],
+    tags: ["gentle", "mediterranean-ish", "omega-3", "high-protein", "leftovers"],
+    todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
+    pantryItems: ["salmon", "rice"],
+    ingredients: ["Salmon fillets", "Microwave rice", "Frozen vegetables", "Olive oil", "Salt"],
+    steps: ["Put salmon and frozen vegetables on a sheet pan.", "Bake at 400 F for 12 to 15 minutes, until salmon flakes.", "Warm rice.", "Divide rice, salmon, and vegetables into containers."],
+    easierVersion: "Use canned salmon with microwave rice.",
+    swaps: ["Use any frozen vegetable that already sounds okay."]
+  },
+  {
+    id: "breakfast-yogurt-jars",
+    title: "Breakfast Yogurt Jars",
+    emoji: "🌙",
+    goodWhen: "future breakfast can be cold and already waiting.",
+    mealTypes: ["breakfast", "snack"],
+    foodTypes: ["smoothie"],
+    timeMinutes: 5,
+    energyLevel: "future",
+    equipment: ["jar or container"],
+    tags: ["gentle", "soft", "steady energy", "leftovers", "low-chop"],
+    todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
+    pantryItems: ["yogurt", "berries", "oats"],
+    ingredients: ["Greek or coconut yogurt", "Berries or banana", "Oats optional", "Chia seeds optional", "Nut butter optional"],
+    steps: ["Spoon yogurt into jars or containers.", "Add fruit.", "Add oats, chia, or nut butter if wanted.", "Refrigerate for later."],
+    easierVersion: "Put yogurt cups and fruit together in the fridge.",
+    swaps: ["Use coconut yogurt for no dairy.", "Use certified gluten-free oats for no wheat."]
+  },
+  {
+    id: "soft-egg-potato-squares",
+    title: "Soft Egg Potato Squares",
+    emoji: "🥚",
+    goodWhen: "soft egg bites for later sound useful.",
+    mealTypes: ["breakfast", "lunch", "snack"],
+    foodTypes: ["eggs"],
+    timeMinutes: 25,
+    energyLevel: "future",
+    equipment: ["oven"],
+    tags: ["gentle", "soft", "high-protein", "leftovers"],
+    todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
+    pantryItems: ["eggs", "rice"],
+    ingredients: ["Eggs", "Cooked potato cubes or microwave potato", "Spinach optional", "Olive oil", "Salt"],
+    steps: ["Oil a small baking dish.", "Add cooked potato pieces and spinach if wanted.", "Pour beaten eggs over the top.", "Bake at 350 F for 20 to 25 minutes, until set.", "Cool a little and cut into squares."],
+    easierVersion: "Make scrambled eggs with microwave potato instead.",
+    swaps: ["Skip spinach for a plainer version."]
   }
 ];
 
@@ -860,6 +1220,7 @@ const approvedRecipeIds = [
   "overnight-oats-cup"
 ];
 const REVIEW_STORAGE_KEY = "thing-to-eat-approved-recipe-ids";
+const FAVORITES_STORAGE_KEY = "thing-to-eat-favorite-recipe-ids";
 
 const state = {
   step: "energy",
@@ -923,19 +1284,22 @@ const appView = document.getElementById("app-view");
 const progressArea = document.getElementById("progress-area");
 const reviewTrigger = document.querySelector("[data-review-trigger]");
 let reviewApprovedIds = loadReviewApprovedIds();
+let favoriteRecipeIds = loadFavoriteRecipeIds();
 let advanceTimer = null;
 let restoringFromHistory = false;
 let reviewHoldTimer = null;
 
 function render() {
   clearAutoAdvance();
-  if (state.step !== "results" && state.step !== "review" && !flowSteps.includes(state.step)) {
+  if (state.step !== "results" && state.step !== "review" && state.step !== "favorites" && !flowSteps.includes(state.step)) {
     state.step = "energy";
   }
   renderProgress();
 
   if (state.step === "review") {
     appView.innerHTML = reviewTemplate();
+  } else if (state.step === "favorites") {
+    appView.innerHTML = favoritesTemplate();
   } else if (state.step === "results") {
     appView.innerHTML = resultsTemplate();
   } else {
@@ -944,7 +1308,7 @@ function render() {
 }
 
 function renderProgress() {
-  if (state.step === "results" || state.step === "review") {
+  if (state.step === "results" || state.step === "review" || state.step === "favorites") {
     progressArea.innerHTML = "";
     progressArea.setAttribute("aria-hidden", "true");
     return;
@@ -971,10 +1335,65 @@ function singleChoiceTemplate(step) {
   return `
     <section class="screen">
       ${screenHeaderTemplate(copy)}
+      ${step === "energy" ? favoritesShortcutTemplate() : ""}
       <div class="choice-grid">
         ${options[step].map((option) => choiceCardTemplate(step, option, selectedValue === option.value)).join("")}
       </div>
       ${navTemplate({ canBack: step !== "energy", canSkip: false, primary: null })}
+    </section>
+  `;
+}
+
+function favoritesShortcutTemplate() {
+  const favoriteCount = getFavoriteRecipes().length;
+  const label = favoriteCount === 1 ? "1 saved recipe" : `${favoriteCount} saved recipes`;
+
+  if (!favoriteCount) {
+    return `
+      <button class="favorite-shortcut is-empty" type="button" disabled aria-disabled="true">
+        <span class="favorite-shortcut-icon" aria-hidden="true">♡</span>
+        <span>
+          <strong>Favorites</strong>
+          <span>No saved recipes yet.</span>
+        </span>
+      </button>
+    `;
+  }
+
+  return `
+    <button class="favorite-shortcut" type="button" data-action="open-favorites">
+      <span class="favorite-shortcut-icon" aria-hidden="true">♥</span>
+      <span>
+        <strong>Favorites</strong>
+        <span>${label}</span>
+      </span>
+    </button>
+  `;
+}
+
+function favoritesTemplate() {
+  const favoriteRecipes = getFavoriteRecipes();
+
+  return `
+    <section class="screen favorites-screen">
+      <div class="results-heading">
+        <div>
+          <p class="eyebrow">saved on this device</p>
+          <h1>Favorites</h1>
+          <p class="subtitle">Recipes Syd hearted for quick lookup.</p>
+        </div>
+      </div>
+      ${favoriteRecipes.length ? `
+        <div class="backup-grid favorites-grid">
+          ${favoriteRecipes.map((recipe) => recipeCardTemplate(recipe, false)).join("")}
+        </div>
+      ` : `
+        <p class="review-empty">No favorites saved yet. Heart a recipe from results and it will show up here.</p>
+      `}
+      <div class="result-actions">
+        <button class="secondary-button" type="button" data-action="back">Back</button>
+        <button class="primary-button" type="button" data-action="restart">Start Over</button>
+      </div>
     </section>
   `;
 }
@@ -1203,17 +1622,21 @@ function recipeCardTemplate(recipe, isPrimary) {
   const todayTags = recipe.todayFilters.length
     ? recipe.todayFilters.map((filter) => getOptionLabel("today", filter)).join(", ")
     : "Normal-ish";
+  const favoriteButton = favoriteButtonTemplate(recipe);
 
   return `
     <article class="recipe-card ${isPrimary ? "is-primary" : "is-backup"} ${expanded ? "is-expanded" : ""}">
-      ${isPrimary ? `<div class="recipe-top">` : `<button class="recipe-top" type="button" data-expand-recipe="${recipe.id}" aria-expanded="${expanded}">`}
+      <div class="recipe-top">
         <span class="recipe-emoji" aria-hidden="true">${recipe.emoji}</span>
         <div>
           <h2>${recipe.title}</h2>
           <p><strong>Good when:</strong> ${recipe.goodWhen}</p>
         </div>
-        ${isPrimary ? "" : `<span class="expand-hint">${expanded ? "Hide" : "View"}</span>`}
-      ${isPrimary ? `</div>` : `</button>`}
+        <div class="recipe-card-tools">
+          ${favoriteButton}
+          ${isPrimary ? "" : `<button class="expand-hint" type="button" data-expand-recipe="${recipe.id}" aria-expanded="${expanded}">${expanded ? "Hide" : "View"}</button>`}
+        </div>
+      </div>
       <div class="tag-row" aria-label="Recipe details">
         <span>${timeLabel}</span>
         <span>${getOptionLabel("energy", recipe.energyLevel)}</span>
@@ -1248,6 +1671,17 @@ function recipeCardTemplate(recipe, isPrimary) {
       </div>
       ${isPrimary ? `<button class="fallback-button" type="button" data-fallback="${recipe.id}">Show me something easier</button>` : ""}
     </article>
+  `;
+}
+
+function favoriteButtonTemplate(recipe) {
+  const isFavorite = favoriteRecipeIds.has(recipe.id);
+  const label = isFavorite ? `Remove ${recipe.title} from Favorites` : `Save ${recipe.title} to Favorites`;
+
+  return `
+    <button class="favorite-button ${isFavorite ? "is-favorite" : ""}" type="button" data-favorite-recipe="${recipe.id}" aria-label="${label}" aria-pressed="${isFavorite}">
+      <span aria-hidden="true">${isFavorite ? "♥" : "♡"}</span>
+    </button>
   `;
 }
 
@@ -1440,6 +1874,57 @@ function persistReviewApprovedIds() {
   }
 }
 
+function loadFavoriteRecipeIds() {
+  const validIds = validRecipeIdSet();
+
+  try {
+    const saved = window.localStorage.getItem(FAVORITES_STORAGE_KEY);
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      if (Array.isArray(parsed)) {
+        return new Set(parsed.filter((id) => validIds.has(id)));
+      }
+    }
+  } catch {
+    // Favorites are optional; an empty set keeps the picker usable.
+  }
+
+  return new Set();
+}
+
+function persistFavoriteRecipeIds() {
+  try {
+    window.localStorage.setItem(FAVORITES_STORAGE_KEY, JSON.stringify(orderedRecipeIdsFromSet(favoriteRecipeIds)));
+  } catch {
+    // If saving fails, keep the in-memory heart state for this session.
+  }
+}
+
+function getFavoriteRecipes() {
+  const validIds = validRecipeIdSet();
+  favoriteRecipeIds = new Set([...favoriteRecipeIds].filter((id) => validIds.has(id)));
+  return recipes.filter((recipe) => favoriteRecipeIds.has(recipe.id));
+}
+
+function toggleFavoriteRecipe(recipeId) {
+  if (!validRecipeIdSet().has(recipeId)) {
+    return;
+  }
+
+  if (favoriteRecipeIds.has(recipeId)) {
+    favoriteRecipeIds.delete(recipeId);
+    if (state.step === "favorites" && state.expandedRecipeId === recipeId) {
+      state.expandedRecipeId = null;
+    }
+  } else {
+    favoriteRecipeIds.add(recipeId);
+  }
+
+  persistFavoriteRecipeIds();
+  writeHistory("replace");
+  render();
+}
+
 function setRecipeApproval(recipeId, approved) {
   if (!validRecipeIdSet().has(recipeId)) {
     return;
@@ -1507,6 +1992,19 @@ function openReview({ push = true } = {}) {
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
+function openFavorites({ push = true } = {}) {
+  clearAutoAdvance();
+  state.step = "favorites";
+  state.expandedRecipeId = null;
+  if (push && !restoringFromHistory) {
+    writeHistory("push");
+  } else if (!restoringFromHistory) {
+    writeHistory("replace");
+  }
+  render();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
 function closeReview() {
   clearAutoAdvance();
   state.step = "energy";
@@ -1530,6 +2028,11 @@ function goNext() {
 
 function goBack() {
   clearAutoAdvance();
+  if (state.step === "favorites") {
+    goToStep("energy");
+    return;
+  }
+
   if (state.step === "results") {
     goToStep(flowSteps[flowSteps.length - 1]);
     return;
@@ -1620,11 +2123,19 @@ document.body.addEventListener("click", (event) => {
       state.visibleBackupCount += 4;
       writeHistory("replace");
       render();
+    } else if (action === "open-favorites") {
+      openFavorites();
     } else if (action === "copy-approved") {
       copyApprovedList();
     } else if (action === "close-review") {
       closeReview();
     }
+    return;
+  }
+
+  const favoriteButton = event.target.closest("[data-favorite-recipe]");
+  if (favoriteButton) {
+    toggleFavoriteRecipe(favoriteButton.dataset.favoriteRecipe);
     return;
   }
 
@@ -1688,7 +2199,8 @@ function stateSnapshot() {
     todayFilters: [...state.todayFilters],
     fallbackSourceId: state.fallbackSourceId,
     expandedRecipeId: state.expandedRecipeId,
-    visibleBackupCount: state.visibleBackupCount
+    visibleBackupCount: state.visibleBackupCount,
+    reviewFilter: state.reviewFilter
   };
 }
 
@@ -1701,7 +2213,7 @@ function restoreSnapshot(snapshot) {
   if (state.step === "today") {
     state.step = "results";
   }
-  if (state.step !== "results" && state.step !== "review" && !flowSteps.includes(state.step)) {
+  if (state.step !== "results" && state.step !== "review" && state.step !== "favorites" && !flowSteps.includes(state.step)) {
     state.step = "energy";
   }
   state.energyLevel = snapshot.energyLevel || null;
@@ -1712,6 +2224,7 @@ function restoreSnapshot(snapshot) {
   state.fallbackSourceId = snapshot.fallbackSourceId || null;
   state.expandedRecipeId = snapshot.expandedRecipeId || null;
   state.visibleBackupCount = snapshot.visibleBackupCount || 2;
+  state.reviewFilter = snapshot.reviewFilter || "needs";
   state.reviewMessage = "";
   return true;
 }
@@ -1719,7 +2232,11 @@ function restoreSnapshot(snapshot) {
 function writeHistory(mode) {
   const snapshot = stateSnapshot();
   const baseUrl = `${window.location.pathname}${window.location.search}`;
-  const url = snapshot.step === "review" ? `${baseUrl}#review` : baseUrl;
+  const url = snapshot.step === "review"
+    ? `${baseUrl}#review`
+    : snapshot.step === "favorites"
+      ? `${baseUrl}#favorites`
+      : baseUrl;
   if (mode === "replace") {
     window.history.replaceState(snapshot, "", url);
   } else {
@@ -1772,11 +2289,15 @@ window.addEventListener("popstate", (event) => {
 window.addEventListener("hashchange", () => {
   if (window.location.hash === "#review" && state.step !== "review") {
     openReview({ push: false });
+  } else if (window.location.hash === "#favorites" && state.step !== "favorites") {
+    openFavorites({ push: false });
   }
 });
 
 if (window.location.hash === "#review") {
   state.step = "review";
+} else if (window.location.hash === "#favorites") {
+  state.step = "favorites";
 }
 
 setupReviewTrigger();

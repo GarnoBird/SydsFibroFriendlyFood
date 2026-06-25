@@ -220,7 +220,10 @@ p {
 .quiet-button,
 .secondary-button,
 .primary-button,
-.fallback-button {
+.fallback-button,
+.favorite-shortcut,
+.favorite-button,
+.expand-hint {
   min-height: 46px;
   border: 1px solid transparent;
   border-radius: 999px;
@@ -240,7 +243,10 @@ p {
 .quiet-button::before,
 .secondary-button::before,
 .primary-button::before,
-.fallback-button::before {
+.fallback-button::before,
+.favorite-shortcut::before,
+.favorite-button::before,
+.expand-hint::before {
   content: "";
   position: absolute;
   inset: 1px 1px auto;
@@ -279,9 +285,62 @@ p {
 .secondary-button:hover,
 .primary-button:hover,
 .fallback-button:hover,
+.favorite-shortcut:hover,
+.favorite-button:hover,
+.expand-hint:hover,
 .choice-card:hover,
 .pantry-chip:hover {
   transform: translateY(-1px);
+}
+
+.favorite-shortcut {
+  width: 100%;
+  min-height: 72px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.42);
+  border-color: rgba(0, 122, 255, 0.16);
+  color: var(--ink);
+  text-align: left;
+}
+
+.favorite-shortcut:disabled {
+  cursor: default;
+  color: var(--muted);
+  transform: none;
+  opacity: 0.8;
+}
+
+.favorite-shortcut-icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 17px;
+  background: rgba(255, 255, 255, 0.5);
+  color: #ff2d55;
+  font-size: 1.35rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
+}
+
+.favorite-shortcut strong,
+.favorite-shortcut span span {
+  display: block;
+}
+
+.favorite-shortcut strong {
+  font-size: 1.05rem;
+  font-weight: 780;
+}
+
+.favorite-shortcut span span {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 620;
 }
 
 .is-hidden {
@@ -726,7 +785,7 @@ p {
 }
 
 .recipe-card.is-backup .recipe-top {
-  cursor: pointer;
+  cursor: default;
 }
 
 .recipe-card.is-backup .recipe-top:hover {
@@ -760,6 +819,7 @@ p {
 }
 
 .expand-hint {
+  appearance: none;
   justify-self: end;
   align-self: start;
   padding: 6px 9px;
@@ -769,6 +829,47 @@ p {
   font-size: 0.8rem;
   font-weight: 760;
   border: 1px solid rgba(255, 255, 255, 0.48);
+  cursor: pointer;
+  min-height: 34px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.62);
+}
+
+.recipe-card-tools {
+  display: flex;
+  align-self: start;
+  justify-self: end;
+  align-items: center;
+  gap: 7px;
+}
+
+.favorite-button {
+  appearance: none;
+  display: grid;
+  place-items: center;
+  min-width: 38px;
+  width: 38px;
+  height: 38px;
+  min-height: 38px;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.52);
+  border-color: rgba(255, 45, 85, 0.18);
+  color: #ff2d55;
+  font-size: 1.12rem;
+  line-height: 1;
+}
+
+.favorite-button.is-favorite {
+  background: linear-gradient(180deg, rgba(255, 45, 85, 0.18), rgba(255, 255, 255, 0.44));
+  border-color: rgba(255, 45, 85, 0.36);
+  color: #d70040;
+}
+
+.favorites-screen {
+  gap: 16px;
+}
+
+.favorites-grid {
+  margin-top: 2px;
 }
 
 .tag-row {
@@ -957,6 +1058,9 @@ p {
   .secondary-button,
   .primary-button,
   .fallback-button,
+  .favorite-shortcut,
+  .favorite-button,
+  .expand-hint,
   .match-message,
   .review-message,
   .review-empty {
@@ -983,6 +1087,9 @@ p {
   .secondary-button,
   .primary-button,
   .fallback-button,
+  .favorite-shortcut,
+  .favorite-button,
+  .expand-hint,
   .match-message,
   .review-message,
   .review-empty {
