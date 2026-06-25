@@ -903,24 +903,6 @@ const recipes = [
     swaps: ["Use chicken slices if that is what is open."]
   },
   {
-    id: "tuna-potato-bowl",
-    title: "Tuna Potato Bowl",
-    emoji: "🥔",
-    goodWhen: "warm potato plus tuna sounds steady.",
-    mealTypes: ["lunch", "dinner"],
-    foodTypes: ["fish"],
-    timeMinutes: 10,
-    energyLevel: "little",
-    equipment: ["microwave"],
-    tags: ["gentle", "soft", "omega-3", "high-protein", "low-chop"],
-    todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
-    pantryItems: ["tuna"],
-    ingredients: ["Microwave potato or frozen potato cubes", "Tuna pouch or can", "Olive oil or mayo", "Salt", "Pickles optional"],
-    steps: ["Microwave the potato until soft, or warm frozen potato cubes.", "Split it open or put cubes in a bowl.", "Add tuna.", "Mash lightly with olive oil or mayo and salt."],
-    easierVersion: "Use tuna and a microwave potato with no toppings.",
-    swaps: ["Use canned salmon if tuna sounds boring.", "Skip pickles if sharp food sounds wrong."]
-  },
-  {
     id: "chicken-sweet-potato-bowl",
     title: "Chicken Sweet Potato Bowl",
     emoji: "🍠",
@@ -1167,8 +1149,8 @@ const recipes = [
     tags: ["gentle", "soft", "high-protein", "leftovers"],
     todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
     pantryItems: ["eggs", "rice"],
-    ingredients: ["Eggs", "Cooked potato cubes or microwave potato", "Spinach optional", "Olive oil", "Salt"],
-    steps: ["Oil a small baking dish.", "Add cooked potato pieces and spinach if wanted.", "Pour beaten eggs over the top.", "Bake at 350 F for 20 to 25 minutes, until set.", "Cool a little and cut into squares."],
+    ingredients: ["Eggs", "Microwave potato or frozen potato cubes", "Spinach optional", "Olive oil", "Salt"],
+    steps: ["Microwave the potato until soft, or warm frozen potato cubes.", "Oil a small baking dish.", "Put small potato pieces in the dish with spinach if wanted.", "Pour beaten eggs over the top.", "Bake at 350 F for 20 to 25 minutes, until set.", "Cool a little and cut into squares."],
     easierVersion: "Make scrambled eggs with microwave potato instead.",
     swaps: ["Skip spinach for a plainer version."]
   }
@@ -1217,7 +1199,25 @@ const approvedRecipeIds = [
   "freezer-veg-egg-scramble",
   "turkey-potato-skillet",
   "future-chicken-rice-cups",
-  "overnight-oats-cup"
+  "overnight-oats-cup",
+  "blueberry-peanut-butter-smoothie",
+  "applesauce-cinnamon-yogurt-bowl",
+  "cottage-cheese-rice-cakes",
+  "salmon-avocado-crackers",
+  "turkey-rice-cake-stacks",
+  "chicken-sweet-potato-bowl",
+  "turkey-rice-soup-cup",
+  "egg-avocado-bowl",
+  "warm-apple-oats",
+  "salmon-rice-noodle-bowl",
+  "white-fish-potato-plate",
+  "egg-fried-rice-ish-bowl",
+  "chicken-pesto-ish-rice-bowl",
+  "turkey-carrot-rice-skillet",
+  "future-chicken-soup-base",
+  "future-turkey-potato-bowls",
+  "future-salmon-rice-containers",
+  "breakfast-yogurt-jars"
 ];
 const REVIEW_STORAGE_KEY = "thing-to-eat-approved-recipe-ids";
 const FAVORITES_STORAGE_KEY = "thing-to-eat-favorite-recipe-ids";
@@ -1724,11 +1724,31 @@ function matchesTodayFilters(recipe) {
 }
 
 function isExactMatch(recipe) {
-  return recipe.energyLevel === state.energyLevel
+  return recipeFitsSelectedEnergy(recipe)
     && recipe.foodTypes.includes(state.foodType)
-    && getTimeBucket(recipe.timeMinutes) === state.timeBucket
+    && recipeFitsSelectedTime(recipe)
     && recipe.mealTypes.includes(state.mealType)
     && matchesTodayFilters(recipe);
+}
+
+function recipeFitsSelectedEnergy(recipe) {
+  if (!state.energyLevel) {
+    return true;
+  }
+
+  if (state.energyLevel === "future") {
+    return recipe.energyLevel === "future";
+  }
+
+  return energyRank[recipe.energyLevel] <= energyRank[state.energyLevel];
+}
+
+function recipeFitsSelectedTime(recipe) {
+  if (!state.timeBucket) {
+    return true;
+  }
+
+  return timeRank[getTimeBucket(recipe.timeMinutes)] <= timeRank[state.timeBucket];
 }
 
 function scoreRecipe(recipe) {
