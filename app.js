@@ -1044,7 +1044,7 @@ const recipes = [
     ingredients: ["Rotisserie chicken", "Microwave rice", "Spinach or frozen peas optional", "Pesto or olive oil with basil", "Parmesan optional"],
     steps: ["Warm rice and chicken.", "Warm spinach or peas if wanted.", "Stir in pesto or olive oil with basil.", "Add parmesan if wanted."],
     easierVersion: "Use chicken, rice, and olive oil only.",
-    swaps: ["Skip parmesan for no dairy.", "Use olive oil and salt if pesto sounds like too much."]
+    swaps: ["Skip parmesan for no dairy.", "Use olive oil and salt instead of pesto."]
   },
   {
     id: "turkey-carrot-rice-skillet",
@@ -1686,8 +1686,9 @@ function favoriteButtonTemplate(recipe) {
 }
 
 function getResultSet() {
-  const compatible = recipes.filter(matchesTodayFilters);
-  const pool = compatible.length ? compatible : recipes;
+  const publicRecipes = getPublicRecipes();
+  const compatible = publicRecipes.filter(matchesTodayFilters);
+  const pool = compatible.length ? compatible : publicRecipes;
   const scored = pool.map((recipe) => ({
     recipe,
     score: scoreRecipe(recipe),
@@ -1713,7 +1714,7 @@ function getResultSet() {
 
   return {
     message: compatible.length
-      ? "No exact match, so these are the closest easier ideas."
+      ? "Here are the closest easy ideas."
       : "Here are the closest gentle backups. Trust your own tolerance first.",
     items: scored
   };
@@ -1862,6 +1863,16 @@ function validRecipeIdSet() {
   return new Set(recipes.map((recipe) => recipe.id));
 }
 
+function publicRecipeIdSet() {
+  const validIds = validRecipeIdSet();
+  return new Set(approvedRecipeIds.filter((id) => validIds.has(id)));
+}
+
+function getPublicRecipes() {
+  const publicIds = publicRecipeIdSet();
+  return recipes.filter((recipe) => publicIds.has(recipe.id));
+}
+
 function orderedRecipeIdsFromSet(idSet) {
   return recipes
     .filter((recipe) => idSet.has(recipe.id))
@@ -1895,7 +1906,7 @@ function persistReviewApprovedIds() {
 }
 
 function loadFavoriteRecipeIds() {
-  const validIds = validRecipeIdSet();
+  const validIds = publicRecipeIdSet();
 
   try {
     const saved = window.localStorage.getItem(FAVORITES_STORAGE_KEY);
@@ -1914,20 +1925,24 @@ function loadFavoriteRecipeIds() {
 
 function persistFavoriteRecipeIds() {
   try {
-    window.localStorage.setItem(FAVORITES_STORAGE_KEY, JSON.stringify(orderedRecipeIdsFromSet(favoriteRecipeIds)));
+    const publicIds = publicRecipeIdSet();
+    const orderedFavorites = getPublicRecipes()
+      .filter((recipe) => favoriteRecipeIds.has(recipe.id) && publicIds.has(recipe.id))
+      .map((recipe) => recipe.id);
+    window.localStorage.setItem(FAVORITES_STORAGE_KEY, JSON.stringify(orderedFavorites));
   } catch {
     // If saving fails, keep the in-memory heart state for this session.
   }
 }
 
 function getFavoriteRecipes() {
-  const validIds = validRecipeIdSet();
-  favoriteRecipeIds = new Set([...favoriteRecipeIds].filter((id) => validIds.has(id)));
-  return recipes.filter((recipe) => favoriteRecipeIds.has(recipe.id));
+  const publicIds = publicRecipeIdSet();
+  favoriteRecipeIds = new Set([...favoriteRecipeIds].filter((id) => publicIds.has(id)));
+  return getPublicRecipes().filter((recipe) => favoriteRecipeIds.has(recipe.id));
 }
 
 function toggleFavoriteRecipe(recipeId) {
-  if (!validRecipeIdSet().has(recipeId)) {
+  if (!publicRecipeIdSet().has(recipeId)) {
     return;
   }
 
