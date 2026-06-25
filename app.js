@@ -1217,7 +1217,8 @@ const approvedRecipeIds = [
   "future-chicken-soup-base",
   "future-turkey-potato-bowls",
   "future-salmon-rice-containers",
-  "breakfast-yogurt-jars"
+  "breakfast-yogurt-jars",
+  "soft-egg-potato-squares"
 ];
 const REVIEW_STORAGE_KEY = "thing-to-eat-approved-recipe-ids";
 const FAVORITES_STORAGE_KEY = "thing-to-eat-favorite-recipe-ids";
