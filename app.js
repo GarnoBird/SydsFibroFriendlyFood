@@ -777,24 +777,6 @@ const recipes = [
     swaps: ["Use chicken instead of turkey."]
   },
   {
-    id: "baked-eggs-tomato-spinach",
-    title: "Baked Eggs with Tomato Spinach",
-    emoji: "🍅",
-    goodWhen: "warm saucy eggs sound nice and the oven can help.",
-    mealTypes: ["breakfast", "lunch", "dinner"],
-    foodTypes: ["eggs", "veggie"],
-    timeMinutes: 20,
-    energyLevel: "cook",
-    equipment: ["oven or covered pan"],
-    tags: ["gentle", "soft", "mediterranean-ish", "high-protein"],
-    todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
-    pantryItems: ["eggs", "spinach", "soup"],
-    ingredients: ["Jarred tomato sauce", "Eggs", "Spinach", "Olive oil", "Toast or rice if wanted"],
-    steps: ["Warm tomato sauce and spinach in a small baking dish or pan.", "Crack eggs into the sauce.", "Bake at 375 F for 10 to 15 minutes, until eggs set, or cover the pan until set.", "Eat with rice or toast."],
-    easierVersion: "Warm tomato soup and eat a boiled egg beside it.",
-    swaps: ["Use rice for no wheat."]
-  },
-  {
     id: "future-chicken-rice-cups",
     title: "Future Chicken Rice Cups",
     emoji: "📦",
@@ -829,24 +811,6 @@ const recipes = [
     steps: ["Put oats, milk, and yogurt in a container.", "Add fruit.", "Refrigerate overnight.", "Eat cold or warm it up."],
     easierVersion: "Use instant oatmeal tomorrow instead.",
     swaps: ["Use oat milk and coconut yogurt for no dairy.", "Use certified gluten-free oats for no wheat."]
-  },
-  {
-    id: "freezer-smoothie-packs",
-    title: "Freezer Smoothie Packs",
-    emoji: "🧊",
-    goodWhen: "future breakfasts would benefit from less thinking.",
-    mealTypes: ["breakfast", "snack"],
-    foodTypes: ["smoothie"],
-    timeMinutes: 20,
-    energyLevel: "future",
-    equipment: ["freezer bags", "blender"],
-    tags: ["gentle", "soft", "leftovers", "low-chop"],
-    todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
-    pantryItems: ["berries", "banana", "spinach", "yogurt"],
-    ingredients: ["Frozen berries", "Banana chunks", "Spinach if wanted", "Yogurt or coconut yogurt", "Nut butter if wanted"],
-    steps: ["Put fruit into freezer bags or containers.", "Add spinach if wanted.", "Freeze.", "Blend one pack later with milk or oat milk."],
-    easierVersion: "Buy frozen smoothie fruit and call that the pack.",
-    swaps: ["Use coconut yogurt and oat milk for no dairy.", "Skip spinach if that makes the smoothie easier to want."]
   },
   {
     id: "soft-rice-pudding-ish-bowl",
