@@ -1235,10 +1235,10 @@ const recipes = [
     tags: ["low-fodmap-ish", "plain-seasoning", "gluten-free", "soluble-fiber-friendly", "soft"],
     todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
     pantryItems: ["chicken", "potato", "carrots"],
-    ingredients: ["Plain cooked chicken", "Microwave potato", "Cooked carrots", "Olive oil", "Salt"],
+    ingredients: ["Plain cooked chicken (leftover or pre-cooked)", "Microwave potato", "Cooked carrots", "Olive oil", "Salt"],
     steps: ["Microwave the potato until soft.", "Warm chicken and carrots.", "Split or mash the potato.", "Put chicken and carrots beside it.", "Add olive oil and salt."],
     easierVersion: "Use only chicken and a microwave potato.",
-    fodmapNote: "Choose plain chicken with simple seasoning."
+    fodmapNote: "Use leftover or pre-cooked plain chicken without garlic/onion seasoning."
   },
   {
     id: "fodmap-salmon-rice-bowl",
@@ -1332,7 +1332,7 @@ const recipes = [
     todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
     pantryItems: ["eggs", "potato", "spinach"],
     ingredients: ["Eggs", "Microwave potato or frozen potato cubes", "Spinach", "Olive oil", "Salt"],
-    steps: ["Warm potato until soft.", "Add potato to an oiled pan.", "Add spinach if wanted.", "Add beaten eggs.", "Scramble until set."],
+    steps: ["Warm potato until soft.", "Split or cut the potato into bite-size pieces.", "Warm potato pieces or frozen potato cubes in an oiled pan.", "Add spinach if wanted.", "Add beaten eggs.", "Scramble until set."],
     easierVersion: "Use a boiled egg with microwave potato.",
     fodmapNote: "Keep seasonings plain."
   },
@@ -1369,7 +1369,7 @@ const recipes = [
     tags: ["low-fodmap-ish", "plain-seasoning", "gluten-free", "soluble-fiber-friendly", "soft"],
     todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
     pantryItems: ["chicken", "rice", "carrots", "spinach"],
-    ingredients: ["Plain cooked chicken", "Cooked rice", "Carrot", "Spinach", "Garlic/onion-free broth"],
+    ingredients: ["Plain cooked chicken (leftover or pre-cooked)", "Cooked rice", "Carrot", "Spinach", "Garlic/onion-free broth"],
     steps: ["Warm broth in a pot.", "Add rice, chicken, and carrot.", "Simmer until warm.", "Add spinach at the end if wanted."],
     easierVersion: "Use plain chicken and rice with warm broth.",
     fodmapNote: "Choose garlic/onion-free broth."
@@ -1447,10 +1447,10 @@ const recipes = [
     tags: ["low-fodmap-ish", "gluten-free", "no-cook", "low-chop"],
     todayFilters: ["gentle", "noDairy", "noBeans", "noWheat"],
     pantryItems: ["turkey", "riceCakes", "cucumber"],
-    ingredients: ["Plain turkey slices", "Plain rice cakes", "Cucumber", "Mayo or olive oil optional", "Salt"],
+    ingredients: ["Plain turkey slices or cooked turkey", "Plain rice cakes", "Cucumber", "Mayo or olive oil optional", "Salt"],
     steps: ["Put turkey on rice cakes.", "Add cucumber slices.", "Add mayo or olive oil if wanted.", "Add salt."],
     easierVersion: "Eat turkey, cucumber, and rice cakes separately.",
-    fodmapNote: "Choose plain turkey with simple seasoning."
+    fodmapNote: "Choose plain turkey slices or cooked turkey with simple seasoning."
   },
   {
     id: "fodmap-salmon-cucumber-rice-cakes",
@@ -1562,10 +1562,10 @@ const recipes = [
     tags: ["low-fodmap-ish", "gluten-free", "soluble-fiber-friendly", "soft", "steady energy"],
     todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
     pantryItems: ["chicken", "rice", "carrots"],
-    ingredients: ["Plain cooked chicken", "Microwave rice", "Cooked carrots", "Olive oil", "Salt"],
+    ingredients: ["Plain cooked chicken (leftover or pre-cooked)", "Microwave rice", "Cooked carrots", "Olive oil", "Salt"],
     steps: ["Warm the rice.", "Warm chicken and carrots.", "Put chicken and carrots on rice.", "Add olive oil and salt."],
     easierVersion: "Use chicken and rice only.",
-    fodmapNote: "Choose plain chicken with simple seasoning."
+    fodmapNote: "Use leftover or pre-cooked plain chicken without garlic/onion seasoning."
   },
   {
     id: "fodmap-turkey-potato-bowl",
@@ -1581,10 +1581,10 @@ const recipes = [
     tags: ["low-fodmap-ish", "gluten-free", "soluble-fiber-friendly", "soft"],
     todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
     pantryItems: ["turkey", "potato", "spinach"],
-    ingredients: ["Plain turkey", "Microwave potato", "Spinach optional", "Olive oil", "Salt"],
+    ingredients: ["Plain turkey slices or cooked turkey", "Microwave potato", "Spinach optional", "Olive oil", "Salt"],
     steps: ["Microwave the potato until soft.", "Split or mash it.", "Warm turkey and spinach if wanted.", "Put turkey on the potato.", "Add olive oil and salt."],
     easierVersion: "Use turkey and potato only.",
-    fodmapNote: "Choose plain turkey with simple seasoning."
+    fodmapNote: "Choose plain turkey slices or cooked turkey with simple seasoning."
   },
   {
     id: "fodmap-salmon-potato-bowl",
@@ -1714,7 +1714,7 @@ const recipes = [
     tags: ["low-fodmap-ish", "gluten-free", "soft", "warm", "low-chop"],
     todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
     pantryItems: ["turkey", "riceNoodles"],
-    ingredients: ["Plain turkey", "Rice noodles", "Garlic/onion-free broth or hot water", "Spinach optional", "Salt"],
+    ingredients: ["Plain turkey slices or cooked turkey", "Rice noodles", "Garlic/onion-free broth or hot water", "Spinach optional", "Salt"],
     steps: ["Put rice noodles in a bowl.", "Pour hot broth or water over them.", "Wait until noodles soften.", "Add turkey and spinach if wanted.", "Add salt."],
     easierVersion: "Use rice noodles and turkey only.",
     fodmapNote: "Choose garlic/onion-free broth."
@@ -1753,10 +1753,10 @@ const recipes = [
     tags: ["low-fodmap-ish", "gluten-free", "no-cook", "low-chop"],
     todayFilters: ["gentle", "noDairy", "noBeans", "noWheat"],
     pantryItems: ["chicken", "cucumber", "riceCakes"],
-    ingredients: ["Plain cooked chicken", "Cucumber", "Plain rice cakes", "Mayo or olive oil optional", "Salt"],
+    ingredients: ["Plain cooked chicken (leftover or pre-cooked)", "Cucumber", "Plain rice cakes", "Mayo or olive oil optional", "Salt"],
     steps: ["Put chicken on a plate.", "Add cucumber.", "Add rice cakes.", "Add mayo, olive oil, or salt if wanted."],
     easierVersion: "Use chicken and rice cakes only.",
-    fodmapNote: "Choose plain chicken with simple seasoning."
+    fodmapNote: "Use leftover or pre-cooked plain chicken without garlic/onion seasoning."
   },
   {
     id: "fodmap-chicken-rice-noodle-bowl",
@@ -1772,7 +1772,7 @@ const recipes = [
     tags: ["low-fodmap-ish", "gluten-free", "soft", "steady energy"],
     todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
     pantryItems: ["chicken", "riceNoodles", "carrots"],
-    ingredients: ["Plain cooked chicken", "Rice noodles", "Cooked carrots", "Olive oil or sesame oil", "Salt"],
+    ingredients: ["Plain cooked chicken (leftover or pre-cooked)", "Rice noodles", "Cooked carrots", "Olive oil or sesame oil", "Salt"],
     steps: ["Cook rice noodles.", "Warm chicken and carrots.", "Mix noodles, chicken, and carrots.", "Add oil and salt."],
     easierVersion: "Use chicken and rice noodles only.",
     fodmapNote: "Keep sauces plain or use Syd's FODMAP list."
@@ -1810,10 +1810,10 @@ const recipes = [
     tags: ["low-fodmap-ish", "gluten-free", "soft", "high-protein"],
     todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
     pantryItems: ["turkey", "eggs", "rice"],
-    ingredients: ["Plain turkey", "Eggs", "Microwave rice", "Spinach optional", "Olive oil", "Salt"],
+    ingredients: ["Plain turkey slices or cooked turkey", "Eggs", "Microwave rice", "Spinach optional", "Olive oil", "Salt"],
     steps: ["Warm rice.", "Warm turkey in an oiled pan.", "Add spinach if wanted.", "Add beaten eggs.", "Scramble until set.", "Serve over rice."],
     easierVersion: "Use turkey, a boiled egg, and rice.",
-    fodmapNote: "Choose plain turkey with simple seasoning."
+    fodmapNote: "Choose plain turkey slices or cooked turkey with simple seasoning."
   },
   {
     id: "fodmap-white-fish-potato-carrot-plate",
@@ -1867,7 +1867,7 @@ const recipes = [
     tags: ["low-fodmap-ish", "gluten-free", "soft", "steady energy"],
     todayFilters: ["gentle", "noDairy", "noBeans", "noWheat"],
     pantryItems: ["chicken", "zucchini", "rice"],
-    ingredients: ["Plain cooked chicken", "Zucchini", "Microwave rice", "Olive oil", "Salt"],
+    ingredients: ["Plain cooked chicken (leftover or pre-cooked)", "Zucchini", "Microwave rice", "Olive oil", "Salt"],
     steps: ["Warm rice.", "Warm zucchini in an oiled pan.", "Add chicken.", "Cook until everything is warm.", "Serve over rice."],
     easierVersion: "Use chicken and rice only.",
     fodmapNote: "Use Syd's FODMAP list for zucchini."
@@ -1905,7 +1905,7 @@ const recipes = [
     tags: ["low-fodmap-ish", "gluten-free", "soft", "steady energy"],
     todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
     pantryItems: ["turkey", "quinoa", "spinach"],
-    ingredients: ["Plain turkey", "Cooked quinoa", "Spinach optional", "Olive oil", "Salt"],
+    ingredients: ["Plain turkey slices or cooked turkey", "Cooked quinoa", "Spinach optional", "Olive oil", "Salt"],
     steps: ["Warm quinoa.", "Warm turkey and spinach if wanted.", "Put turkey on quinoa.", "Add olive oil and salt."],
     easierVersion: "Use turkey and quinoa only.",
     fodmapNote: "Use Syd's FODMAP list for quinoa."
@@ -1963,7 +1963,7 @@ const recipes = [
     todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
     pantryItems: ["potato", "eggs", "spinach"],
     ingredients: ["Microwave potato or frozen potato cubes", "Eggs", "Spinach optional", "Olive oil", "Salt"],
-    steps: ["Warm potato until soft.", "Add potato to an oiled pan.", "Add spinach if wanted.", "Add beaten eggs.", "Scramble until set."],
+    steps: ["Warm potato until soft.", "Split or cut the potato into bite-size pieces.", "Warm potato pieces or frozen potato cubes in an oiled pan.", "Add spinach if wanted.", "Add beaten eggs.", "Scramble until set."],
     easierVersion: "Use a boiled egg with microwave potato.",
     fodmapNote: "Keep seasonings plain."
   },
@@ -1981,10 +1981,10 @@ const recipes = [
     tags: ["low-fodmap-ish", "gluten-free", "leftovers", "soluble-fiber-friendly"],
     todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
     pantryItems: ["chicken", "rice", "carrots"],
-    ingredients: ["Plain cooked chicken", "Cooked rice", "Cooked carrots", "Olive oil", "Salt"],
+    ingredients: ["Plain cooked chicken (leftover or pre-cooked)", "Cooked rice", "Cooked carrots", "Olive oil", "Salt"],
     steps: ["Warm chicken, rice, and carrots.", "Mix with olive oil and salt.", "Pack into containers.", "Refrigerate for later."],
     easierVersion: "Pack plain chicken and microwave rice together.",
-    fodmapNote: "Choose plain chicken with simple seasoning."
+    fodmapNote: "Use leftover or pre-cooked plain chicken without garlic/onion seasoning."
   },
   {
     id: "fodmap-future-turkey-potato-boxes",
@@ -2000,10 +2000,10 @@ const recipes = [
     tags: ["low-fodmap-ish", "gluten-free", "leftovers", "soluble-fiber-friendly", "soft"],
     todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
     pantryItems: ["turkey", "potato", "spinach"],
-    ingredients: ["Plain turkey", "Microwave potatoes", "Spinach optional", "Olive oil", "Salt"],
+    ingredients: ["Plain turkey slices or cooked turkey", "Microwave potatoes", "Spinach optional", "Olive oil", "Salt"],
     steps: ["Warm potatoes until soft.", "Split or mash potatoes.", "Warm turkey and spinach if wanted.", "Pack into containers.", "Add olive oil and salt."],
     easierVersion: "Pack turkey with microwave potatoes.",
-    fodmapNote: "Choose plain turkey with simple seasoning."
+    fodmapNote: "Choose plain turkey slices or cooked turkey with simple seasoning."
   },
   {
     id: "fodmap-future-salmon-rice-boxes",
@@ -2115,8 +2115,8 @@ const recipes = [
     tags: ["low-fodmap-ish", "gluten-free", "leftovers", "soft", "warm"],
     todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
     pantryItems: ["chicken", "riceNoodles", "carrots"],
-    ingredients: ["Plain cooked chicken", "Rice noodles", "Cooked carrots", "Spinach optional", "Garlic/onion-free broth"],
-    steps: ["Pack chicken, noodles, and carrots into containers.", "Keep broth separate if possible.", "Refrigerate for later.", "Warm with broth when ready to eat."],
+    ingredients: ["Plain cooked chicken (leftover or pre-cooked)", "Rice noodles", "Cooked carrots", "Spinach optional", "Garlic/onion-free broth"],
+    steps: ["Cook plain chicken if needed, then let it cool a little.", "Cook rice noodles.", "Pack chicken, noodles, and carrots into containers.", "Keep broth separate if possible.", "Refrigerate for later.", "Warm with broth when ready to eat."],
     easierVersion: "Pack chicken and rice noodles only.",
     fodmapNote: "Choose garlic/onion-free broth."
   },
@@ -2203,10 +2203,57 @@ const approvedRecipeIds = [
   "future-turkey-potato-bowls",
   "future-salmon-rice-containers",
   "breakfast-yogurt-jars",
-  "soft-egg-potato-squares"
+  "soft-egg-potato-squares",
+  "fodmap-egg-rice-bowl",
+  "fodmap-tuna-rice-cakes",
+  "fodmap-chicken-potato-plate",
+  "fodmap-salmon-rice-bowl",
+  "fodmap-strawberry-yogurt-bowl",
+  "fodmap-kiwi-chia-oats",
+  "fodmap-peanut-butter-rice-cakes",
+  "fodmap-egg-potato-scramble",
+  "fodmap-rice-noodle-egg-bowl",
+  "fodmap-chicken-rice-soup",
+  "fodmap-blueberry-chia-yogurt-bowl",
+  "fodmap-strawberry-oat-yogurt-cup",
+  "fodmap-kiwi-peanut-butter-oats",
+  "fodmap-turkey-cucumber-rice-cakes",
+  "fodmap-carrot-cheddar-rice-cakes",
+  "fodmap-orange-tuna-rice-plate",
+  "fodmap-boiled-egg-potato-snack",
+  "fodmap-kiwi-yogurt-chia-cup",
+  "fodmap-chicken-carrot-rice-bowl",
+  "fodmap-turkey-potato-bowl",
+  "fodmap-salmon-potato-bowl",
+  "fodmap-white-fish-rice-bowl",
+  "fodmap-egg-carrot-rice-bowl",
+  "fodmap-zucchini-egg-rice-bowl",
+  "fodmap-tomato-egg-rice-bowl",
+  "fodmap-carrot-ginger-rice-soup",
+  "fodmap-turkey-rice-noodle-cup",
+  "fodmap-cinnamon-oat-kiwi-bowl",
+  "fodmap-chicken-cucumber-rice-cake-plate",
+  "fodmap-chicken-rice-noodle-bowl",
+  "fodmap-salmon-rice-noodle-bowl",
+  "fodmap-white-fish-potato-carrot-plate",
+  "fodmap-shrimp-rice-bowl",
+  "fodmap-chicken-zucchini-rice-skillet",
+  "fodmap-egg-quinoa-carrot-bowl",
+  "fodmap-turkey-quinoa-spinach-bowl",
+  "fodmap-salmon-quinoa-cucumber-bowl",
+  "fodmap-rice-noodle-carrot-soup",
+  "fodmap-future-chicken-rice-cups",
+  "fodmap-future-turkey-potato-boxes",
+  "fodmap-future-salmon-rice-boxes",
+  "fodmap-future-egg-potato-squares",
+  "fodmap-future-carrot-rice-soup-base",
+  "fodmap-future-breakfast-oat-jars",
+  "fodmap-future-kiwi-chia-yogurt-jars",
+  "fodmap-future-potato-carrot-egg-squares"
 ];
 const REVIEW_STORAGE_KEY = "thing-to-eat-approved-recipe-ids";
 const FAVORITES_STORAGE_KEY = "thing-to-eat-favorite-recipe-ids";
+const CHECKLIST_STORAGE_KEY = "thing-to-eat-checked-checklist-items";
 
 const state = {
   step: "mode",
@@ -2253,7 +2300,7 @@ const stepCopy = {
   },
   food: {
     eyebrow: "Step 2 of 4",
-    title: "What kind of food sounds okay?",
+    title: "What sounds good today?",
     note: "Pick the one that sounds best today."
   },
   time: {
@@ -2274,6 +2321,7 @@ const noticeText = document.getElementById("notice-text");
 const reviewTrigger = document.querySelector("[data-review-trigger]");
 let reviewApprovedIds = loadReviewApprovedIds();
 let favoriteRecipeIds = loadFavoriteRecipeIds();
+let checkedChecklistItems = loadCheckedChecklistItems();
 let advanceTimer = null;
 let restoringFromHistory = false;
 let reviewHoldTimer = null;
@@ -2308,7 +2356,7 @@ function renderNotice() {
   }
 
   if (state.recipeMode === "fodmap") {
-    noticeText.textContent = "Low-FODMAP tolerance is portion-specific. Use Syd's clinician or dietitian guidance first.";
+    noticeText.textContent = "Low-FODMAP tolerance is portion-specific. Use clinician or dietitian guidance first.";
     return;
   }
 
@@ -2587,7 +2635,7 @@ function reviewRecipeCardTemplate(recipe, approved) {
         <section>
           <h3>Shopping checklist</h3>
           <ul class="checklist">
-            ${recipe.ingredients.map((ingredient) => `<li>${formatIngredientForChecklist(ingredient)}</li>`).join("")}
+            ${checklistTemplate(recipe)}
           </ul>
         </section>
         <section>
@@ -2641,6 +2689,26 @@ function formatIngredientForChecklist(ingredient) {
   return `${phrase}${qualifier}`;
 }
 
+function checklistTemplate(recipe) {
+  return recipe.ingredients
+    .map((ingredient, index) => checklistItemTemplate(recipe, ingredient, index))
+    .join("");
+}
+
+function checklistItemTemplate(recipe, ingredient, index) {
+  const key = checklistItemKey(recipe, ingredient, index);
+  const checked = checkedChecklistItems.has(key);
+
+  return `
+    <li class="${checked ? "is-checked" : ""}">
+      <label class="checklist-control">
+        <input type="checkbox" data-checklist-key="${key}" ${checked ? "checked" : ""}>
+        <span>${formatIngredientForChecklist(ingredient)}</span>
+      </label>
+    </li>
+  `;
+}
+
 function splitIngredientQualifier(ingredient) {
   const text = ingredient.trim();
   const qualifierMatch = text.match(/\s+(optional|if wanted)$/i);
@@ -2650,7 +2718,7 @@ function splitIngredientQualifier(ingredient) {
 
   return {
     base: text.slice(0, qualifierMatch.index),
-    qualifier: ` ${qualifierMatch[1].toLowerCase()}`
+    qualifier: ` (${qualifierMatch[1].toLowerCase()})`
   };
 }
 
@@ -2694,12 +2762,22 @@ function softAmountPhrase(base, lower) {
   if (lower === "tuna pouch or can") return "1 tuna pouch or can";
   if (lower.includes("tuna pouch") || lower.includes("tuna")) return `1 pouch or can of ${lower}`;
   if (lower.includes("salmon fillet")) return `1 salmon fillet`;
+  if (lower === "canned salmon or salmon pouch") return "1 can or pouch of salmon";
+  if (lower === "canned salmon or cooked salmon") return "1 can or small piece of salmon";
+  if (lower === "canned or cooked salmon") return "1 can or small piece of salmon";
+  if (lower === "canned salmon or leftover salmon") return "1 can or small piece of salmon";
+  if (lower === "cooked salmon or canned salmon") return "1 small piece or can of salmon";
   if (lower.includes("salmon")) return `1 piece or pouch of ${lower}`;
   if (lower.includes("white fish")) return `1 piece of ${lower}`;
   if (lower.includes("shrimp")) return `1 small handful of shrimp`;
   if (lower.includes("chicken thigh") || lower.includes("chicken tender")) return `1 to 2 pieces of ${lower}`;
-  if (lower.includes("chicken") || lower.includes("turkey") || lower.includes("rotisserie")) return `1 small handful of ${lower}`;
+  if (lower === "plain cooked chicken (leftover or pre-cooked)") return "a small handful of leftover or pre-cooked plain chicken";
+  if (lower === "plain turkey slices or cooked turkey") return "a few plain turkey slices or a small handful of cooked turkey";
+  if (lower === "turkey slices or cooked turkey") return "a few turkey slices or a small handful of cooked turkey";
+  if (lower === "plain turkey slices") return "a few plain turkey slices";
+  if (lower === "turkey slices") return "a few turkey slices";
   if (lower.includes("ground turkey")) return `1 small handful of ${lower}`;
+  if (lower.includes("chicken") || lower.includes("turkey") || lower.includes("rotisserie")) return `1 small handful of ${lower}`;
   if (lower.includes("tofu")) return `1 small handful of ${lower}`;
   if (lower.includes("lentils") || lower.includes("chickpeas") || lower.includes("white beans") || lower === "hummus") return `1 small scoop of ${lower}`;
   if (lower === "microwave potato") return "1 microwave potato";
@@ -2823,7 +2901,7 @@ function recipeCardTemplate(recipe, isPrimary, { promotable = false } = {}) {
         <section>
           <h3>Shopping checklist</h3>
           <ul class="checklist">
-            ${recipe.ingredients.map((ingredient) => `<li>${formatIngredientForChecklist(ingredient)}</li>`).join("")}
+            ${checklistTemplate(recipe)}
           </ul>
         </section>
         <section>
@@ -3091,10 +3169,29 @@ function getPublicRecipes(mode = null) {
   });
 }
 
+function checklistItemKey(recipe, ingredient, index) {
+  const normalizedIngredient = encodeURIComponent(ingredient.trim().toLowerCase());
+  return `${recipe.id}::${index}::${normalizedIngredient}`;
+}
+
+function validChecklistItemKeys() {
+  return new Set(recipes.flatMap((recipe) => {
+    return recipe.ingredients.map((ingredient, index) => checklistItemKey(recipe, ingredient, index));
+  }));
+}
+
 function orderedRecipeIdsFromSet(idSet) {
   return recipes
     .filter((recipe) => idSet.has(recipe.id))
     .map((recipe) => recipe.id);
+}
+
+function orderedChecklistKeysFromSet(keySet) {
+  return recipes.flatMap((recipe) => {
+    return recipe.ingredients
+      .map((ingredient, index) => checklistItemKey(recipe, ingredient, index))
+      .filter((key) => keySet.has(key));
+  });
 }
 
 function loadReviewApprovedIds() {
@@ -3157,6 +3254,46 @@ function getFavoriteRecipes() {
   const publicIds = publicRecipeIdSet();
   favoriteRecipeIds = new Set([...favoriteRecipeIds].filter((id) => publicIds.has(id)));
   return getPublicRecipes().filter((recipe) => favoriteRecipeIds.has(recipe.id));
+}
+
+function loadCheckedChecklistItems() {
+  const validKeys = validChecklistItemKeys();
+
+  try {
+    const saved = window.localStorage.getItem(CHECKLIST_STORAGE_KEY);
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      if (Array.isArray(parsed)) {
+        return new Set(parsed.filter((key) => validKeys.has(key)));
+      }
+    }
+  } catch {
+    // Checklist checks are optional; an empty set keeps recipe cards usable.
+  }
+
+  return new Set();
+}
+
+function persistCheckedChecklistItems() {
+  try {
+    window.localStorage.setItem(CHECKLIST_STORAGE_KEY, JSON.stringify(orderedChecklistKeysFromSet(checkedChecklistItems)));
+  } catch {
+    // If saving fails, keep the current checkbox state for this session.
+  }
+}
+
+function setChecklistItemChecked(key, checked) {
+  if (!validChecklistItemKeys().has(key)) {
+    return;
+  }
+
+  if (checked) {
+    checkedChecklistItems.add(key);
+  } else {
+    checkedChecklistItems.delete(key);
+  }
+
+  persistCheckedChecklistItems();
 }
 
 function toggleFavoriteRecipe(recipeId) {
@@ -3487,6 +3624,16 @@ document.body.addEventListener("click", (event) => {
     writeHistory("replace");
     render();
   }
+});
+
+document.body.addEventListener("change", (event) => {
+  const checklistInput = event.target.closest("[data-checklist-key]");
+  if (!checklistInput) {
+    return;
+  }
+
+  setChecklistItemChecked(checklistInput.dataset.checklistKey, checklistInput.checked);
+  checklistInput.closest("li")?.classList.toggle("is-checked", checklistInput.checked);
 });
 
 function stateSnapshot() {
