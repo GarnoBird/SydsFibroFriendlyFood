@@ -1,5 +1,20 @@
 const flowSteps = ["energy", "food", "time", "meal"];
 
+const recipeModes = {
+  mediterranean: {
+    label: "Mediterranean-ish",
+    shortLabel: "Mediterranean",
+    icon: "🥗",
+    note: "The current gentle, simple recipe set."
+  },
+  fodmap: {
+    label: "Low-FODMAP-ish",
+    shortLabel: "Low-FODMAP",
+    icon: "🥝",
+    note: "Simple ideas that avoid common FODMAP triggers."
+  }
+};
+
 const options = {
   energy: [
     { value: "barely", label: "Barely Anything", icon: "🛌", note: "No chopping. No stove. 2 to 5 minutes." },
@@ -35,6 +50,20 @@ const options = {
     { value: "noWheat", label: "No wheat today", icon: "🌾", note: "Rice, potatoes, oats, or gluten-free swaps." },
     { value: "noRawVeg", label: "No raw veg today", icon: "🥕", note: "Cooked, soft, or skip the veg." }
   ]
+};
+
+const modeChoiceNotes = {
+  fodmap: {
+    food: {
+      fish: "Plain tuna, salmon, or white fish with rice or potato.",
+      chicken: "Plain chicken or turkey with rice, potato, carrots, or greens.",
+      eggs: "Eggs with rice, potato, carrots, or spinach.",
+      veggie: "Rice, potato, carrots, spinach, cucumber, or kiwi.",
+      soup: "Garlic/onion-free broth, chicken, rice, carrots, or greens.",
+      snack: "Rice cakes, peanut butter, strawberries, kiwi, or tuna.",
+      smoothie: "Lactose-free yogurt, strawberries, kiwi, oats, or chia."
+    }
+  }
 };
 
 const recipes = [
@@ -1153,6 +1182,197 @@ const recipes = [
     steps: ["Microwave the potato until soft, or warm frozen potato cubes.", "Oil a small baking dish.", "Put small potato pieces in the dish with spinach if wanted.", "Pour beaten eggs over the top.", "Bake at 350 F for 20 to 25 minutes, until set.", "Cool a little and cut into squares."],
     easierVersion: "Make scrambled eggs with microwave potato instead.",
     swaps: ["Skip spinach for a plainer version."]
+  },
+  {
+    id: "fodmap-egg-rice-bowl",
+    recipeMode: "fodmap",
+    title: "Low-FODMAP-ish Egg Rice Bowl",
+    emoji: "🍳",
+    goodWhen: "warm rice and eggs sound steady and familiar.",
+    mealTypes: ["breakfast", "lunch", "dinner"],
+    foodTypes: ["eggs"],
+    timeMinutes: 10,
+    energyLevel: "little",
+    equipment: ["microwave", "pan"],
+    tags: ["low-fodmap-ish", "no-onion-garlic", "gluten-free", "soluble-fiber-friendly", "soft"],
+    todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
+    pantryItems: ["eggs", "rice", "spinach", "carrots"],
+    ingredients: ["Microwave rice", "Eggs", "Spinach", "Shredded carrot", "Olive oil", "Salt"],
+    steps: ["Warm the rice.", "Scramble or fry the eggs in a pan.", "Warm spinach and carrot if wanted.", "Put eggs and vegetables on the rice.", "Add olive oil and salt."],
+    easierVersion: "Use a boiled egg over warm rice.",
+    fodmapNote: "Use Syd's FODMAP list if she has one."
+  },
+  {
+    id: "fodmap-tuna-rice-cakes",
+    recipeMode: "fodmap",
+    title: "Low-FODMAP-ish Tuna Rice Cakes",
+    emoji: "🐟",
+    goodWhen: "a no-cook plate sounds best.",
+    mealTypes: ["lunch", "dinner", "snack"],
+    foodTypes: ["fish", "snack"],
+    timeMinutes: 5,
+    energyLevel: "barely",
+    equipment: ["none"],
+    tags: ["low-fodmap-ish", "no-onion-garlic", "gluten-free", "no-cook", "low-chop"],
+    todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
+    pantryItems: ["tuna", "riceCakes", "cucumber"],
+    ingredients: ["Tuna pouch or can", "Plain rice cakes", "Cucumber", "Mayo or olive oil", "Salt"],
+    steps: ["Open tuna.", "Put tuna on rice cakes.", "Add cucumber slices.", "Add mayo or olive oil and salt."],
+    easierVersion: "Eat tuna with rice cakes beside it.",
+    fodmapNote: "Choose plain tuna and plain rice cakes."
+  },
+  {
+    id: "fodmap-chicken-potato-plate",
+    recipeMode: "fodmap",
+    title: "Low-FODMAP-ish Chicken Potato Plate",
+    emoji: "🥔",
+    goodWhen: "plain warm food sounds easiest.",
+    mealTypes: ["lunch", "dinner"],
+    foodTypes: ["chicken", "veggie"],
+    timeMinutes: 10,
+    energyLevel: "little",
+    equipment: ["microwave"],
+    tags: ["low-fodmap-ish", "no-onion-garlic", "gluten-free", "soluble-fiber-friendly", "soft"],
+    todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
+    pantryItems: ["chicken", "potato", "carrots"],
+    ingredients: ["Plain cooked chicken", "Microwave potato", "Cooked carrots", "Olive oil", "Salt"],
+    steps: ["Microwave the potato until soft.", "Warm chicken and carrots.", "Split or mash the potato.", "Put chicken and carrots beside it.", "Add olive oil and salt."],
+    easierVersion: "Use only chicken and a microwave potato.",
+    fodmapNote: "Choose plain chicken without onion or garlic seasoning."
+  },
+  {
+    id: "fodmap-salmon-rice-bowl",
+    recipeMode: "fodmap",
+    title: "Low-FODMAP-ish Salmon Rice Bowl",
+    emoji: "🍚",
+    goodWhen: "rice and fish sound simple.",
+    mealTypes: ["lunch", "dinner"],
+    foodTypes: ["fish"],
+    timeMinutes: 10,
+    energyLevel: "little",
+    equipment: ["microwave"],
+    tags: ["low-fodmap-ish", "no-onion-garlic", "gluten-free", "omega-3", "soft"],
+    todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
+    pantryItems: ["salmon", "rice", "carrots", "spinach"],
+    ingredients: ["Microwave rice", "Canned salmon or cooked salmon", "Carrots or spinach", "Olive oil", "Salt"],
+    steps: ["Warm the rice.", "Open salmon or warm cooked salmon.", "Warm carrots or spinach if wanted.", "Put salmon on the rice.", "Add olive oil and salt."],
+    easierVersion: "Use salmon and rice only.",
+    fodmapNote: "Choose plain salmon."
+  },
+  {
+    id: "fodmap-strawberry-yogurt-bowl",
+    recipeMode: "fodmap",
+    title: "Low-FODMAP-ish Strawberry Yogurt Bowl",
+    emoji: "🍓",
+    goodWhen: "cold, soft breakfast sounds good.",
+    mealTypes: ["breakfast", "snack"],
+    foodTypes: ["smoothie", "snack"],
+    timeMinutes: 5,
+    energyLevel: "barely",
+    equipment: ["bowl"],
+    tags: ["low-fodmap-ish", "lactose-free", "gluten-free", "soluble-fiber-friendly", "soft"],
+    todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
+    pantryItems: ["yogurt", "strawberries", "chia"],
+    ingredients: ["Lactose-free yogurt", "Strawberries", "Chia seeds optional"],
+    steps: ["Spoon yogurt into a bowl.", "Add strawberries.", "Sprinkle chia if wanted."],
+    easierVersion: "Use lactose-free drinkable yogurt and strawberries.",
+    fodmapNote: "Use Syd's FODMAP list if she has one."
+  },
+  {
+    id: "fodmap-kiwi-chia-oats",
+    recipeMode: "fodmap",
+    title: "Low-FODMAP-ish Kiwi Chia Oats",
+    emoji: "🥝",
+    goodWhen: "soft oats and fruit sound manageable.",
+    mealTypes: ["breakfast", "snack"],
+    foodTypes: ["smoothie", "snack"],
+    timeMinutes: 10,
+    energyLevel: "little",
+    equipment: ["microwave"],
+    tags: ["low-fodmap-ish", "lactose-free", "soluble-fiber-friendly", "soft"],
+    todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
+    pantryItems: ["oats", "kiwi", "chia"],
+    ingredients: ["Quick oats", "Lactose-free milk or water", "Kiwi", "Chia seeds optional", "Cinnamon optional"],
+    steps: ["Put oats and liquid in a bowl.", "Microwave 30 seconds to 1 minute.", "Stir until soft.", "Add kiwi.", "Sprinkle chia or cinnamon if wanted."],
+    easierVersion: "Use instant oatmeal made with water and add kiwi.",
+    swaps: ["Use certified gluten-free oats if needed."],
+    fodmapNote: "Use Syd's FODMAP list for her preferred milk."
+  },
+  {
+    id: "fodmap-peanut-butter-rice-cakes",
+    recipeMode: "fodmap",
+    title: "Low-FODMAP-ish Peanut Butter Rice Cakes",
+    emoji: "🥜",
+    goodWhen: "sweet, crunchy, and no-cook sounds best.",
+    mealTypes: ["breakfast", "lunch", "snack"],
+    foodTypes: ["snack"],
+    timeMinutes: 5,
+    energyLevel: "barely",
+    equipment: ["none"],
+    tags: ["low-fodmap-ish", "gluten-free", "no-cook", "low-chop"],
+    todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
+    pantryItems: ["riceCakes", "peanutButter", "strawberries", "kiwi"],
+    ingredients: ["Plain rice cakes", "Peanut butter", "Strawberries or kiwi", "Cinnamon optional"],
+    steps: ["Spread peanut butter on rice cakes.", "Add strawberries or kiwi.", "Sprinkle cinnamon if wanted."],
+    easierVersion: "Eat rice cakes with peanut butter beside the fruit.",
+    fodmapNote: "Choose plain rice cakes."
+  },
+  {
+    id: "fodmap-egg-potato-scramble",
+    recipeMode: "fodmap",
+    title: "Low-FODMAP-ish Egg Potato Scramble",
+    emoji: "🥚",
+    goodWhen: "eggs and potato sound filling but still simple.",
+    mealTypes: ["breakfast", "lunch", "dinner"],
+    foodTypes: ["eggs", "veggie"],
+    timeMinutes: 15,
+    energyLevel: "cook",
+    equipment: ["pan"],
+    tags: ["low-fodmap-ish", "no-onion-garlic", "gluten-free", "soluble-fiber-friendly", "soft"],
+    todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
+    pantryItems: ["eggs", "potato", "spinach"],
+    ingredients: ["Eggs", "Microwave potato or frozen potato cubes", "Spinach", "Olive oil", "Salt"],
+    steps: ["Warm potato until soft.", "Add potato to an oiled pan.", "Add spinach if wanted.", "Add beaten eggs.", "Scramble until set."],
+    easierVersion: "Use a boiled egg with microwave potato.",
+    fodmapNote: "Keep seasonings plain."
+  },
+  {
+    id: "fodmap-rice-noodle-egg-bowl",
+    recipeMode: "fodmap",
+    title: "Low-FODMAP-ish Rice Noodle Egg Bowl",
+    emoji: "🍜",
+    goodWhen: "noodles sound easier than separate foods.",
+    mealTypes: ["lunch", "dinner"],
+    foodTypes: ["eggs", "veggie"],
+    timeMinutes: 15,
+    energyLevel: "cook",
+    equipment: ["pot", "pan"],
+    tags: ["low-fodmap-ish", "no-onion-garlic", "gluten-free", "soft"],
+    todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
+    pantryItems: ["riceNoodles", "eggs", "carrots"],
+    ingredients: ["Rice noodles", "Egg", "Carrots", "Sesame oil or olive oil", "Salt"],
+    steps: ["Cook rice noodles.", "Scramble or fry the egg.", "Warm carrots.", "Mix noodles, egg, and carrots.", "Add sesame oil or olive oil and salt."],
+    easierVersion: "Use rice noodles with egg only.",
+    fodmapNote: "Use plain rice noodles."
+  },
+  {
+    id: "fodmap-chicken-rice-soup",
+    recipeMode: "fodmap",
+    title: "Low-FODMAP-ish Chicken Rice Soup",
+    emoji: "🍲",
+    goodWhen: "warm spoon food sounds gentle.",
+    mealTypes: ["lunch", "dinner", "snack"],
+    foodTypes: ["soup", "chicken"],
+    timeMinutes: 15,
+    energyLevel: "cook",
+    equipment: ["pot"],
+    tags: ["low-fodmap-ish", "no-onion-garlic", "gluten-free", "soluble-fiber-friendly", "soft"],
+    todayFilters: ["gentle", "noDairy", "noBeans", "noWheat", "noRawVeg"],
+    pantryItems: ["chicken", "rice", "carrots", "spinach"],
+    ingredients: ["Plain cooked chicken", "Cooked rice", "Carrot", "Spinach", "Garlic/onion-free broth"],
+    steps: ["Warm broth in a pot.", "Add rice, chicken, and carrot.", "Simmer until warm.", "Add spinach at the end if wanted."],
+    easierVersion: "Use plain chicken and rice with warm broth.",
+    fodmapNote: "Choose garlic/onion-free broth."
   }
 ];
 
@@ -1224,13 +1444,15 @@ const REVIEW_STORAGE_KEY = "thing-to-eat-approved-recipe-ids";
 const FAVORITES_STORAGE_KEY = "thing-to-eat-favorite-recipe-ids";
 
 const state = {
-  step: "energy",
+  step: "mode",
+  recipeMode: null,
   energyLevel: null,
   foodType: null,
   timeBucket: null,
   mealType: null,
   todayFilters: new Set(),
   fallbackSourceId: null,
+  primaryRecipeId: null,
   expandedRecipeId: null,
   visibleBackupCount: 2,
   reviewFilter: "needs",
@@ -1283,6 +1505,7 @@ const stepCopy = {
 
 const appView = document.getElementById("app-view");
 const progressArea = document.getElementById("progress-area");
+const noticeText = document.getElementById("notice-text");
 const reviewTrigger = document.querySelector("[data-review-trigger]");
 let reviewApprovedIds = loadReviewApprovedIds();
 let favoriteRecipeIds = loadFavoriteRecipeIds();
@@ -1292,10 +1515,14 @@ let reviewHoldTimer = null;
 
 function render() {
   clearAutoAdvance();
-  if (state.step !== "results" && state.step !== "review" && state.step !== "favorites" && !flowSteps.includes(state.step)) {
-    state.step = "energy";
+  if (state.step !== "mode" && state.step !== "results" && state.step !== "review" && state.step !== "favorites" && !flowSteps.includes(state.step)) {
+    state.step = "mode";
+  }
+  if ((flowSteps.includes(state.step) || state.step === "results") && !state.recipeMode) {
+    state.step = "mode";
   }
   renderProgress();
+  renderNotice();
 
   if (state.step === "review") {
     appView.innerHTML = reviewTemplate();
@@ -1303,13 +1530,33 @@ function render() {
     appView.innerHTML = favoritesTemplate();
   } else if (state.step === "results") {
     appView.innerHTML = resultsTemplate();
+  } else if (state.step === "mode") {
+    appView.innerHTML = modeTemplate();
   } else {
     appView.innerHTML = singleChoiceTemplate(state.step);
   }
 }
 
+function renderNotice() {
+  if (!noticeText) {
+    return;
+  }
+
+  if (state.recipeMode === "fodmap") {
+    noticeText.textContent = "Low-FODMAP tolerance is portion-specific. Use Syd's clinician or dietitian guidance first.";
+    return;
+  }
+
+  if (state.recipeMode === "mediterranean") {
+    noticeText.textContent = "These ideas use commonly recommended anti-inflammatory/Mediterranean-style eating patterns. Food tolerance is personal, and medical advice comes first.";
+    return;
+  }
+
+  noticeText.textContent = "Choose the section that matches Syd's current plan. Food tolerance is personal, and medical advice comes first.";
+}
+
 function renderProgress() {
-  if (state.step === "results" || state.step === "review" || state.step === "favorites") {
+  if (state.step === "mode" || state.step === "results" || state.step === "review" || state.step === "favorites") {
     progressArea.innerHTML = "";
     progressArea.setAttribute("aria-hidden", "true");
     return;
@@ -1329,6 +1576,34 @@ function renderProgress() {
   `;
 }
 
+function modeTemplate() {
+  return `
+    <section class="screen mode-screen">
+      <div class="screen-heading">
+        <p class="eyebrow">Thing To Eat</p>
+        <h1>What kind of meal ideas today?</h1>
+        <p>Pick the section that matches the plan Syd wants to follow right now.</p>
+      </div>
+      <div class="mode-grid">
+        ${Object.entries(recipeModes).map(([mode, details]) => modeCardTemplate(mode, details)).join("")}
+      </div>
+      ${favoritesShortcutTemplate()}
+    </section>
+  `;
+}
+
+function modeCardTemplate(mode, details) {
+  return `
+    <button class="choice-card mode-card" type="button" data-select-mode="${mode}">
+      <span class="icon-bubble" aria-hidden="true">${details.icon}</span>
+      <span class="choice-text">
+        <span class="choice-title">${details.label}</span>
+        <span class="choice-subtitle">${details.note}</span>
+      </span>
+    </button>
+  `;
+}
+
 function singleChoiceTemplate(step) {
   const copy = stepCopy[step];
   const selectedValue = state[fieldByStep[step]];
@@ -1336,7 +1611,6 @@ function singleChoiceTemplate(step) {
   return `
     <section class="screen">
       ${screenHeaderTemplate(copy)}
-      ${step === "energy" ? favoritesShortcutTemplate() : ""}
       <div class="choice-grid">
         ${options[step].map((option) => choiceCardTemplate(step, option, selectedValue === option.value)).join("")}
       </div>
@@ -1374,6 +1648,12 @@ function favoritesShortcutTemplate() {
 
 function favoritesTemplate() {
   const favoriteRecipes = getFavoriteRecipes();
+  const groupedFavorites = Object.keys(recipeModes)
+    .map((mode) => ({
+      mode,
+      recipes: favoriteRecipes.filter((recipe) => getRecipeMode(recipe) === mode)
+    }))
+    .filter((group) => group.recipes.length);
 
   return `
     <section class="screen favorites-screen">
@@ -1384,10 +1664,15 @@ function favoritesTemplate() {
           <p class="subtitle">Recipes Syd hearted for quick lookup.</p>
         </div>
       </div>
-      ${favoriteRecipes.length ? `
-        <div class="backup-grid favorites-grid">
-          ${favoriteRecipes.map((recipe) => recipeCardTemplate(recipe, false)).join("")}
-        </div>
+      ${groupedFavorites.length ? `
+        ${groupedFavorites.map((group) => `
+          <section class="favorite-group">
+            <h2>${getRecipeModeLabel(group.mode)}</h2>
+            <div class="backup-grid favorites-grid">
+              ${group.recipes.map((recipe) => recipeCardTemplate(recipe, false)).join("")}
+            </div>
+          </section>
+        `).join("")}
       ` : `
         <p class="review-empty">No favorites saved yet. Heart a recipe from results and it will show up here.</p>
       `}
@@ -1422,7 +1707,7 @@ function resultsTemplate() {
         <div class="backup-section">
           <h2>Also possible</h2>
           <div class="backup-grid">
-            ${backups.map((item) => recipeCardTemplate(item.recipe, false)).join("")}
+            ${backups.map((item) => recipeCardTemplate(item.recipe, false, { promotable: true })).join("")}
           </div>
           ${hiddenBackupCount ? `<button class="secondary-button show-more-button" type="button" data-action="show-more">Show More</button>` : ""}
         </div>
@@ -1509,6 +1794,7 @@ function reviewRecipeCardTemplate(recipe, approved) {
   const timeLabel = getTimeLabel(getTimeBucket(recipe.timeMinutes));
   const mealLabels = recipe.mealTypes.map((type) => getOptionLabel("meal", type)).filter(Boolean).join(", ");
   const foodLabels = recipe.foodTypes.map((type) => getOptionLabel("food", type)).filter(Boolean).join(", ");
+  const modeLabel = getRecipeModeLabel(getRecipeMode(recipe));
   const toleranceLabels = recipe.todayFilters.length
     ? recipe.todayFilters.map((filter) => getOptionLabel("today", filter)).join(", ")
     : "Normal-ish";
@@ -1524,6 +1810,7 @@ function reviewRecipeCardTemplate(recipe, approved) {
         <span class="review-status ${approved ? "is-approved" : ""}">${approved ? "Approved" : "Needs review"}</span>
       </div>
       <div class="tag-row" aria-label="Recipe details">
+        <span>${modeLabel}</span>
         <span>${timeLabel}</span>
         <span>${getOptionLabel("energy", recipe.energyLevel)}</span>
         <span>${foodLabels}</span>
@@ -1544,6 +1831,12 @@ function reviewRecipeCardTemplate(recipe, approved) {
             ${recipe.steps.map((step) => `<li>${step}</li>`).join("")}
           </ol>
         </section>
+        ${recipe.fodmapNote ? `
+          <section class="fodmap-note">
+            <h3>Low-FODMAP-ish note</h3>
+            <p>${recipe.fodmapNote}</p>
+          </section>
+        ` : ""}
         <section class="make-easier">
           <h3>Make it easier</h3>
           <p>${recipe.easierVersion}</p>
@@ -1578,13 +1871,14 @@ function screenHeaderTemplate(copy) {
 
 function choiceCardTemplate(step, option, selected, multi = false) {
   const attr = multi ? `data-today="${option.value}"` : `data-select-step="${step}" data-select-value="${option.value}"`;
+  const note = modeChoiceNotes[state.recipeMode]?.[step]?.[option.value] || option.note;
 
   return `
     <button class="choice-card ${selected ? "is-selected" : ""}" type="button" ${attr} aria-pressed="${selected}">
       <span class="icon-bubble" aria-hidden="true">${option.icon}</span>
       <span class="choice-text">
         <span class="choice-title">${option.label}</span>
-        <span class="choice-subtitle">${option.note}</span>
+        <span class="choice-subtitle">${note}</span>
       </span>
     </button>
   `;
@@ -1608,6 +1902,7 @@ function summaryPillsTemplate() {
     : [];
 
   return [
+    getRecipeModeLabel(state.recipeMode),
     getOptionLabel("energy", state.energyLevel),
     getOptionLabel("food", state.foodType),
     getOptionLabel("time", state.timeBucket),
@@ -1616,7 +1911,7 @@ function summaryPillsTemplate() {
   ].filter(Boolean).map((label) => `<span>${label}</span>`).join("");
 }
 
-function recipeCardTemplate(recipe, isPrimary) {
+function recipeCardTemplate(recipe, isPrimary, { promotable = false } = {}) {
   const expanded = isPrimary || state.expandedRecipeId === recipe.id;
   const timeLabel = getTimeLabel(getTimeBucket(recipe.timeMinutes));
   const foodLabel = recipe.foodTypes.map((type) => getOptionLabel("food", type)).filter(Boolean)[0] || "Food";
@@ -1624,9 +1919,13 @@ function recipeCardTemplate(recipe, isPrimary) {
     ? recipe.todayFilters.map((filter) => getOptionLabel("today", filter)).join(", ")
     : "Normal-ish";
   const favoriteButton = favoriteButtonTemplate(recipe);
+  const promoteAttribute = promotable ? `data-promote-recipe="${recipe.id}"` : "";
+  const backupActionButton = promotable
+    ? `<button class="expand-hint" type="button" data-promote-recipe="${recipe.id}" aria-label="View ${recipe.title} as the main recipe">View</button>`
+    : `<button class="expand-hint" type="button" data-expand-recipe="${recipe.id}" aria-expanded="${expanded}">${expanded ? "Hide" : "View"}</button>`;
 
   return `
-    <article class="recipe-card ${isPrimary ? "is-primary" : "is-backup"} ${expanded ? "is-expanded" : ""}">
+    <article class="recipe-card ${isPrimary ? "is-primary" : "is-backup"} ${promotable ? "is-promotable" : ""} ${expanded ? "is-expanded" : ""}" ${promoteAttribute}>
       <div class="recipe-top">
         <span class="recipe-emoji" aria-hidden="true">${recipe.emoji}</span>
         <div>
@@ -1635,7 +1934,7 @@ function recipeCardTemplate(recipe, isPrimary) {
         </div>
         <div class="recipe-card-tools">
           ${favoriteButton}
-          ${isPrimary ? "" : `<button class="expand-hint" type="button" data-expand-recipe="${recipe.id}" aria-expanded="${expanded}">${expanded ? "Hide" : "View"}</button>`}
+          ${isPrimary ? "" : backupActionButton}
         </div>
       </div>
       <div class="tag-row" aria-label="Recipe details">
@@ -1644,6 +1943,7 @@ function recipeCardTemplate(recipe, isPrimary) {
         <span>${foodLabel}</span>
       </div>
       <p class="stomach-line"><strong>Tolerance options:</strong> ${todayTags}</p>
+      ${recipe.fodmapNote ? `<p class="fodmap-note-inline"><strong>Low-FODMAP-ish note:</strong> ${recipe.fodmapNote}</p>` : ""}
       <div class="recipe-body">
         <section>
           <h3>Shopping checklist</h3>
@@ -1687,7 +1987,7 @@ function favoriteButtonTemplate(recipe) {
 }
 
 function getResultSet() {
-  const publicRecipes = getPublicRecipes();
+  const publicRecipes = getPublicRecipes(state.recipeMode);
   const compatible = publicRecipes.filter(matchesTodayFilters);
   const pool = compatible.length ? compatible : publicRecipes;
   const scored = pool.map((recipe) => ({
@@ -1698,8 +1998,8 @@ function getResultSet() {
 
   if (state.fallbackSourceId) {
     return {
-    message: "Here are lower-effort options.",
-      items: easierFallbacks(scored, state.fallbackSourceId)
+      message: "Here are lower-effort options.",
+      items: promoteResultItems(easierFallbacks(scored, state.fallbackSourceId))
     };
   }
 
@@ -1709,7 +2009,7 @@ function getResultSet() {
     const backups = scored.filter((item) => item.recipe.id !== primary.recipe.id);
     return {
       message: "This matches your taps. Keep what helps, ignore what does not.",
-      items: [primary, ...backups]
+      items: promoteResultItems([primary, ...backups])
     };
   }
 
@@ -1717,8 +2017,26 @@ function getResultSet() {
     message: compatible.length
       ? "Here are the closest easy ideas."
       : "Here are the closest gentle backups. Trust your own tolerance first.",
-    items: scored
+    items: promoteResultItems(scored)
   };
+}
+
+function promoteResultItems(items) {
+  if (!state.primaryRecipeId) {
+    return items;
+  }
+
+  const selectedIndex = items.findIndex((item) => item.recipe.id === state.primaryRecipeId);
+  if (selectedIndex <= 0) {
+    return items;
+  }
+
+  const selectedItem = items[selectedIndex];
+  return [
+    selectedItem,
+    ...items.slice(0, selectedIndex),
+    ...items.slice(selectedIndex + 1)
+  ];
 }
 
 function matchesTodayFilters(recipe) {
@@ -1864,14 +2182,38 @@ function validRecipeIdSet() {
   return new Set(recipes.map((recipe) => recipe.id));
 }
 
-function publicRecipeIdSet() {
-  const validIds = validRecipeIdSet();
-  return new Set(approvedRecipeIds.filter((id) => validIds.has(id)));
+function getRecipeMode(recipe) {
+  return recipe.recipeMode || "mediterranean";
 }
 
-function getPublicRecipes() {
-  const publicIds = publicRecipeIdSet();
-  return recipes.filter((recipe) => publicIds.has(recipe.id));
+function getRecipeModeLabel(mode) {
+  return recipeModes[mode]?.label || "";
+}
+
+function publicRecipeIdSet(mode = null) {
+  const validIds = validRecipeIdSet();
+  return new Set(recipes
+    .filter((recipe) => {
+      const recipeMode = getRecipeMode(recipe);
+      if (mode && recipeMode !== mode) {
+        return false;
+      }
+
+      if (recipeMode === "fodmap") {
+        return true;
+      }
+
+      return approvedRecipeIds.includes(recipe.id);
+    })
+    .map((recipe) => recipe.id)
+    .filter((id) => validIds.has(id)));
+}
+
+function getPublicRecipes(mode = null) {
+  const publicIds = publicRecipeIdSet(mode);
+  return recipes.filter((recipe) => {
+    return publicIds.has(recipe.id);
+  });
 }
 
 function orderedRecipeIdsFromSet(idSet) {
@@ -2006,6 +2348,7 @@ function goToStep(step, { push = true } = {}) {
   clearAutoAdvance();
   state.step = step;
   if (step !== "results") {
+    state.primaryRecipeId = null;
     state.expandedRecipeId = null;
   }
   if (push && !restoringFromHistory) {
@@ -2043,7 +2386,7 @@ function openFavorites({ push = true } = {}) {
 
 function closeReview() {
   clearAutoAdvance();
-  state.step = "energy";
+  state.step = state.recipeMode ? "energy" : "mode";
   state.reviewMessage = "";
   state.expandedRecipeId = null;
   writeHistory("push");
@@ -2065,7 +2408,7 @@ function goNext() {
 function goBack() {
   clearAutoAdvance();
   if (state.step === "favorites") {
-    goToStep("energy");
+    goToStep("mode");
     return;
   }
 
@@ -2076,6 +2419,7 @@ function goBack() {
 
   const index = flowSteps.indexOf(state.step);
   if (index <= 0) {
+    goToStep("mode");
     return;
   }
 
@@ -2084,23 +2428,40 @@ function goBack() {
 
 function restart() {
   clearAutoAdvance();
-  state.step = "energy";
+  state.step = "mode";
+  state.recipeMode = null;
+  resetPickerSelections();
+  writeHistory("push");
+  render();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function resetPickerSelections() {
   state.energyLevel = null;
   state.foodType = null;
   state.timeBucket = null;
   state.mealType = null;
   state.todayFilters.clear();
   state.fallbackSourceId = null;
+  state.primaryRecipeId = null;
   state.expandedRecipeId = null;
   state.visibleBackupCount = 2;
-  writeHistory("push");
-  render();
-  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function selectMode(mode) {
+  if (!recipeModes[mode]) {
+    return;
+  }
+
+  state.recipeMode = mode;
+  resetPickerSelections();
+  goToStep("energy");
 }
 
 function selectSingle(step, value) {
   state[fieldByStep[step]] = value;
   state.fallbackSourceId = null;
+  state.primaryRecipeId = null;
   state.expandedRecipeId = null;
   state.visibleBackupCount = 2;
   render();
@@ -2109,6 +2470,7 @@ function selectSingle(step, value) {
 
 function toggleToday(value) {
   state.fallbackSourceId = null;
+  state.primaryRecipeId = null;
   state.expandedRecipeId = null;
   state.visibleBackupCount = 2;
   if (state.todayFilters.has(value)) {
@@ -2122,6 +2484,7 @@ function toggleToday(value) {
 function clearTodayFilters() {
   state.todayFilters.clear();
   state.fallbackSourceId = null;
+  state.primaryRecipeId = null;
   state.expandedRecipeId = null;
   state.visibleBackupCount = 2;
   render();
@@ -2129,9 +2492,23 @@ function clearTodayFilters() {
 
 function skipCurrentStep() {
   state.fallbackSourceId = null;
+  state.primaryRecipeId = null;
   state.expandedRecipeId = null;
   state.visibleBackupCount = 2;
   goNext();
+}
+
+function promoteRecipeToPrimary(recipeId) {
+  const recipeIsVisibleResult = getResultSet().items.some((item) => item.recipe.id === recipeId);
+  if (!recipeIsVisibleResult) {
+    return;
+  }
+
+  state.primaryRecipeId = recipeId;
+  state.expandedRecipeId = null;
+  writeHistory("push");
+  render();
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 function clearAutoAdvance() {
@@ -2175,6 +2552,12 @@ document.body.addEventListener("click", (event) => {
     return;
   }
 
+  const modeButton = event.target.closest("[data-select-mode]");
+  if (modeButton) {
+    selectMode(modeButton.dataset.selectMode);
+    return;
+  }
+
   const selectButton = event.target.closest("[data-select-step]");
   if (selectButton) {
     selectSingle(selectButton.dataset.selectStep, selectButton.dataset.selectValue);
@@ -2209,9 +2592,16 @@ document.body.addEventListener("click", (event) => {
   const fallbackButton = event.target.closest("[data-fallback]");
   if (fallbackButton) {
     state.fallbackSourceId = fallbackButton.dataset.fallback;
+    state.primaryRecipeId = null;
     state.expandedRecipeId = null;
     state.visibleBackupCount = 2;
     goToStep("results");
+    return;
+  }
+
+  const promoteButton = event.target.closest("[data-promote-recipe]");
+  if (promoteButton && state.step === "results") {
+    promoteRecipeToPrimary(promoteButton.dataset.promoteRecipe);
     return;
   }
 
@@ -2228,12 +2618,14 @@ function stateSnapshot() {
   return {
     thingToEat: true,
     step: state.step,
+    recipeMode: state.recipeMode,
     energyLevel: state.energyLevel,
     foodType: state.foodType,
     timeBucket: state.timeBucket,
     mealType: state.mealType,
     todayFilters: [...state.todayFilters],
     fallbackSourceId: state.fallbackSourceId,
+    primaryRecipeId: state.primaryRecipeId,
     expandedRecipeId: state.expandedRecipeId,
     visibleBackupCount: state.visibleBackupCount,
     reviewFilter: state.reviewFilter
@@ -2245,12 +2637,16 @@ function restoreSnapshot(snapshot) {
     return false;
   }
 
-  state.step = snapshot.step || "energy";
+  state.step = snapshot.step || "mode";
   if (state.step === "today") {
     state.step = "results";
   }
-  if (state.step !== "results" && state.step !== "review" && state.step !== "favorites" && !flowSteps.includes(state.step)) {
-    state.step = "energy";
+  if (state.step !== "mode" && state.step !== "results" && state.step !== "review" && state.step !== "favorites" && !flowSteps.includes(state.step)) {
+    state.step = "mode";
+  }
+  state.recipeMode = recipeModes[snapshot.recipeMode] ? snapshot.recipeMode : null;
+  if ((flowSteps.includes(state.step) || state.step === "results") && !state.recipeMode) {
+    state.step = "mode";
   }
   state.energyLevel = snapshot.energyLevel || null;
   state.foodType = snapshot.foodType || null;
@@ -2258,6 +2654,7 @@ function restoreSnapshot(snapshot) {
   state.mealType = snapshot.mealType || null;
   state.todayFilters = new Set();
   state.fallbackSourceId = snapshot.fallbackSourceId || null;
+  state.primaryRecipeId = snapshot.primaryRecipeId || null;
   state.expandedRecipeId = snapshot.expandedRecipeId || null;
   state.visibleBackupCount = snapshot.visibleBackupCount || 2;
   state.reviewFilter = snapshot.reviewFilter || "needs";
@@ -2286,7 +2683,7 @@ function setupReviewTrigger() {
   }
 
   const startHold = (event) => {
-    if (state.step !== "energy") {
+    if (state.step !== "mode") {
       return;
     }
 

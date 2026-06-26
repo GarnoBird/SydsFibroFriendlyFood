@@ -155,6 +155,7 @@ p {
 #app-view {
   position: relative;
   z-index: 1;
+  min-width: 0;
 }
 
 .topbar {
@@ -386,15 +387,34 @@ p {
 
 .screen {
   min-height: 100%;
+  min-width: 0;
   display: grid;
   align-content: start;
   gap: 18px;
   padding: 16px 2px 4px;
 }
 
-.home-screen {
+.home-screen,
+.mode-screen {
   min-height: calc(100vh - 120px);
   align-content: center;
+}
+
+.mode-grid {
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+}
+
+.mode-card {
+  min-height: 124px;
+}
+
+.mode-card .icon-bubble {
+  width: 58px;
+  height: 58px;
+  border-radius: 20px;
+  font-size: 1.9rem;
 }
 
 .home-food {
@@ -410,6 +430,7 @@ p {
 .results-heading h1,
 .review-heading h1,
 .screen-heading h1 {
+  width: 100%;
   max-width: 720px;
   color: var(--ink);
   font-size: 2.55rem;
@@ -421,6 +442,7 @@ p {
 .screen-heading p,
 .review-heading p,
 .match-message {
+  width: 100%;
   max-width: 650px;
   color: var(--muted);
   font-size: 1.12rem;
@@ -703,6 +725,16 @@ p {
   gap: 12px;
 }
 
+.favorite-group {
+  display: grid;
+  gap: 10px;
+}
+
+.favorite-group h2 {
+  font-size: 1.18rem;
+  font-weight: 780;
+}
+
 .summary-pills,
 .tag-row {
   display: flex;
@@ -770,6 +802,10 @@ p {
   border-radius: 22px;
 }
 
+.recipe-card.is-backup.is-promotable {
+  cursor: pointer;
+}
+
 .recipe-top {
   width: 100%;
   display: grid;
@@ -786,6 +822,10 @@ p {
 
 .recipe-card.is-backup .recipe-top {
   cursor: default;
+}
+
+.recipe-card.is-backup.is-promotable .recipe-top {
+  cursor: pointer;
 }
 
 .recipe-card.is-backup .recipe-top:hover {
@@ -890,10 +930,36 @@ p {
   line-height: 1.3;
 }
 
+.fodmap-note-inline {
+  margin: 10px 15px 0;
+  padding: 10px 12px;
+  border: 1px solid rgba(52, 199, 89, 0.24);
+  border-radius: 16px;
+  background: rgba(235, 255, 241, 0.38);
+  color: #28633b;
+  font-size: 0.92rem;
+  font-weight: 650;
+  line-height: 1.3;
+}
+
 .recipe-body {
   display: grid;
   gap: 16px;
   padding: 15px;
+}
+
+.fodmap-note {
+  padding: 12px;
+  border: 1px solid rgba(52, 199, 89, 0.24);
+  border-radius: 18px;
+  background: rgba(235, 255, 241, 0.38);
+  color: #28633b;
+}
+
+.fodmap-note h3,
+.fodmap-note p,
+.fodmap-note-inline strong {
+  color: inherit;
 }
 
 .recipe-body h3 {
@@ -1105,7 +1171,21 @@ p {
 }
 
 @media (max-width: 540px) {
+  .home-screen,
+  .mode-screen {
+    min-height: auto;
+    align-content: start;
+    padding-top: 44px;
+  }
+
+  .home-screen > *,
+  .mode-screen > * {
+    width: min(100%, calc(100vw - 64px));
+    max-width: calc(100vw - 64px);
+  }
+
   .home-screen h1,
+  .mode-screen h1,
   .results-heading h1,
   .review-heading h1,
   .screen-heading h1 {
@@ -1170,6 +1250,7 @@ p {
   }
 
   .home-screen h1,
+  .mode-screen h1,
   .results-heading h1,
   .review-heading h1,
   .screen-heading h1 {
