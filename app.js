@@ -2587,7 +2587,7 @@ function reviewRecipeCardTemplate(recipe, approved) {
         <section>
           <h3>Shopping checklist</h3>
           <ul class="checklist">
-            ${recipe.ingredients.map((ingredient) => `<li>${ingredient}</li>`).join("")}
+            ${recipe.ingredients.map((ingredient) => `<li>${formatIngredientForChecklist(ingredient)}</li>`).join("")}
           </ul>
         </section>
         <section>
@@ -2632,6 +2632,116 @@ function screenHeaderTemplate(copy) {
       <p>${copy.note}</p>
     </div>
   `;
+}
+
+function formatIngredientForChecklist(ingredient) {
+  const { base, qualifier } = splitIngredientQualifier(ingredient);
+  const lower = base.toLowerCase();
+  const phrase = softAmountPhrase(base, lower);
+  return `${phrase}${qualifier}`;
+}
+
+function splitIngredientQualifier(ingredient) {
+  const text = ingredient.trim();
+  const qualifierMatch = text.match(/\s+(optional|if wanted)$/i);
+  if (!qualifierMatch) {
+    return { base: text, qualifier: "" };
+  }
+
+  return {
+    base: text.slice(0, qualifierMatch.index),
+    qualifier: ` ${qualifierMatch[1].toLowerCase()}`
+  };
+}
+
+function softAmountPhrase(base, lower) {
+  if (/^(one|two|three|\d|a |an |small |few |pinch |drizzle )/i.test(base)) {
+    return base;
+  }
+
+  if (lower === "eggs") return "1 to 2 eggs";
+  if (lower === "egg") return "1 egg";
+  if (lower === "boiled egg") return "1 boiled egg";
+  if (lower.includes("boiled egg") && lower.includes("scrambled egg")) return "1 boiled egg or 1 scrambled egg";
+  if (lower === "boiled egg, or egg to boil") return "1 boiled egg or 1 egg to boil";
+  if (lower.includes("egg to boil")) return "1 egg to boil";
+  if (lower === "splash of milk or water") return "a splash of milk or water";
+  if (lower === "apple slices or applesauce cup") return "a few apple slices or 1 applesauce cup";
+  if (lower === "applesauce") return "1 applesauce cup";
+  if (lower === "applesauce or soft apple pieces") return "1 applesauce cup or a few soft apple pieces";
+  if (lower === "banana or applesauce") return "1 banana or 1 applesauce cup";
+  if (lower === "cinnamon or honey") return "a pinch of cinnamon or a small drizzle of honey";
+  if (lower === "honey or cinnamon") return "a small drizzle of honey or a pinch of cinnamon";
+  if (lower === "greek yogurt, olive oil, or hummus") return "1 spoonful of greek yogurt, olive oil, or hummus";
+  if (lower === "oats or granola") return "1 small bowl of oats or a small handful of granola";
+  if (lower === "rice cake, toast, or rice") return "1 rice cake, 1 piece of toast, or 1 small bowl of rice";
+  if (lower === "toast, rice cake, or rice") return "1 piece of toast, 1 rice cake, or 1 small bowl of rice";
+  if (lower === "toast or rice") return "1 piece of toast or 1 small bowl of rice";
+  if (lower === "crackers or rice cakes") return "a few crackers or 1 to 2 rice cakes";
+  if (lower === "tomato") return "a few pieces of tomato";
+  if (lower === "microwave rice") return "1 microwave rice cup";
+  if (lower.includes("cooked rice") && lower.includes("microwave rice")) return "1 small bowl of cooked rice or 1 microwave rice cup";
+  if (lower.includes("microwave rice")) return `1 microwave rice cup of ${lower.replace("microwave rice", "rice")}`;
+  if (lower.includes("cooked rice") || lower === "rice or noodles" || lower === "rice") return `1 small bowl of ${lower}`;
+  if (lower.includes("rice noodles") || lower.includes("thin rice noodles")) return `1 nest or small handful of ${lower}`;
+  if (lower.includes("pasta")) return `1 small bowl of ${lower}`;
+  if (lower.includes("quinoa")) return `1 small bowl of ${lower}`;
+  if (lower.includes("quick oats") || lower === "oats" || lower.includes("oats or")) return `1 small bowl of ${lower}`;
+  if (lower.includes("granola")) return `1 small handful of ${lower}`;
+  if (lower.includes("yogurt") || lower.includes("cottage cheese")) return `1 small bowl of ${lower}`;
+  if (lower.includes("milk") || lower.includes("water") || lower.includes("broth") || lower.includes("bouillon")) return `1 mug of ${lower}`;
+  if (lower.includes("soup")) return `1 bowl of ${lower}`;
+  if (lower === "tuna pouch or can") return "1 tuna pouch or can";
+  if (lower.includes("tuna pouch") || lower.includes("tuna")) return `1 pouch or can of ${lower}`;
+  if (lower.includes("salmon fillet")) return `1 salmon fillet`;
+  if (lower.includes("salmon")) return `1 piece or pouch of ${lower}`;
+  if (lower.includes("white fish")) return `1 piece of ${lower}`;
+  if (lower.includes("shrimp")) return `1 small handful of shrimp`;
+  if (lower.includes("chicken thigh") || lower.includes("chicken tender")) return `1 to 2 pieces of ${lower}`;
+  if (lower.includes("chicken") || lower.includes("turkey") || lower.includes("rotisserie")) return `1 small handful of ${lower}`;
+  if (lower.includes("ground turkey")) return `1 small handful of ${lower}`;
+  if (lower.includes("tofu")) return `1 small handful of ${lower}`;
+  if (lower.includes("lentils") || lower.includes("chickpeas") || lower.includes("white beans") || lower === "hummus") return `1 small scoop of ${lower}`;
+  if (lower === "microwave potato") return "1 microwave potato";
+  if (lower === "microwave potatoes") return "1 to 2 microwave potatoes";
+  if (lower === "microwave sweet potato") return "1 microwave sweet potato";
+  if (lower.includes("microwave potato") && lower.includes("frozen potato cubes")) return "1 microwave potato or small bowl of frozen potato cubes";
+  if (lower.includes("frozen potato cubes")) return "1 small bowl of frozen potato cubes";
+  if (lower.includes("leftover potatoes")) return `1 small bowl of ${lower}`;
+  if (lower.includes("sweet potato chunks")) return "1 small bowl of sweet potato chunks";
+  if (lower.includes("sweet potato")) return `1 sweet potato`;
+  if (lower.includes("potato")) return `1 potato or small bowl of ${lower}`;
+  if (lower === "rice cake") return "1 rice cake";
+  if (lower.includes("rice cake") && lower.includes("toast")) return `1 piece of toast or 1 rice cake`;
+  if (lower.includes("rice cake")) return `1 to 2 ${lower}`;
+  if (lower.includes("cracker") || lower.includes("pita")) return `a few ${lower}`;
+  if (lower.includes("toast")) return `1 piece of ${lower}`;
+  if (lower.includes("apple slices") || lower.includes("applesauce")) return `a few spoonfuls of ${lower}`;
+  if (lower === "berries or banana") return "1 small handful of berries or 1 banana";
+  if (lower.includes("peaches") && lower.includes("banana")) return `a few pieces of ${lower}`;
+  if (lower.includes("strawberries or kiwi")) return "1 small handful of strawberries or 1 kiwi";
+  if (lower.includes("berries") || lower.includes("blueberries") || lower.includes("strawberries") || lower.includes("peaches")) return `1 small handful of ${lower}`;
+  if (lower.includes("banana") || lower.includes("kiwi") || lower.includes("orange") || lower.includes("apple")) return `1 ${lower}`;
+  if (lower === "avocado or olive oil") return "a few avocado slices or a drizzle of olive oil";
+  if (lower.includes("avocado") && lower.includes("mayo")) return "a few avocado slices or a drizzle of olive oil or mayo";
+  if (lower.includes("avocado")) return `a few slices of ${lower}`;
+  if (lower.includes("spinach") || lower.includes("greens") || lower.includes("vegetables") || lower.includes("broccoli") || lower.includes("peas") || lower.includes("zucchini") || lower.includes("tomato") || lower.includes("mushrooms") || lower.includes("peppers")) return `1 small handful of ${lower}`;
+  if (lower.includes("carrot") || lower.includes("cucumber") || lower.includes("olives") || lower.includes("pickles")) return `a few pieces of ${lower}`;
+  if (lower === "salt or mild sauce") return "a pinch of salt or a drizzle of mild sauce";
+  if (lower.includes("mayo") && lower.includes("olive oil")) return `1 spoonful of mayo or a drizzle of olive oil`;
+  if (lower.includes("olive oil") && lower.includes("butter")) return "a drizzle of olive oil or a small pat of butter";
+  if (lower.includes("olive oil") || lower.includes("oil") || lower.includes("dressing") || lower.includes("sauce")) return `a drizzle of ${lower}`;
+  if (lower.includes("mayo")) return `1 spoonful of ${lower}`;
+  if (lower.includes("peanut butter") || lower.includes("almond butter") || lower.includes("nut butter") || lower.includes("tahini") || lower.includes("pesto") || lower.includes("miso paste")) return `1 spoonful of ${lower}`;
+  if (lower.includes("cheddar") || lower.includes("cheese") || lower.includes("feta") || lower.includes("parmesan")) return `a small sprinkle of ${lower}`;
+  if (lower.includes("pumpkin seeds") || lower.includes("walnuts") || lower.includes("chia")) return `1 small sprinkle of ${lower}`;
+  if (lower.includes("lemon") && lower.includes("pickle")) return "a small squeeze of lemon or a few pickle pieces";
+  if (lower.includes("lemon") || lower.includes("vinegar") || lower.includes("tamari")) return `a small splash of ${lower}`;
+  if (lower.includes("ginger")) return `a pinch of ${lower}`;
+  if (lower.includes("cinnamon") || lower.includes("salt") || lower.includes("parsley")) return `a pinch of ${lower}`;
+  if (lower.includes("splash of milk")) return `a ${lower}`;
+
+  return `1 serving of ${lower}`;
 }
 
 function choiceCardTemplate(step, option, selected, multi = false) {
@@ -2713,7 +2823,7 @@ function recipeCardTemplate(recipe, isPrimary, { promotable = false } = {}) {
         <section>
           <h3>Shopping checklist</h3>
           <ul class="checklist">
-            ${recipe.ingredients.map((ingredient) => `<li>${ingredient}</li>`).join("")}
+            ${recipe.ingredients.map((ingredient) => `<li>${formatIngredientForChecklist(ingredient)}</li>`).join("")}
           </ul>
         </section>
         <section>
