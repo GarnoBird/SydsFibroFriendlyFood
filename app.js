@@ -1200,7 +1200,7 @@ const recipes = [
     ingredients: ["Microwave rice", "Eggs", "Spinach", "Shredded carrot", "Olive oil", "Salt"],
     steps: ["Warm the rice.", "Scramble or fry the eggs in a pan.", "Warm spinach and carrot if wanted.", "Put eggs and vegetables on the rice.", "Add olive oil and salt."],
     easierVersion: "Use a boiled egg over warm rice.",
-    fodmapNote: "Use Syd's FODMAP list if she has one."
+    fodmapNote: "Use a FODMAP list if there is one."
   },
   {
     id: "fodmap-tuna-rice-cakes",
@@ -1276,7 +1276,7 @@ const recipes = [
     ingredients: ["Lactose-free yogurt", "Strawberries", "Chia seeds optional"],
     steps: ["Spoon yogurt into a bowl.", "Add strawberries.", "Sprinkle chia if wanted."],
     easierVersion: "Use lactose-free drinkable yogurt and strawberries.",
-    fodmapNote: "Use Syd's FODMAP list if she has one."
+    fodmapNote: "Use a FODMAP list if there is one."
   },
   {
     id: "fodmap-kiwi-chia-oats",
@@ -1296,7 +1296,7 @@ const recipes = [
     steps: ["Put oats and liquid in a bowl.", "Microwave 30 seconds to 1 minute.", "Stir until soft.", "Add kiwi.", "Sprinkle chia or cinnamon if wanted."],
     easierVersion: "Use instant oatmeal made with water and add kiwi.",
     swaps: ["Use certified gluten-free oats if needed."],
-    fodmapNote: "Use Syd's FODMAP list for her preferred milk."
+    fodmapNote: "Use a FODMAP list for preferred milk."
   },
   {
     id: "fodmap-peanut-butter-rice-cakes",
@@ -1391,7 +1391,7 @@ const recipes = [
     ingredients: ["Lactose-free yogurt", "Blueberries", "Chia seeds optional", "Cinnamon optional"],
     steps: ["Spoon yogurt into a bowl.", "Add blueberries.", "Sprinkle chia or cinnamon if wanted."],
     easierVersion: "Use drinkable lactose-free yogurt and blueberries.",
-    fodmapNote: "Use Syd's FODMAP list if she has one."
+    fodmapNote: "Use a FODMAP list if there is one."
   },
   {
     id: "fodmap-strawberry-oat-yogurt-cup",
@@ -1411,7 +1411,7 @@ const recipes = [
     steps: ["Spoon yogurt into a cup or bowl.", "Add strawberries.", "Stir in oats.", "Add chia if wanted."],
     easierVersion: "Use yogurt and strawberries only.",
     swaps: ["Use certified gluten-free oats if needed."],
-    fodmapNote: "Use Syd's FODMAP list for oats."
+    fodmapNote: "Use a FODMAP list for oats."
   },
   {
     id: "fodmap-kiwi-peanut-butter-oats",
@@ -1431,7 +1431,7 @@ const recipes = [
     steps: ["Put oats and liquid in a bowl.", "Microwave 30 seconds to 1 minute.", "Stir in peanut butter.", "Add kiwi.", "Sprinkle cinnamon if wanted."],
     easierVersion: "Use instant oatmeal and eat kiwi beside it.",
     swaps: ["Use certified gluten-free oats if needed."],
-    fodmapNote: "Use Syd's FODMAP list for oats and milk."
+    fodmapNote: "Use a FODMAP list for oats and milk."
   },
   {
     id: "fodmap-turkey-cucumber-rice-cakes",
@@ -1489,7 +1489,7 @@ const recipes = [
     steps: ["Put rice cakes on a plate.", "Add carrot.", "Add cheddar if wanted.", "Add olive oil or salt if wanted."],
     easierVersion: "Use rice cakes and carrot only.",
     swaps: ["Skip cheddar for dairy-free."],
-    fodmapNote: "Use Syd's FODMAP list for cheese."
+    fodmapNote: "Use a FODMAP list for cheese."
   },
   {
     id: "fodmap-orange-tuna-rice-plate",
@@ -1546,7 +1546,7 @@ const recipes = [
     ingredients: ["Lactose-free yogurt", "Kiwi", "Chia seeds optional", "Cinnamon optional"],
     steps: ["Spoon yogurt into a cup.", "Add kiwi.", "Sprinkle chia or cinnamon if wanted."],
     easierVersion: "Use lactose-free drinkable yogurt and kiwi.",
-    fodmapNote: "Use Syd's FODMAP list if she has one."
+    fodmapNote: "Use a FODMAP list if there is one."
   },
   {
     id: "fodmap-chicken-carrot-rice-bowl",
@@ -1660,7 +1660,7 @@ const recipes = [
     ingredients: ["Eggs", "Microwave rice", "Zucchini", "Olive oil", "Salt"],
     steps: ["Warm the rice.", "Warm zucchini in an oiled pan.", "Add beaten eggs.", "Scramble until set.", "Put eggs and zucchini on rice."],
     easierVersion: "Use eggs and rice only.",
-    fodmapNote: "Use Syd's FODMAP list for zucchini."
+    fodmapNote: "Use a FODMAP list for zucchini."
   },
   {
     id: "fodmap-tomato-egg-rice-bowl",
@@ -1679,7 +1679,7 @@ const recipes = [
     ingredients: ["Eggs", "Microwave rice", "Tomato", "Olive oil", "Salt"],
     steps: ["Warm the rice.", "Warm tomato in an oiled pan.", "Add beaten eggs.", "Scramble until set.", "Put eggs and tomato on rice."],
     easierVersion: "Use eggs and rice only.",
-    fodmapNote: "Use Syd's FODMAP list for tomato."
+    fodmapNote: "Use a FODMAP list for tomato."
   },
   {
     id: "fodmap-carrot-ginger-rice-soup",
@@ -1737,7 +1737,7 @@ const recipes = [
     steps: ["Put oats and liquid in a bowl.", "Microwave 30 seconds to 1 minute.", "Stir until soft.", "Add kiwi.", "Add chia or cinnamon if wanted."],
     easierVersion: "Use instant oatmeal and kiwi.",
     swaps: ["Use certified gluten-free oats if needed."],
-    fodmapNote: "Use Syd's FODMAP list for oats and milk."
+    fodmapNote: "Use a FODMAP list for oats and milk."
   },
   {
     id: "fodmap-chicken-cucumber-rice-cake-plate",
@@ -1775,7 +1775,7 @@ const recipes = [
     ingredients: ["Plain cooked chicken (leftover or pre-cooked)", "Rice noodles", "Cooked carrots", "Olive oil or sesame oil", "Salt"],
     steps: ["Cook rice noodles.", "Warm chicken and carrots.", "Mix noodles, chicken, and carrots.", "Add oil and salt."],
     easierVersion: "Use chicken and rice noodles only.",
-    fodmapNote: "Keep sauces plain or use Syd's FODMAP list."
+    fodmapNote: "Keep sauces plain or use FODMAP list."
   },
   {
     id: "fodmap-salmon-rice-noodle-bowl",
@@ -1870,7 +1870,7 @@ const recipes = [
     ingredients: ["Plain cooked chicken (leftover or pre-cooked)", "Zucchini", "Microwave rice", "Olive oil", "Salt"],
     steps: ["Warm rice.", "Warm zucchini in an oiled pan.", "Add chicken.", "Cook until everything is warm.", "Serve over rice."],
     easierVersion: "Use chicken and rice only.",
-    fodmapNote: "Use Syd's FODMAP list for zucchini."
+    fodmapNote: "Use a FODMAP list for zucchini."
   },
   {
     id: "fodmap-egg-quinoa-carrot-bowl",
@@ -1889,7 +1889,7 @@ const recipes = [
     ingredients: ["Eggs", "Cooked quinoa", "Cooked carrots", "Olive oil", "Salt"],
     steps: ["Warm quinoa and carrots.", "Scramble or fry the eggs in a pan.", "Put eggs on quinoa.", "Add olive oil and salt."],
     easierVersion: "Use a boiled egg with quinoa and carrots.",
-    fodmapNote: "Use Syd's FODMAP list for quinoa."
+    fodmapNote: "Use a FODMAP list for quinoa."
   },
   {
     id: "fodmap-turkey-quinoa-spinach-bowl",
@@ -1908,7 +1908,7 @@ const recipes = [
     ingredients: ["Plain turkey slices or cooked turkey", "Cooked quinoa", "Spinach optional", "Olive oil", "Salt"],
     steps: ["Warm quinoa.", "Warm turkey and spinach if wanted.", "Put turkey on quinoa.", "Add olive oil and salt."],
     easierVersion: "Use turkey and quinoa only.",
-    fodmapNote: "Use Syd's FODMAP list for quinoa."
+    fodmapNote: "Use a FODMAP list for quinoa."
   },
   {
     id: "fodmap-salmon-quinoa-cucumber-bowl",
@@ -1927,7 +1927,7 @@ const recipes = [
     ingredients: ["Canned salmon or cooked salmon", "Cooked quinoa", "Cucumber", "Olive oil", "Salt"],
     steps: ["Warm quinoa if you want it warm.", "Open salmon.", "Add cucumber.", "Put salmon on quinoa.", "Add olive oil and salt."],
     easierVersion: "Use salmon and quinoa only.",
-    fodmapNote: "Use Syd's FODMAP list for quinoa."
+    fodmapNote: "Use a FODMAP list for quinoa."
   },
   {
     id: "fodmap-rice-noodle-carrot-soup",
@@ -2080,7 +2080,7 @@ const recipes = [
     steps: ["Put oats in jars.", "Add chia if wanted.", "Add lactose-free milk.", "Add berries.", "Refrigerate for later."],
     easierVersion: "Put oats and lactose-free milk in one jar.",
     swaps: ["Use certified gluten-free oats if needed."],
-    fodmapNote: "Use Syd's FODMAP list for oats and milk."
+    fodmapNote: "Use a FODMAP list for oats and milk."
   },
   {
     id: "fodmap-future-kiwi-chia-yogurt-jars",
@@ -2099,7 +2099,7 @@ const recipes = [
     ingredients: ["Lactose-free yogurt", "Kiwi", "Chia seeds optional", "Cinnamon optional"],
     steps: ["Spoon yogurt into jars.", "Add kiwi.", "Add chia or cinnamon if wanted.", "Refrigerate for later."],
     easierVersion: "Put lactose-free yogurt cups and kiwi together in the fridge.",
-    fodmapNote: "Use Syd's FODMAP list if she has one."
+    fodmapNote: "Use a FODMAP list if there is one."
   },
   {
     id: "fodmap-future-chicken-rice-noodle-soup-kits",
@@ -2365,7 +2365,7 @@ function renderNotice() {
     return;
   }
 
-  noticeText.textContent = "Choose the section that matches Syd's current plan. Food tolerance is personal, and medical advice comes first.";
+  noticeText.textContent = "Choose a section. Food tolerance is personal, and medical advice comes first.";
 }
 
 function renderProgress() {
@@ -2395,7 +2395,6 @@ function modeTemplate() {
       <div class="screen-heading">
         <p class="eyebrow">Thing To Eat</p>
         <h1>What kind of meal ideas today?</h1>
-        <p>Pick the section that matches the plan Syd wants to follow right now.</p>
       </div>
       <div class="mode-grid">
         ${Object.entries(recipeModes).map(([mode, details]) => modeCardTemplate(mode, details)).join("")}
@@ -2474,7 +2473,7 @@ function favoritesTemplate() {
         <div>
           <p class="eyebrow">saved on this device</p>
           <h1>Favorites</h1>
-          <p class="subtitle">Recipes Syd hearted for quick lookup.</p>
+          <p class="subtitle">Saved recipes for quick lookup.</p>
         </div>
       </div>
       ${groupedFavorites.length ? `
